@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block title %}My first Flask website{% endblock %}
+
+
+{% block body %}
+{{ super() }}
+{% endblock %}
+
+{% block navselect %}
+<li class="active"><a href="/">Register Page</a></li>
+<li><a href="login">Login Page</a></li>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<!--<h1> Hello! {% if name %}{{name}}{% else %}Stranger{% endif %}!</h1>-->
+<!--
+{% if not known %}
+<p>Pleased to meet you!</p>
+{% else %}
+<p>Happy to see you again!</p>
+{% endif %}-->
+
+{{ wtf.quick_form(registerForm)}}
+<br>
+<p>Already a user?</p>
+
+<form action="login">
+    <button action="button" type="submit">Login here</button>
+</form>
+
+{% endblock %}
