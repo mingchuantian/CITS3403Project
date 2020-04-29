@@ -392,3 +392,24 @@ Open repository: /root/CITS3403Project
 > git for-each-ref --format %(refname) %(objectname) --sort -committerdate
 > git remote --verbose
 > git config --get commit.template
+> git status -z -u
+> git ls-files --stage -- /root/CITS3403Project/app/models.py
+> git cat-file -s 7e0662b230f004c1c0b6458d46eb5f113523ad23
+> git show :app/models.py
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
