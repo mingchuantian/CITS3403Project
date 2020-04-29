@@ -5,7 +5,7 @@ from flask import Flask, render_template, session, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 from app.forms import Register, Login       #app.forms is folder, Register and Login are classes
-from app import data
+from app.models import User, db
 
 
 bootstrap = Bootstrap(app)
@@ -15,14 +15,16 @@ bootstrap = Bootstrap(app)
 def index():
     form = Register()
     if form.validate_on_submit():
-        if compareUsername(form.email.data, str(User.query.filter_by(email=form.email.data).first())):
+        '''
+        if compareUsername(form.email.data, User.query.filter_by(email=form.email.data).first()):
             return 'this user already exists!'
         else:
-            #specifying a new row
-            user = User(email=form.email.data, password=form.password.data)
-            db.session.add(user)
-            db.session.commit()
-            return 'the user is successfully registered!'
+        '''
+        #specifying a new row
+        user = User(name=form.name.data, email=form.email.data, password=form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        return 'the user is successfully registered!'
     return render_template('index.html', registerForm=form)
 
 
@@ -30,8 +32,8 @@ def index():
 def login():
     form = Login()
     if form.validate_on_submit():
-        if compareUsername(form.email.data , str(User.query.filter_by(email=form.email.data).first())):
-            if comparePassword(form.password.data, str(User.query.filter_by(email=form.email.data).first())):
+        if compareUsername(form.email.data , User.query.filter_by(email=form.email.data).first()):
+            if comparePassword(form.password.data, User.query.filter_by(email=form.email.data).first()):
                 return 'you are successfully logged in'
             else:
                 return 'your email exists but password is incorrect'
@@ -51,9 +53,13 @@ def show_user(username):
 
 #This function compares username regardless of whitespace
 def compareUsername(inputEmail, dictionary):
-    databaseEmail = dictionary['emial']
+    if dictionary is None:
+        return False
+    databaseEmail = dictionary['email']
     return re.sub("\s*", "", inputEmail) == re.sub("\s*", "", databaseEmail)
 
 def comparePassword(inputPassword, dictionary):
+    if dictionary is None:
+        return False
     databasePassword = dictionary['password']
     return re.sub("\s*", "", inputPassword) == re.sub("\s*", "", databasePassword)

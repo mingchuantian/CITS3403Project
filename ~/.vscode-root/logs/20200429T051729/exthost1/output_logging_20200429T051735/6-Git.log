@@ -1,0 +1,394 @@
+Looking for git in: git
+Using git 2.17.1 from git
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+Open repository: /root/CITS3403Project
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show :app/routes.py
+> git ls-files --stage -- /root/CITS3403Project/app/routes.py
+> git cat-file -s 5afd3791f5b1083ce7732acd1a13dcbd9b8d3324
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/data.py
+> git ls-files --stage -- /root/CITS3403Project/app/data.py
+> git cat-file -s bc1e3eed32d51e8068ab1c02c768f1d386c5c430
+> git show :config.py
+> git ls-files --stage -- /root/CITS3403Project/config.py
+> git cat-file -s b81195a682833e45a99cb9d0b9bff244a65dd238
+> git show :app/routes.py
+> git ls-files --stage -- /root/CITS3403Project/app/routes.py
+> git cat-file -s 5afd3791f5b1083ce7732acd1a13dcbd9b8d3324
+> git show :app/data.py
+> git ls-files --stage -- /root/CITS3403Project/app/data.py
+> git cat-file -s bc1e3eed32d51e8068ab1c02c768f1d386c5c430
+> git show :config.py
+> git ls-files --stage -- /root/CITS3403Project/config.py
+> git cat-file -s b81195a682833e45a99cb9d0b9bff244a65dd238
+> git show :app/data.py
+> git ls-files --stage -- /root/CITS3403Project/app/data.py
+> git cat-file -s bc1e3eed32d51e8068ab1c02c768f1d386c5c430
+> git show :config.py
+> git ls-files --stage -- /root/CITS3403Project/config.py
+> git cat-file -s b81195a682833e45a99cb9d0b9bff244a65dd238
+> git show :app/data.py
+> git ls-files --stage -- /root/CITS3403Project/app/data.py
+> git cat-file -s bc1e3eed32d51e8068ab1c02c768f1d386c5c430
+> git show :config.py
+> git ls-files --stage -- /root/CITS3403Project/config.py
+> git cat-file -s b81195a682833e45a99cb9d0b9bff244a65dd238
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/routes.py
+> git ls-files --stage -- /root/CITS3403Project/app/routes.py
+> git cat-file -s 5afd3791f5b1083ce7732acd1a13dcbd9b8d3324
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/data.py
+> git ls-files --stage -- /root/CITS3403Project/app/data.py
+> git cat-file -s bc1e3eed32d51e8068ab1c02c768f1d386c5c430
+> git show :config.py
+> git ls-files --stage -- /root/CITS3403Project/config.py
+> git cat-file -s b81195a682833e45a99cb9d0b9bff244a65dd238
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/__init__.py
+> git ls-files --stage -- /root/CITS3403Project/app/__init__.py
+> git cat-file -s 2c924000809df3acd450b99811ab3084a477c9d8
+> git show :app/data.py
+> git ls-files --stage -- /root/CITS3403Project/app/data.py
+> git cat-file -s bc1e3eed32d51e8068ab1c02c768f1d386c5c430
+> git show :app/__init__.py
+> git ls-files --stage -- /root/CITS3403Project/app/__init__.py
+> git cat-file -s 2c924000809df3acd450b99811ab3084a477c9d8
+> git show :app/data.py
+> git ls-files --stage -- /root/CITS3403Project/app/data.py
+> git cat-file -s bc1e3eed32d51e8068ab1c02c768f1d386c5c430
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :config.py
+> git ls-files --stage -- /root/CITS3403Project/config.py
+> git cat-file -s b81195a682833e45a99cb9d0b9bff244a65dd238
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/__init__.py
+> git ls-files --stage -- /root/CITS3403Project/app/__init__.py
+> git cat-file -s 2c924000809df3acd450b99811ab3084a477c9d8
+> git show :app/data.py
+> git ls-files --stage -- /root/CITS3403Project/app/data.py
+> git cat-file -s bc1e3eed32d51e8068ab1c02c768f1d386c5c430
+> git show :app/routes.py
+> git ls-files --stage -- /root/CITS3403Project/app/routes.py
+> git cat-file -s 5afd3791f5b1083ce7732acd1a13dcbd9b8d3324
+> git show :app/data.py
+> git ls-files --stage -- /root/CITS3403Project/app/data.py
+> git cat-file -s bc1e3eed32d51e8068ab1c02c768f1d386c5c430
+> git show :app/models.py
+> git ls-files --stage -- /root/CITS3403Project/app/models.py
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/__init__.py
+> git ls-files --stage -- /root/CITS3403Project/app/__init__.py
+> git cat-file -s 2c924000809df3acd450b99811ab3084a477c9d8
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :app/routes.py
+> git ls-files --stage -- /root/CITS3403Project/app/routes.py
+> git config --get commit.template
+> git cat-file -s 5afd3791f5b1083ce7732acd1a13dcbd9b8d3324
+> git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%B -z -n21 -- /root/CITS3403Project/app/data.sqlite
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/forms.py
+> git ls-files --stage -- /root/CITS3403Project/app/forms.py
+> git cat-file -s 70d807769f9295df502db9a919e9cf459afaad65
+> git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%B -z -n21 -- /root/CITS3403Project/app/data.sqlite
+> git show :app/routes.py
+> git ls-files --stage -- /root/CITS3403Project/app/routes.py
+> git cat-file -s 5afd3791f5b1083ce7732acd1a13dcbd9b8d3324
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/__init__.py
+> git ls-files --stage -- /root/CITS3403Project/app/__init__.py
+> git cat-file -s 2c924000809df3acd450b99811ab3084a477c9d8
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/models.py
+> git ls-files --stage -- /root/CITS3403Project/app/models.py
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/routes.py
+> git ls-files --stage -- /root/CITS3403Project/app/routes.py
+> git cat-file -s 5afd3791f5b1083ce7732acd1a13dcbd9b8d3324
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/models.py
+> git ls-files --stage -- /root/CITS3403Project/app/models.py
+> git show :app/routes.py
+> git ls-files --stage -- /root/CITS3403Project/app/routes.py
+> git cat-file -s 5afd3791f5b1083ce7732acd1a13dcbd9b8d3324
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/models.py
+> git ls-files --stage -- /root/CITS3403Project/app/models.py
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :config.py
+> git ls-files --stage -- /root/CITS3403Project/config.py
+> git cat-file -s b81195a682833e45a99cb9d0b9bff244a65dd238
+> git show :app/__init__.py
+> git ls-files --stage -- /root/CITS3403Project/app/__init__.py
+> git cat-file -s 2c924000809df3acd450b99811ab3084a477c9d8
+> git show :app/routes.py
+> git ls-files --stage -- /root/CITS3403Project/app/routes.py
+> git cat-file -s 5afd3791f5b1083ce7732acd1a13dcbd9b8d3324
+> git show :app/__init__.py
+> git ls-files --stage -- /root/CITS3403Project/app/__init__.py
+> git cat-file -s 2c924000809df3acd450b99811ab3084a477c9d8
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :config.py
+> git ls-files --stage -- /root/CITS3403Project/config.py
+> git cat-file -s b81195a682833e45a99cb9d0b9bff244a65dd238
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/models.py
+> git ls-files --stage -- /root/CITS3403Project/app/models.py
+> git show :app/routes.py
+> git ls-files --stage -- /root/CITS3403Project/app/routes.py
+> git cat-file -s 5afd3791f5b1083ce7732acd1a13dcbd9b8d3324
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/models.py
+> git ls-files --stage -- /root/CITS3403Project/app/models.py
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/__init__.py
+> git ls-files --stage -- /root/CITS3403Project/app/__init__.py
+> git cat-file -s 2c924000809df3acd450b99811ab3084a477c9d8
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :config.py
+> git ls-files --stage -- /root/CITS3403Project/config.py
+> git cat-file -s b81195a682833e45a99cb9d0b9bff244a65dd238
+> git show :app/routes.py
+> git ls-files --stage -- /root/CITS3403Project/app/routes.py
+> git cat-file -s 5afd3791f5b1083ce7732acd1a13dcbd9b8d3324
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/models.py
+> git ls-files --stage -- /root/CITS3403Project/app/models.py
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
