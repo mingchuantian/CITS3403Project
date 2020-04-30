@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>时钟、倒计时</title>
+        <script language="JavaScript"> 
+            
+            function rtime(){
+                var djs = document.getElementById("count").innerText;
+                if(djs!=0){
+                    document.getElementById("count").innerText=djs-1;
+                    setTimeout("rtime()",100); //调取函数，调取频率毫秒 只掉一次
+                }else{
+                    alert("time is up!");
+                }
+            }
+            function time(){
+                var now = new Date();
+                var hour = now.getHours();
+                var min = now.getMinutes();
+                var second = now.getSeconds();
+                var apm = "AM";
+                if(hour>12){
+                    hour=hour-12;
+                    apm = "PM";
+                }
+                if(hour<10){
+                    hour="0"+hour;
+                }
+                if(min<10){
+                    min="0"+min;
+                }
+                if(second<10){
+                    second="0"+second;
+                }
+                document.form1.myclock.value = hour+":"+min+":"+second+"  "+apm ;
+                setTimeout("time()",1000);
+            }
+            
+        </script>
+    </head>
+    <body onload="time()">
+        <form name="form1">
+            <input type="text" name="myclock">
+            <div id="count" >100</div>  <!--100是10秒-->
+            <input type="button" value="倒计时开始" onclick="rtime()">
+        </form>
+        
+    </body>
+</html>

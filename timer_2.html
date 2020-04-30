@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Timer</title>
+</head>
+<body>
+    <div class="wrap">Total time: 60 min &emsp;&emsp;&emsp;Time left : <span class="time"></span></div>
+    <script type="text/javascript">
+        var timeEle = document.querySelector('.time'),
+            count   = 3600;
+        timeEle.innerHTML = count;
+        // 设置计时器
+        var judge = setInterval(function() {
+            count--;
+            if (!count) {
+                // 清除计时器
+                clearInterval(judge);
+                alert("time is up!");
+            };
+            // 标签当中显示时间
+            timeEle.innerHTML = count;
+        }, 1000);
+    </script>
+</body>
+</html>
