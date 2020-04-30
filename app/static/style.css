@@ -1,0 +1,14 @@
+
+/* For everything */
+*{
+    box-sizing: border-box;
+}
+
+.register_form{
+    background-color: f6f6f6;
+    padding: 100px;
+}
+
+.logg{
+
+}

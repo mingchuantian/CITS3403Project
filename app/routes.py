@@ -1,65 +1,15 @@
-import re
-import os
 from app import app
-from flask import Flask, render_template, session, redirect, url_for, flash
-from flask_sqlalchemy import SQLAlchemy
-from flask_bootstrap import Bootstrap
-from app.forms import Register, Login       #app.forms is folder, Register and Login are classes
-from app.models import User, db
+from flask import render_template, flash, redirect
+from app.forms import LoginForm, RegisterForm
 
 
-bootstrap = Bootstrap(app)
-
-
-@app.route('/', methods=['GET','POST']) #register the view function as a handler for GET and POST requests. 
+@app.route('/', methods = ['GET', 'POST'])
 def index():
-    form = Register()
-    if form.validate_on_submit():
-        '''
-        if compareUsername(form.email.data, User.query.filter_by(email=form.email.data).first()):
-            return 'this user already exists!'
-        else:
-        '''
-        #specifying a new row
-        user = User(name=form.name.data, email=form.email.data, password=form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        return 'the user is successfully registered!'
-    return render_template('index.html', registerForm=form)
+    form = RegisterForm()
+    return render_template('index.html', registerForm = form)
 
-
-@app.route('/login', methods=['GET','POST'])
+'''
+@app.route('/login')
 def login():
-    form = Login()
-    if form.validate_on_submit():
-        if compareUsername(form.email.data , User.query.filter_by(email=form.email.data).first()):
-            if comparePassword(form.password.data, User.query.filter_by(email=form.email.data).first()):
-                return 'you are successfully logged in'
-            else:
-                return 'your email exists but password is incorrect'
-        else:
-            return 'your username does not exist'
-    return render_template('login.html', loginForm = form)
-
+    return null
 '''
-@app.route('/regist')
-def button():
-    return render_template('login.html', loginForm = Login())
-'''
-
-@app.route('/user/<username>')
-def show_user(username):
-    return 'User' + username
-
-#This function compares username regardless of whitespace
-def compareUsername(inputEmail, dictionary):
-    if dictionary is None:
-        return False
-    databaseEmail = dictionary['email']
-    return re.sub("\s*", "", inputEmail) == re.sub("\s*", "", databaseEmail)
-
-def comparePassword(inputPassword, dictionary):
-    if dictionary is None:
-        return False
-    databasePassword = dictionary['password']
-    return re.sub("\s*", "", inputPassword) == re.sub("\s*", "", databasePassword)

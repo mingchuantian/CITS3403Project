@@ -4,37 +4,25 @@
 
 {% block head %}
 {{ super() }}
-{% endblock %}
+<!---refers to a css that contains styling for register page
+<link rel="stylesheet" href="style.css">
+-->
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 
-{% block title %}My first Flask website{% endblock %}
+{% endblock %}
 
 
 {% block body %}
 {{ super() }}
 {% endblock %}
 
-{% block navselect %}
-<li class="active"><a href="/">Register Page</a></li>
-<li><a href="login">Login Page</a></li>
-{% endblock %}
-
 {% block content %}
-{{ super() }}
-
-<!--<h1> Hello! {% if name %}{{name}}{% else %}Stranger{% endif %}!</h1>-->
-<!--
-{% if not known %}
-<p>Pleased to meet you!</p>
-{% else %}
-<p>Happy to see you again!</p>
-{% endif %}-->
-
+<div class = "register_form">
 {{ wtf.quick_form(registerForm)}}
-<br>
+</div>
+<hr>
 <p>Already a user?</p>
-
 <form action="login">
     <button action="button" type="submit">Login here</button>
 </form>
-
 {% endblock %}
