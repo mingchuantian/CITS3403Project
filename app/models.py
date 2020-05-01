@@ -7,19 +7,22 @@ from flask_login import UserMixin
 #define shell content 
 @app.shell_context_processor
 def make_shell_context():
-    return dict(db=db, Student=Student, Teacher=Teacher)
+    return dict(db=db, User=User)
 
 @login_manager.user_loader
 def load_user(user_id):
-    return Student.query.get(int(user_id))
+    return User.query.get(int(user_id))
 
-class Student(UserMixin, db.Model):
-    __tablename__ = 'students'
+
+class User(UserMixin, db.Model):
+    __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
     email = db.Column(db.String(64), unique=True)
-    #We use a hash to store the password
     password_hash = db.Column(db.String(128))
+    is_teacher = db.Column(db.Boolean)
+    #add a relationship between User and Quiz
+    quizzes = db.relationship('Quiz', backref='author', lazy='dynamic')
 
     @property
     def password(self):
@@ -33,27 +36,43 @@ class Student(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
     
     def __repr__(self):
-        #make returned query a dictionary that contains both email and password
-        return '<Student>' + self.name
+        return '<User>' + self.name
 
-class Teacher(UserMixin, db.Model):
-    __tablename__ = 'teachers'
+
+#submission was successful but haven't tested the content&relationship
+class Quiz(db.Model):
+    __tablename__ = 'quizzes'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64))
-    email = db.Column(db.String(64), unique=True)
-    password_hash = db.Column(db.String(128))
+    title = db.Column(db.String(64))
+    Q1 = db.Column(db.Text)
+    Q1Answer1 = db.Column(db.String(30))
+    Q1Answer2 = db.Column(db.String(30))
+    Q1Answer3 = db.Column(db.String(30))
+    Q1Answer4 = db.Column(db.String(30))
+    Q2 = db.Column(db.Text)
+    Q2Answer1 = db.Column(db.String(30))
+    Q2Answer2 = db.Column(db.String(30))
+    Q2Answer3 = db.Column(db.String(30))
+    Q2Answer4 = db.Column(db.String(30))
+    '''
+    Q3 = db.Column(db.Text)
+    Q3Answer1 = db.Column(db.String(30))
+    Q3Answer2 = db.Column(db.String(30))
+    Q3Answer3 = db.Column(db.String(30))
+    Q3Answer4 = db.Column(db.String(30))
+    Q4 = db.Column(db.Text)
+    Q4Answer1 = db.Column(db.String(30))
+    Q4Answer2 = db.Column(db.String(30))
+    Q4Answer3 = db.Column(db.String(30))
+    Q4Answer4 = db.Column(db.String(30))
+    Q5 = db.Column(db.Text)
+    Q5Answer1 = db.Column(db.String(30))
+    Q5Answer2 = db.Column(db.String(30))
+    Q5Answer3 = db.Column(db.String(30))
+    Q5Answer4 = db.Column(db.String(30))
+    '''
+    quiz_id = db.Column(db.String(5), unique=True)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-    @property
-    def password(self):
-        raise AttributeError('password is not a readable attribute')
-    
-    @password.setter
-    def password(self, password):
-        self.password_hash = generate_password_hash(password)
-
-    def verify_password(self, password):
-        return check_password_hash(self.password_hash, password)
-    
     def __repr__(self):
-        #make returned query a dictionary that contains both email and password
-        return '<Teacher>' + self.name
+        return '<Quiz>' + self.title + '<Quiz_ID>' + self.quiz_id

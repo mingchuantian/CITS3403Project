@@ -1,32 +1,23 @@
 from app import app, db
-from flask import render_template, flash, redirect, request
-from app.forms import LoginForm, RegisterForm
-from flask_login import login_user, login_required
-from app.models import Student, Teacher
+from flask import render_template, flash, redirect, request, url_for
+from app.forms import LoginForm, RegisterForm, QuizEditForm
+from flask_login import login_user, login_required, logout_user, current_user
+from app.models import User, Quiz
 
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
     form = RegisterForm()
     if form.validate_on_submit():
-        if form.teacher.data is True:
-            email = Teacher.query.filter_by(email=form.email.data).first()
-            if email is None:
-                user = Teacher(name=form.name.data, email=form.email.data, password=form.password.data)
-                db.session.add(user)
-                db.session.commit()
-                return 'The teacher account is successfully registered'
-            else:
-                return 'The user already exists!'
+        email = User.query.filter_by(email=form.email.data).first()
+        if email is None:
+            user = User(name=form.name.data, email=form.email.data, password=form.password.data, is_teacher=form.teacher.data)
+            db.session.add(user)
+            db.session.commit()
+            return 'The user is successfully registered'
         else:
-            email = Student.query.filter_by(email=form.email.data).first()
-            if email is None:
-                user = Student(name=form.name.data, email=form.email.data, password=form.password.data)
-                db.session.add(user)
-                db.session.commit()
-                return 'The student account is successfully registered'
-            else:
-                return 'The user already exists!'
+            return 'The user already exists!'
+
     return render_template('index.html', registerForm = form)
 
 
@@ -34,24 +25,56 @@ def index():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        if form.teacher.data is True:
-            user = Teacher.query.filter_by(email=form.email.data).first()
-            if user is not None and user.verify_password(form.password.data):
-                login_user(user, form.remember_me.data)
-                return 'you are now logged in as teacher'
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is not None and user.verify_password(form.password.data):
+            login_user(user, form.remember_me.data)
+            if user.is_teacher == True:
+                next = request.args.get('next')
+                if next is None or not next.startswith('/'):
+                    next = url_for('teacher')
+                return redirect(next)
             else:
-                'The teacher does not exist'
+                next = request.args.get('next')
+                if next is None or not next.startswith('/'):
+                    next = url_for('student')
+                return redirect(next)
         else:
-            user = Student.query.filter_by(email=form.email.data).first()
-            if user is not None and user.verify_password(form.password.data):
-                login_user(user, form.remember_me.data)
-                return 'you are now logged in as student'
-            else:
-                'The student does not exist'
+            return 'The account does not exist'
+
     return render_template('login.html', loginForm = form)
 
 
-@app.route('/secret')
+@app.route('/student')
 @login_required
-def secret():
-    return 'Only authenticated users are allowed!'
+def student():
+    return render_template('student.html')
+
+@app.route('/teacher')
+@login_required
+def teacher():
+    return render_template('teacher.html')
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return render_template('notify.html', content='You have been logged out.')
+
+#cannot determine whether teacher or student
+@app.route('/editQuiz', methods = ['GET', 'POST'])
+@login_required
+def editQuiz():
+    form = QuizEditForm()
+    if form.validate_on_submit():
+        quiz = Quiz(
+        author=current_user,
+        title=form.title.data, Q1=form.Q1.data, 
+        Q1Answer1=form.Q1Answer1.data, Q1Answer2=form.Q1Answer2.data,
+        Q1Answer3=form.Q1Answer3.data, Q1Answer4=form.Q1Answer4.data,
+        Q2=form.Q2.data, Q2Answer1=form.Q2Answer1.data,
+        Q2Answer2=form.Q2Answer2.data, Q2Answer3=form.Q2Answer3.data,
+        Q2Answer4=form.Q2Answer4.data, quiz_id=form.quiz_id.data)
+        db.session.add(quiz)
+        db.session.commit()
+        return 'Your quiz has been successfully submitted'
+    return render_template('editQuiz.html',quizEditForm=form)
