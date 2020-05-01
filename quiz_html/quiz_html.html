@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="quiz_icon.png" type="image">
     <link rel="stylesheet" type="text/css" href="quiz_css.css">
+    <script type="text/javascript" src="quiz_js.js"></script>
 
     <title>Quiz 1</title>
 </head>
@@ -32,8 +33,9 @@
 
         <div class="text_boder" style="background-color: white; margin: 15px;">
             <div class="left40px" style="margin-bottom: 20px;">
-                <h4 style="color: #0B8ED0;">Question Completion Status:</h4>
-                <button class="status_button">1</button> <button class="status_button">2</button> <button class="status_button">3</button> <button class="status_button">4</button> <button class="status_button">5</button>
+                <a name="check_answer"><h4 style="color: #0B8ED0;">Question Completion Status:</h4></a>
+                <a href="#que_1"><button class="status_button">1</button></a> <a href="#que_2"><button class="status_button">2</button></a> <a href="#que_3"><button class="status_button">3</button></a> <a href="#que_4"><button class="status_button">4</button></a> <a href="#que_4"><button class="status_button">5</button></a>
+                <p style="font-size: smaller;">This<span style="color:#48C9B0;"> color</span> is answer already finished. This <span style="color: #F9E79F;">color</span> is answer has not finished yet.</p>
                 <div class="wrap" style="margin-top: 20px;">Total time: 60 min &emsp;&emsp;&emsp;Time left : <span class="time_min"></span> minutes &emsp;<span class="time_sec"></span> seconds</div>
                     <script type="text/javascript">
                         var timeEle = document.querySelector('.time'),
@@ -65,9 +67,9 @@
             <hr style="margin: 20px; margin-bottom: 5px;">
             <p style="float: right;margin-right: 25px;">5 points</p>
             <div class="clearfix"></div>
-            <p class="left40px" style=" font-size: 25px; margin-top: -10px;">
+            <a name="que_1"><p class="left40px" style=" font-size: 25px; margin-top: -10px;">
                 Question 1
-            </p>
+            </p></a>
             <div class="left40px" style="margin-top: -10px;">
                 <p> What is the result of 1 + 1 ?</p>
                 <input type="radio" name="q1" value="">&emsp;1
@@ -82,9 +84,9 @@
             <hr style="margin: 20px; margin-bottom: 5px;">
             <p style="float: right;margin-right: 25px;">5 points</p>
             <div class="clearfix"></div>
-            <p class="left40px" style=" font-size: 25px; margin-top: -10px;">
+            <a name="que_2"><p class="left40px" style=" font-size: 25px; margin-top: -10px;">
                 Question 2
-            </p>
+            </p></a>
             <div class="left40px" style="margin-top: -10px;">
                 <p> What is the result of 0 * 10 ?</p>
                 <input type="radio" name="q2" value="">&emsp;1
@@ -99,9 +101,9 @@
             <hr style="margin: 20px; margin-bottom: 5px;">
             <p style="float: right;margin-right: 25px;">5 points</p>
             <div class="clearfix"></div>
-            <p class="left40px" style=" font-size: 25px; margin-top: -10px;">
+            <a name="que_3"><p class="left40px" style=" font-size: 25px; margin-top: -10px;">
                 Question 3
-            </p>
+            </p></a>
             <div class="left40px" style="margin-top: -10px;">
                 <p> What is the result of (8+1)/3 ?</p>
                 <input type="radio" name="q3" value="">&emsp;1
@@ -116,9 +118,9 @@
             <hr style="margin: 20px; margin-bottom: 5px;">
             <p style="float: right;margin-right: 25px;">5 points</p>
             <div class="clearfix"></div>
-            <p class="left40px" style=" font-size: 25px; margin-top: -10px;">
+            <a name="que_4"><p class="left40px" style=" font-size: 25px; margin-top: -10px;">
                 Question 4
-            </p>
+            </p></a>
             <div class="left40px" style="margin-top: -10px;">
                 Please write down the result 9 + 5 = ? &emsp;&emsp;<input type="text" name="q4" value="">&emsp;&emsp;&emsp;(1 mark)
                 <br>
@@ -130,9 +132,9 @@
             <hr style="margin: 20px; margin-bottom: 5px;">
             <p style="float: right;margin-right: 25px;">5 points</p>
             <div class="clearfix"></div>
-            <p class="left40px" style=" font-size: 25px; margin-top: -10px;">
+            <a name="que_5"><p class="left40px" style=" font-size: 25px; margin-top: -10px;">
                 Question 5
-            </p>
+            </p></a>
             <div class="left40px" style="margin-top: -10px;">
                 Please write down the result 9 * 5 = ? &emsp;<input type="text" name="q5" value="">&emsp;&emsp;&emsp;(1 mark)
                 <br>
@@ -142,9 +144,10 @@
             </div>
 
             <hr style="margin: 20px; margin-bottom: 5px;">
-            <i class="left40px">Click Submit button to submit your answers</i>
+            <i class="left40px">Click Submit button to submit your answers or click check all to check all the answers finished or not.</i>
             <br><br>
             <input type="submit" value="submit" style="float: right; margin-bottom: 20px; margin-right: 20px; background-color: #148F77; color: white; width: 150px; height: 30px;border-radius: 10px; font-size: 15px;">
+            <a href="#check_answer"><input type="button" value="check all" style="float: right; margin-bottom: 20px; margin-right: 20px; background-color: #5DADE2; color: white; width: 150px; height: 30px;border-radius: 10px; font-size: 15px;" onclick="check()"></a>
             <div class="clearfix"></div>
             
            
