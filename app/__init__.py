@@ -3,6 +3,7 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_bootstrap import Bootstrap
+from flask_login import LoginManager
 
 #create Flask object 'app'
 app = Flask(__name__)
@@ -17,6 +18,11 @@ migrate = Migrate(app, db)
 
 #create Bootstrap object bootstrap
 bootstrap = Bootstrap(app)
+
+#create login manager
+
+login_manager = LoginManager()
+login_manager.init_app(app)
 
 #all codes from routes and models are following
 from app import routes, models
