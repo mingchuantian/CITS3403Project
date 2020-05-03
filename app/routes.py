@@ -1,8 +1,8 @@
 from app import app, db
 from flask import render_template, flash, redirect, request, url_for
-from app.forms import LoginForm, RegisterForm, QuizEditForm
+from app.forms import LoginForm, RegisterForm, QuizEditForm, QuizLoginForm, QuizStartForm, QuizAnswerForm
 from flask_login import login_user, login_required, logout_user, current_user
-from app.models import User, Quiz
+from app.models import User, Question, QuizSet, Answer
 
 
 @app.route('/', methods = ['GET', 'POST'])
@@ -44,10 +44,17 @@ def login():
     return render_template('login.html', loginForm = form)
 
 
-@app.route('/student')
+@app.route('/student', methods = ['GET', 'POST'])
 @login_required
 def student():
-    return render_template('student.html')
+    form = QuizLoginForm()
+    if form.validate_on_submit():
+        getQuiz = Quiz.query.filter_by(quiz_id=form.QuizID.data)
+        if getQuiz is not None:
+            return render_template('startQuiz.html')
+        else:
+            return 'the quiz does not exist!'
+    return render_template('student.html', loginQuizForm = form)
 
 @app.route('/teacher')
 @login_required
@@ -59,7 +66,7 @@ def teacher():
 def logout():
     logout_user()
     return render_template('notify.html', content='You have been logged out.')
-
+'''
 #cannot determine whether teacher or student
 @app.route('/editQuiz', methods = ['GET', 'POST'])
 @login_required
@@ -78,3 +85,32 @@ def editQuiz():
         db.session.commit()
         return 'Your quiz has been successfully submitted'
     return render_template('editQuiz.html',quizEditForm=form)
+'''
+@app.route('/startEditQuiz', methods = ['GET', 'POST'])
+@login_required
+def startEditQuiz():
+    form = QuizStartForm()
+    if form.validate_on_submit():
+        num_question=form.question_num.data
+        id_quiz = form.quiz_id.data
+        quizset = QuizSet(title=form.title.data, quiz_id=id_quiz, question_num=num_question)
+        db.session.add(quizset)
+        db.session.commit()
+        return redirect(url_for('editQuiz', qid=id_quiz))
+    return render_template('startEditQuiz.html', quizStartForm=form)
+
+
+@app.route('/editQuiz', methods = ['GET', 'POST'])
+@login_required
+#there's problem with it
+def editQuiz(qid=qid):
+    form = QuizEditForm()
+    if form.validate_on_submit():
+        quizId = QuizSet.query.filter_by(quiz_id=qid).first()
+        question = Question(Question=form.question.data, quizset_id=quizId)
+        db.session.add(question)
+        db.session.commit()
+        return 'you have finished editing'
+    return render_template('editQuiz.html', quizEditForm=form)
+    
+    

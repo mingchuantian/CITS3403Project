@@ -7,7 +7,7 @@ from flask_login import UserMixin
 #define shell content 
 @app.shell_context_processor
 def make_shell_context():
-    return dict(db=db, User=User)
+    return dict(db=db, User=User, Question=Question, Answer=Answer, QuizSet=QuizSet)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -22,7 +22,8 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     is_teacher = db.Column(db.Boolean)
     #add a relationship between User and Quiz
-    quizzes = db.relationship('Quiz', backref='author', lazy='dynamic')
+    create_quizsets = db.relationship('QuizSet', backref='author', lazy='dynamic')
+    answer_quizzes = db.relationship('Answer', backref='answerer', lazy='dynamic')
 
     @property
     def password(self):
@@ -38,7 +39,7 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return '<User>' + self.name
 
-
+'''
 #submission was successful but haven't tested the content&relationship
 class Quiz(db.Model):
     __tablename__ = 'quizzes'
@@ -54,7 +55,7 @@ class Quiz(db.Model):
     Q2Answer2 = db.Column(db.String(30))
     Q2Answer3 = db.Column(db.String(30))
     Q2Answer4 = db.Column(db.String(30))
-    '''
+    
     Q3 = db.Column(db.Text)
     Q3Answer1 = db.Column(db.String(30))
     Q3Answer2 = db.Column(db.String(30))
@@ -70,9 +71,41 @@ class Quiz(db.Model):
     Q5Answer2 = db.Column(db.String(30))
     Q5Answer3 = db.Column(db.String(30))
     Q5Answer4 = db.Column(db.String(30))
-    '''
-    quiz_id = db.Column(db.String(5), unique=True)
+    
+    quiz_id = db.Column(db.String, unique=True)
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __repr__(self):
         return '<Quiz>' + self.title + '<Quiz_ID>' + self.quiz_id
+'''
+
+class Question(db.Model):
+    __tablename__ = 'questions'
+    id = db.Column(db.Integer, primary_key=True)
+    Question = db.Column(db.Text)
+    quizset_id = db.Column(db.Integer, db.ForeignKey('quizsets.id'))
+
+    def __repr__(self):
+        return '<Question>' + self.Question
+
+class QuizSet(db.Model):
+    __tablename__ = 'quizsets'
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(64))
+    quiz_id = db.Column(db.String, unique=True)
+    question_num = db.Column(db.Integer)
+    questions = db.relationship('Question', backref='quizset', lazy='dynamic')
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    def __repr__(self):
+        return '<Quizset>' + self.question_num
+
+class Answer(db.Model):
+    __tablename__ = 'answers'
+    id = db.Column(db.Integer, primary_key=True)
+    Answer = db.Column(db.Text)
+    quizset_id = db.Column(db.Integer, db.ForeignKey('quizsets.id'))
+    student_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    def __repr__(self):
+        return '<User>' + self.Answer

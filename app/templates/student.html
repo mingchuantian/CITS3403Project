@@ -27,6 +27,11 @@ User Registration
 </h1>
 <p>You are logged in as student!</p>
 
+<div class = "loginQuizForm">
+    {{ wtf.quick_form(loginQuizForm)}}
+</div>
+
+
 <form action="logout">
     <button action="button" type="submit">Log out</button>
 </form>

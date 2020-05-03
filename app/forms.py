@@ -16,7 +16,7 @@ class RegisterForm(FlaskForm):
     teacher = BooleanField("Register as teacher")
     submit = SubmitField("Sign up")
 
-
+'''
 class QuizEditForm(FlaskForm):
     title = StringField("Quiz Title", validators = [DataRequired()])
     Q1 = StringField("Question 1: ")
@@ -32,3 +32,27 @@ class QuizEditForm(FlaskForm):
     #validator does not work
     quiz_id = StringField("Quiz ID (must be 5 digits): ", [validators.Length(min=5, max=5)])
     submit = SubmitField("Submit")
+'''
+
+class QuizStartForm(FlaskForm):
+    title = StringField("Quiz Title", validators = [DataRequired()])
+    quiz_id = StringField("Give your quiz an ID", validators = [DataRequired()])
+    #need to restrict the number of questions
+    question_num = StringField("Number of questions", validators = [DataRequired()])
+    submit = SubmitField("Continue")
+
+class QuizEditForm(FlaskForm):
+    question = StringField("Question: ", validators = [DataRequired()])
+    submit = SubmitField("save question")
+
+class QuizAnswerForm(FlaskForm):
+    answer = StringField("Answer: ", validators = [DataRequired()])
+
+class QuizLoginForm(FlaskForm):
+    QuizID = StringField("QuizID (given by your instructor): ")
+    submit = SubmitField("Start Quiz!")
+
+
+    
+
+
