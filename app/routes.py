@@ -49,27 +49,59 @@ def login():
 def student():
     form = QuizLoginForm()
     if form.validate_on_submit():
+        if QuizSet.query.filter_by(quiz_id=form.QuizID.data).first() is None:
+            return 'You entered a wrong quizset ID!'
         QuizsetID = QuizSet.query.filter_by(quiz_id=form.QuizID.data).first().id
         if QuizsetID is not None:
-            return redirect(url_for('startQuiz', QuizsetID = QuizsetID)) #render_template('startQuiz.html')
+            return redirect(url_for('startQuiz', QuizsetID = QuizsetID, current_question=1)) #render_template('startQuiz.html')
         else:
             return 'the quiz does not exist!'
     return render_template('student.html', loginQuizForm = form)
 
 
-@app.route('/startQuiz/<QuizsetID>', methods = ['GET', 'POST'])
+@app.route('/startQuiz/<QuizsetID>/<current_question>', methods = ['GET', 'POST'])
 @login_required
-def startQuiz(QuizsetID):
+def startQuiz(QuizsetID, current_question):
     #can insert teacher name
-    question = Question.query.filter_by(quizset_id=QuizsetID).first().Question
+    if QuizSet.query.filter_by(id=QuizsetID).first() is None:
+        return 'You entered a wrong quizset ID!'
+    current_question = int(current_question)
+    question_num = QuizSet.query.filter_by(id=QuizsetID).first().question_num
+    teacher_id = QuizSet.query.filter_by(id=QuizsetID).first().author_id
+    teacher_name = User.query.filter_by(id=teacher_id).first().name
+
+    #calculate previous questions number
+    prev_num = Prev_Questions_num(QuizsetID)
     form = QuizAnswerForm()
     if form.validate_on_submit():
         answer = Answer(Answer=form.answer.data, quizset_id=QuizsetID, student_id=current_user.id)
         db.session.add(answer)
         db.session.commit()
-        return 'you have submitted'
-    return render_template('startQuiz.html', question=question, form=form)
+        return redirect(url_for('answerSaved', current_question=current_question, QuizsetID=QuizsetID))
 
+    return render_template('startQuiz.html', prev_num=prev_num, QuizsetID=QuizsetID, current_question=current_question, Question=Question, teacher_name=teacher_name, question_num=question_num, form=form)
+
+
+def Prev_Questions_num(QuizsetID):
+    counts = 0
+    for i in range(1, int(QuizsetID)):
+        counts = counts + Question.query.filter_by(quizset_id=i).count()
+    return counts
+
+
+
+@app.route('/answerSaved/<current_question>/<QuizsetID>', methods = ['GET', 'POST'])
+@login_required
+def answerSaved(current_question, QuizsetID):
+    current_question = int(current_question) + 1
+    return redirect(url_for('startQuiz', current_question=current_question, QuizsetID=QuizsetID))
+
+
+
+@app.route('/finishQuiz')
+@login_required
+def finishQuiz():
+    return render_template('notify.html', content='You have finished your quiz', buttonText='Back to profile page', link=url_for('student'))
 
 
 
@@ -77,6 +109,7 @@ def startQuiz(QuizsetID):
 @login_required
 def teacher():
     return render_template('teacher.html')
+
 
 @app.route('/logout')
 @login_required
@@ -95,21 +128,28 @@ def startEditQuiz():
         quizset = QuizSet(title=form.title.data, quiz_id=id_quiz, question_num=num_question, author_id=current_user.id)
         db.session.add(quizset)
         db.session.commit()
-        return redirect(url_for('editQuiz', qid=id_quiz))
+        quizset_id = QuizSet.query.filter_by(quiz_id=id_quiz).first().id
+        return redirect(url_for('editQuiz', current_question=1, QuizsetID=quizset_id, num_question=num_question))
     return render_template('startEditQuiz.html', quizStartForm=form)
 
 
-@app.route('/editQuiz/<qid>',  methods = ['GET', 'POST'])
+@app.route('/editQuiz/<QuizsetID>/<num_question>/<current_question>',  methods = ['GET', 'POST'])
 @login_required
 #there's problem with it
-def editQuiz(qid):
+def editQuiz(QuizsetID, num_question, current_question):
     form = QuizEditForm()
+    question_num = int(num_question)
+    current_question = int(current_question)
     if form.validate_on_submit():
-        quizId = QuizSet.query.filter_by(quiz_id=qid).first().id
-        question = Question(Question=form.question.data, quizset_id=quizId)
+        #quizId = QuizSet.query.filter_by(quiz_id=qid).first().id
+        question = Question(Question=form.question.data, quizset_id=QuizsetID)
         db.session.add(question)
         db.session.commit()
-        return 'you have finished editing'
-    return render_template('editQuiz.html', quizEditForm=form)
+        return redirect(url_for('questionSaved', current_question=current_question, QuizsetID=QuizsetID, num_question=question_num))
+    return render_template('editQuiz.html', quizEditForm=form, current_question=current_question, question_num=question_num)
     
-    
+@app.route('/questionSaved/<current_question>/<QuizsetID>/<num_question>', methods = ['GET', 'POST'])
+@login_required
+def questionSaved(current_question, QuizsetID, num_question):
+    current_question = int(current_question) + 1
+    return redirect(url_for('editQuiz', current_question=current_question, QuizsetID=QuizsetID, num_question=num_question))

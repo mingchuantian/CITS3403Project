@@ -17,12 +17,23 @@ Start Quiz Edit
 
 {% block body %}
 {{ super() }}
-<p>Your teacher is: {{ teacher }}</p>
-<p>Your quesiton is: {{ question }}</p>
+
 {% endblock %}
 
 {% block content %}
+
+
+<p>Your teacher is: {{ teacher_name }}</p>
+{% for i in range(current_question, question_num + 1) %}
+<p>Your quesiton is: {{ Question.query.filter_by(quizset_id=QuizsetID, id= i + prev_num).first().Question }}</p>
 <div class = "quiz">
-{{ wtf.quick_form(form)}}
-</div>
+    {{ wtf.quick_form(form)}}
+    </div> 
+{% endfor %}
+
+
+<form action= {{ url_for('finishQuiz') }}>
+    <button action="button" type="submit">Finish Quiz</button>
+</form>
+
 {% endblock %}

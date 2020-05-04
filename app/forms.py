@@ -38,7 +38,8 @@ class QuizStartForm(FlaskForm):
     title = StringField("Quiz Title", validators = [DataRequired()])
     quiz_id = StringField("Give your quiz an ID", validators = [DataRequired()])
     #need to restrict the number of questions
-    question_num = StringField("Number of questions", validators = [DataRequired()])
+    #question_num = StringField("Number of questions", validators = [DataRequired()])
+    question_num = SelectField("Number of questions", choices=[('1','1'),('2','2'),('3','3'),('4','4'),('5','5')])
     submit = SubmitField("Continue")
 
 class QuizEditForm(FlaskForm):

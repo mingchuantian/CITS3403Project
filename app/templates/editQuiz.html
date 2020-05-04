@@ -20,7 +20,12 @@ Quiz Edit
 {% endblock %}
 
 {% block content %}
+
+
+{% for i in range(current_question, question_num + 1) %}
 <div class = "quiz">
-{{ wtf.quick_form(quizEditForm)}}
-</div>
+    {{ wtf.quick_form(quizEditForm)}}
+    </div> 
+{% endfor %}
+
 {% endblock %}

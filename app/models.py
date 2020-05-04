@@ -39,45 +39,6 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return '<User>' + self.name
 
-'''
-#submission was successful but haven't tested the content&relationship
-class Quiz(db.Model):
-    __tablename__ = 'quizzes'
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(64))
-    Q1 = db.Column(db.Text)
-    Q1Answer1 = db.Column(db.String(30))
-    Q1Answer2 = db.Column(db.String(30))
-    Q1Answer3 = db.Column(db.String(30))
-    Q1Answer4 = db.Column(db.String(30))
-    Q2 = db.Column(db.Text)
-    Q2Answer1 = db.Column(db.String(30))
-    Q2Answer2 = db.Column(db.String(30))
-    Q2Answer3 = db.Column(db.String(30))
-    Q2Answer4 = db.Column(db.String(30))
-    
-    Q3 = db.Column(db.Text)
-    Q3Answer1 = db.Column(db.String(30))
-    Q3Answer2 = db.Column(db.String(30))
-    Q3Answer3 = db.Column(db.String(30))
-    Q3Answer4 = db.Column(db.String(30))
-    Q4 = db.Column(db.Text)
-    Q4Answer1 = db.Column(db.String(30))
-    Q4Answer2 = db.Column(db.String(30))
-    Q4Answer3 = db.Column(db.String(30))
-    Q4Answer4 = db.Column(db.String(30))
-    Q5 = db.Column(db.Text)
-    Q5Answer1 = db.Column(db.String(30))
-    Q5Answer2 = db.Column(db.String(30))
-    Q5Answer3 = db.Column(db.String(30))
-    Q5Answer4 = db.Column(db.String(30))
-    
-    quiz_id = db.Column(db.String, unique=True)
-    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-
-    def __repr__(self):
-        return '<Quiz>' + self.title + '<Quiz_ID>' + self.quiz_id
-'''
 
 class Question(db.Model):
     __tablename__ = 'questions'
