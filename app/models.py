@@ -98,7 +98,7 @@ class QuizSet(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __repr__(self):
-        return '<Quizset>' + self.question_num
+        return '<Quizset>' + str(self.id)
 
 class Answer(db.Model):
     __tablename__ = 'answers'

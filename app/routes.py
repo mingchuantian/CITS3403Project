@@ -49,12 +49,29 @@ def login():
 def student():
     form = QuizLoginForm()
     if form.validate_on_submit():
-        getQuiz = Quiz.query.filter_by(quiz_id=form.QuizID.data)
-        if getQuiz is not None:
-            return render_template('startQuiz.html')
+        QuizsetID = QuizSet.query.filter_by(quiz_id=form.QuizID.data).first().id
+        if QuizsetID is not None:
+            return redirect(url_for('startQuiz', QuizsetID = QuizsetID)) #render_template('startQuiz.html')
         else:
             return 'the quiz does not exist!'
     return render_template('student.html', loginQuizForm = form)
+
+
+@app.route('/startQuiz/<QuizsetID>', methods = ['GET', 'POST'])
+@login_required
+def startQuiz(QuizsetID):
+    #can insert teacher name
+    question = Question.query.filter_by(quizset_id=QuizsetID).first().Question
+    form = QuizAnswerForm()
+    if form.validate_on_submit():
+        answer = Answer(Answer=form.answer.data, quizset_id=QuizsetID, student_id=current_user.id)
+        db.session.add(answer)
+        db.session.commit()
+        return 'you have submitted'
+    return render_template('startQuiz.html', question=question, form=form)
+
+
+
 
 @app.route('/teacher')
 @login_required
@@ -66,26 +83,8 @@ def teacher():
 def logout():
     logout_user()
     return render_template('notify.html', content='You have been logged out.')
-'''
-#cannot determine whether teacher or student
-@app.route('/editQuiz', methods = ['GET', 'POST'])
-@login_required
-def editQuiz():
-    form = QuizEditForm()
-    if form.validate_on_submit():
-        quiz = Quiz(
-        author=current_user,
-        title=form.title.data, Q1=form.Q1.data, 
-        Q1Answer1=form.Q1Answer1.data, Q1Answer2=form.Q1Answer2.data,
-        Q1Answer3=form.Q1Answer3.data, Q1Answer4=form.Q1Answer4.data,
-        Q2=form.Q2.data, Q2Answer1=form.Q2Answer1.data,
-        Q2Answer2=form.Q2Answer2.data, Q2Answer3=form.Q2Answer3.data,
-        Q2Answer4=form.Q2Answer4.data, quiz_id=form.quiz_id.data)
-        db.session.add(quiz)
-        db.session.commit()
-        return 'Your quiz has been successfully submitted'
-    return render_template('editQuiz.html',quizEditForm=form)
-'''
+
+
 @app.route('/startEditQuiz', methods = ['GET', 'POST'])
 @login_required
 def startEditQuiz():
@@ -93,20 +92,20 @@ def startEditQuiz():
     if form.validate_on_submit():
         num_question=form.question_num.data
         id_quiz = form.quiz_id.data
-        quizset = QuizSet(title=form.title.data, quiz_id=id_quiz, question_num=num_question)
+        quizset = QuizSet(title=form.title.data, quiz_id=id_quiz, question_num=num_question, author_id=current_user.id)
         db.session.add(quizset)
         db.session.commit()
         return redirect(url_for('editQuiz', qid=id_quiz))
     return render_template('startEditQuiz.html', quizStartForm=form)
 
 
-@app.route('/editQuiz', methods = ['GET', 'POST'])
+@app.route('/editQuiz/<qid>',  methods = ['GET', 'POST'])
 @login_required
 #there's problem with it
-def editQuiz(qid=qid):
+def editQuiz(qid):
     form = QuizEditForm()
     if form.validate_on_submit():
-        quizId = QuizSet.query.filter_by(quiz_id=qid).first()
+        quizId = QuizSet.query.filter_by(quiz_id=qid).first().id
         question = Question(Question=form.question.data, quizset_id=quizId)
         db.session.add(question)
         db.session.commit()

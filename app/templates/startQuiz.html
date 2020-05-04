@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block head %}
+{{ super() }}
+<!---refers to a css that contains styling for register page
+<link rel="stylesheet" href="style.css">
+-->
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
+
+{% endblock %}
+
+{% block title %}
+Start Quiz Edit
+{% endblock %}
+
+{% block body %}
+{{ super() }}
+<p>Your teacher is: {{ teacher }}</p>
+<p>Your quesiton is: {{ question }}</p>
+{% endblock %}
+
+{% block content %}
+<div class = "quiz">
+{{ wtf.quick_form(form)}}
+</div>
+{% endblock %}

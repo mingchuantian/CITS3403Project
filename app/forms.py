@@ -47,11 +47,11 @@ class QuizEditForm(FlaskForm):
 
 class QuizAnswerForm(FlaskForm):
     answer = StringField("Answer: ", validators = [DataRequired()])
+    submit = SubmitField("save answer")
 
 class QuizLoginForm(FlaskForm):
     QuizID = StringField("QuizID (given by your instructor): ")
     submit = SubmitField("Start Quiz!")
-
 
     
 
