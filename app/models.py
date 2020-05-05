@@ -45,6 +45,7 @@ class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Question = db.Column(db.Text)
     quizset_id = db.Column(db.Integer, db.ForeignKey('quizsets.id'))
+    answers = db.relationship('Answer', backref='answerperson', lazy='dynamic')
 
     def __repr__(self):
         return '<Question>' + self.Question
@@ -56,6 +57,7 @@ class QuizSet(db.Model):
     quiz_id = db.Column(db.String, unique=True)
     question_num = db.Column(db.Integer)
     questions = db.relationship('Question', backref='quizset', lazy='dynamic')
+    answers = db.relationship('Answer', backref='answerman', lazy='dynamic')
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __repr__(self):
@@ -67,6 +69,7 @@ class Answer(db.Model):
     Answer = db.Column(db.Text)
     quizset_id = db.Column(db.Integer, db.ForeignKey('quizsets.id'))
     student_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    question_id = db.Column(db.Integer, db.ForeignKey('questions.id'))
 
     def __repr__(self):
         return '<User>' + self.Answer

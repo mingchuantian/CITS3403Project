@@ -51,8 +51,10 @@ class QuizAnswerForm(FlaskForm):
     submit = SubmitField("save answer")
 
 class QuizLoginForm(FlaskForm):
-    QuizID = StringField("QuizID (given by your instructor): ")
+    QuizID = StringField("QuizID: ")
     submit = SubmitField("Start Quiz!")
+
+
 
     
 

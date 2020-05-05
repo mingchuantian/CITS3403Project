@@ -62,7 +62,6 @@ def student():
 @app.route('/startQuiz/<QuizsetID>/<current_question>', methods = ['GET', 'POST'])
 @login_required
 def startQuiz(QuizsetID, current_question):
-    #can insert teacher name
     if QuizSet.query.filter_by(id=QuizsetID).first() is None:
         return 'You entered a wrong quizset ID!'
     current_question = int(current_question)
@@ -73,8 +72,11 @@ def startQuiz(QuizsetID, current_question):
     #calculate previous questions number
     prev_num = Prev_Questions_num(QuizsetID)
     form = QuizAnswerForm()
+
+    #calculate current question ID
+    #current_question_id = Question.query.filter_by(quizset_id=QuizsetID, id= prev_num+current_question-1).first().id
     if form.validate_on_submit():
-        answer = Answer(Answer=form.answer.data, quizset_id=QuizsetID, student_id=current_user.id)
+        answer = Answer(Answer=form.answer.data, question_id=prev_num+current_question, quizset_id=QuizsetID, student_id=current_user.id)
         db.session.add(answer)
         db.session.commit()
         return redirect(url_for('answerSaved', current_question=current_question, QuizsetID=QuizsetID))
@@ -105,10 +107,14 @@ def finishQuiz():
 
 
 
-@app.route('/teacher')
+@app.route('/teacher', methods = ['GET', 'POST'])
 @login_required
 def teacher():
-    return render_template('teacher.html')
+    form= QuizLoginForm()
+    if form.validate_on_submit():
+        QuizID=form.QuizID.data
+        return redirect(url_for('reviewAnswer', QuizID=QuizID))
+    return render_template('teacher.html', loginQuizForm=form)
 
 
 @app.route('/logout')
@@ -153,3 +159,17 @@ def editQuiz(QuizsetID, num_question, current_question):
 def questionSaved(current_question, QuizsetID, num_question):
     current_question = int(current_question) + 1
     return redirect(url_for('editQuiz', current_question=current_question, QuizsetID=QuizsetID, num_question=num_question))
+
+@app.route('/reviewAnswer/<QuizID>', methods = ['GET', 'POST'])
+@login_required
+def reviewAnswer(QuizID):
+    quizID = QuizSet.query.filter_by(quiz_id=QuizID).first().id
+    answer_num = Answer.query.filter_by(quizset_id=quizID).count()
+    answers = []
+    if quizID is None:
+        return 'the quiz does not exists'
+    else: 
+        for i in range(1, answer_num):
+            #the query problem needs to be solved
+            answers.append(Answer.query.filter_by(quizset_id=QuizID).get(i).Answer)
+    return render_template('reviewAnswer.html', answers=answers)
