@@ -21,12 +21,11 @@ Start Quiz Edit
 
 {% block content %}
 
-{% for key in answer_dict %}
-<!--- key --->
-{{ answer_dict[key] }}
-{% endfor %}
+<h3>{{ answer }}</h3>
+<div class = "quiz">
+{{ wtf.quick_form(form)}}
+</div>
 
-{{ answer_dict }}
 
 
 {% endblock %}

@@ -8,39 +8,19 @@
 <link rel="stylesheet" href="style.css">
 -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
+
 {% endblock %}
 
 {% block title %}
-User Registration
+Start Quiz Edit
 {% endblock %}
-
 
 {% block body %}
 {{ super() }}
 {% endblock %}
 
 {% block content %}
-<h1>Hello, 
-    {% if current_user.is_authenticated %}
-    {{ current_user.name}}
-    {% endif %} !
-</h1>
-<p>You are logged in as teacher!</p>
-
-<form action="startEditQuiz">
-    <button action="button" type="submit">Edit Quiz</button>
-</form>
-
+<div class = "quiz">
 {{ wtf.quick_form(form)}}
-<hr>
-<form action="markQuiz">
-    <button action="button" type="submit">Mark Quiz</button>
-</form>
-
-
-<form action="logout">
-    <button action="button" type="submit">Log out</button>
-</form>
-
-
+</div>
 {% endblock %}

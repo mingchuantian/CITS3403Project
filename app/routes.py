@@ -1,8 +1,8 @@
 from app import app, db
 from flask import render_template, flash, redirect, request, url_for
-from app.forms import LoginForm, RegisterForm, QuizEditForm, QuizLoginForm, QuizStartForm, QuizAnswerForm, QuizReviewForm, changeQuestionForm
+from app.forms import LoginForm, RegisterForm, QuizEditForm, QuizLoginForm, QuizStartForm, QuizAnswerForm, QuizReviewForm, changeQuestionForm, QuizMarkForm, GradingForm
 from flask_login import login_user, login_required, logout_user, current_user
-from app.models import User, Question, QuizSet, Answer
+from app.models import User, Question, QuizSet, Answer, Grade
 
 
 @app.route('/', methods = ['GET', 'POST'])
@@ -110,11 +110,10 @@ def finishQuiz():
 @app.route('/teacher', methods = ['GET', 'POST'])
 @login_required
 def teacher():
-    add_form = QuizLoginForm()
-    edit_form = QuizReviewForm()
+    form = QuizReviewForm()
 
-    if edit_form.validate_on_submit() and edit_form.QuizID.data is not None:
-        QuizID=edit_form.QuizID.data
+    if form.validate_on_submit() and form.QuizID.data is not None:
+        QuizID=form.QuizID.data
         quizset = QuizSet.query.filter_by(quiz_id=QuizID).first()
         if quizset is not None:
             quizsetID = quizset.id
@@ -123,13 +122,31 @@ def teacher():
             return redirect(url_for('reviewQuiz', quizsetID=quizsetID, current_question_id=current_question_id, question_n=question_n))
         else: 
             return 'the quiz does not exists'
-    if add_form.validate_on_submit() and add_form.QuizID.data is not None:
-        QuizID=add_form.QuizID.data
-        return redirect(url_for('reviewAnswer', QuizID=QuizID))
-    
+
+    return render_template('teacher.html',  form=form)
 
 
-    return render_template('teacher.html', add_form=add_form, edit_form=edit_form)
+
+
+
+
+
+@app.route('/markQuiz', methods = ['GET', 'POST'])
+@login_required
+def markQuiz():
+    form = QuizMarkForm()
+    if form.validate_on_submit():
+         
+        if QuizSet.query.filter_by(quiz_id=form.QuizID.data).first() is None:
+            return 'You entered a wrong quizset ID!'
+        else:
+            quizsetID = QuizSet.query.filter_by(quiz_id=form.QuizID.data).first().id
+            answer_num = Answer.query.filter_by(quizset_id=quizsetID).count()
+            current_answer = 0
+            return redirect(url_for('reviewAnswer', quizsetID=quizsetID, answer_num=answer_num, current_answer=current_answer))
+    return render_template('findQuizToMark.html', form=form)
+
+
 
 
 @app.route('/logout')
@@ -175,16 +192,39 @@ def questionSaved(current_question, QuizsetID, num_question):
     current_question = int(current_question) + 1
     return redirect(url_for('editQuiz', current_question=current_question, QuizsetID=QuizsetID, num_question=num_question))
 
-@app.route('/reviewAnswer/<QuizID>', methods = ['GET', 'POST'])
+
+
+
+@app.route('/reviewAnswer/<quizsetID>/<current_answer>/<answer_num>', methods = ['GET', 'POST'])
 @login_required
-def reviewAnswer(QuizID):
-    quizsetID = QuizSet.query.filter_by(quiz_id=QuizID).first().id
-    answer_num = Answer.query.filter_by(quizset_id=quizsetID).count()
+def reviewAnswer(quizsetID,current_answer,answer_num):
+
+    form = GradingForm()
     if quizsetID is None:
         return 'the quiz does not exists'
+    if int(current_answer) is int(answer_num):
+        return 'you have graded all answers'
     else: 
         answer_dict = Answer.query.filter_by(quizset_id=quizsetID).all()
-    return render_template('reviewAnswer.html', answer_dict=answer_dict)
+        answer = answer_dict[int(current_answer)]
+        if form.validate_on_submit():
+            #!!!! haven't added answerer_id!!
+            grade = Grade(mark=form.mark.data, comment=form.comment.data, grader_id=current_user.id)
+            db.session.add(grade)
+            db.session.commit()
+            return redirect(url_for('nextAnswer', quizsetID=quizsetID, current_answer=current_answer, answer_num=answer_num))
+        return render_template('reviewAnswer.html', answer=answer, form=form)
+
+
+@app.route('/nextAnswer/<quizsetID>/<current_answer>/<answer_num>', methods = ['GET', 'POST'])
+@login_required
+def nextAnswer(quizsetID, current_answer, answer_num):
+    current_answer = int(current_answer) + 1
+    return redirect(url_for('reviewAnswer', current_answer=current_answer, quizsetID=quizsetID, answer_num=answer_num))
+
+
+
+
 
 @app.route('/reviewQuiz/<quizsetID>/<current_question_id>/<question_n>', methods = ['Get', 'POST'])
 @login_required

@@ -24,6 +24,7 @@ class User(UserMixin, db.Model):
     #add a relationship between User and Quiz
     create_quizsets = db.relationship('QuizSet', backref='author', lazy='dynamic')
     answer_quizzes = db.relationship('Answer', backref='answerer', lazy='dynamic')
+    grade_questions = db.relationship('Grade', backref='grader', lazy='dynamic')
 
     @property
     def password(self):
@@ -70,7 +71,20 @@ class Answer(db.Model):
     quizset_id = db.Column(db.Integer, db.ForeignKey('quizsets.id'))
     student_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     question_id = db.Column(db.Integer, db.ForeignKey('questions.id'))
+    #add relationship between Answer and Grade
+    graded = db.relationship('Grade', backref='answer', lazy='dynamic')
 
 
     def __repr__(self):
         return self.Answer 
+
+class Grade(db.Model):
+    __tablename__='grades'
+    id = db.Column(db.Integer, primary_key=True)
+    mark = db.Column(db.Integer)
+    comment = db.Column(db.String)
+    grader_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    answerer_id = db.Column(db.Integer, db.ForeignKey('answers.id'))
+
+    def __repr__(self):
+        return '<Grade>' + str(self.mark)

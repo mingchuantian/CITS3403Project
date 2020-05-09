@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, validators
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, TextField, validators
 from wtforms.validators import DataRequired
 
 class LoginForm(FlaskForm):
@@ -34,6 +34,7 @@ class QuizEditForm(FlaskForm):
     submit = SubmitField("Submit")
 '''
 
+#For starting a new quiz
 class QuizStartForm(FlaskForm):
     title = StringField("Quiz Title", validators = [DataRequired()])
     quiz_id = StringField("Give your quiz an ID", validators = [DataRequired()])
@@ -42,30 +43,39 @@ class QuizStartForm(FlaskForm):
     question_num = SelectField("Number of questions", choices=[('1','1'),('2','2'),('3','3'),('4','4'),('5','5')])
     submit = SubmitField("Continue")
 
+#For teachers adding questions to the new quiz
 class QuizEditForm(FlaskForm):
     question = StringField("Question: ", validators = [DataRequired()])
     submit = SubmitField("save question")
 
+#For students adding answers to existing quiz
 class QuizAnswerForm(FlaskForm):
     answer = StringField("Answer: ", validators = [DataRequired()])
     submit = SubmitField("save answer")
 
+#For students retrieving quiz
 class QuizLoginForm(FlaskForm):
     QuizID = StringField("QuizID: ")
     submit = SubmitField("Start Quiz!")
 
-#for teacher changes quizes
+#For teacher retrieving quiz to be changed/modified
 class QuizReviewForm(FlaskForm):
     QuizID = StringField("QuizID (this Quiz has to be in the database): ")
     submit = SubmitField("Start Editing Quiz!")
 
+#For teacher changing/modifying questions
 class changeQuestionForm(FlaskForm):
     newQuestion = StringField("Change question to :")
     submit = SubmitField("Save question")
 
+class QuizMarkForm(FlaskForm):
+    QuizID = StringField("Quiz ID:")
+    submit = SubmitField("Find quiz to be marked!")
 
-
-
+class GradingForm(FlaskForm):
+    mark = StringField("Mark:")
+    comment = TextField("Comment:")
+    submit = SubmitField("Save and Proceed to next question")
     
 
 
