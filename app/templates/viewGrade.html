@@ -8,35 +8,29 @@
 <link rel="stylesheet" href="style.css">
 -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
+
 {% endblock %}
 
 {% block title %}
-Student
+Start Quiz Edit
 {% endblock %}
-
 
 {% block body %}
 {{ super() }}
 {% endblock %}
 
 {% block content %}
-<h1>Hello, 
-    {% if current_user.is_authenticated %}
-    {{ current_user.name}}
-    {% endif %} !
-</h1>
-<p>You are logged in as student!</p>
 
-<div class = "loginQuizForm">
-    {{ wtf.quick_form(loginQuizForm)}}
-</div>
 
-<form action="viewGrade">
-    <button action="button" type="submit">View grades</button>
-</form>
+{% for key in grade_dict %} 
 
-<form action="logout">
-    <button action="button" type="submit">Log out</button>
-</form>
+<h3>Your answer: {{ Answer.query.filter_by(id=(str(key).split(',')[0])).first().Answer }}</h3>
+<h3>Mark: {{ str(key).split(',')[1] }} </h3>
+<h3>Comment: {{ str(key).split(',')[2] }}</h3>
+
+<br>
+{% endfor %}
+
+
 
 {% endblock %}

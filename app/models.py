@@ -7,7 +7,7 @@ from flask_login import UserMixin
 #define shell content 
 @app.shell_context_processor
 def make_shell_context():
-    return dict(db=db, User=User, Question=Question, Answer=Answer, QuizSet=QuizSet)
+    return dict(db=db, User=User, Question=Question, Answer=Answer, QuizSet=QuizSet, Grade=Grade)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -24,7 +24,7 @@ class User(UserMixin, db.Model):
     #add a relationship between User and Quiz
     create_quizsets = db.relationship('QuizSet', backref='author', lazy='dynamic')
     answer_quizzes = db.relationship('Answer', backref='answerer', lazy='dynamic')
-    grade_questions = db.relationship('Grade', backref='grader', lazy='dynamic')
+    graded = db.relationship('Grade', backref='gradedAnswerer', lazy='dynamic')
 
     @property
     def password(self):
@@ -76,15 +76,15 @@ class Answer(db.Model):
 
 
     def __repr__(self):
-        return self.Answer 
+        return str(self.student_id) + ',' + str(self.id) + ',' + str(self.Answer)
 
 class Grade(db.Model):
     __tablename__='grades'
     id = db.Column(db.Integer, primary_key=True)
     mark = db.Column(db.Integer)
     comment = db.Column(db.String)
-    grader_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    answerer_id = db.Column(db.Integer, db.ForeignKey('answers.id'))
+    answer_id = db.Column(db.Integer, db.ForeignKey('answers.id'))
+    answerer_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __repr__(self):
-        return '<Grade>' + str(self.mark)
+        return str(self.answer_id) + ',' + str(self.mark) + ',' + str(self.comment)

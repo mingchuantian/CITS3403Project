@@ -200,20 +200,22 @@ def questionSaved(current_question, QuizsetID, num_question):
 def reviewAnswer(quizsetID,current_answer,answer_num):
 
     form = GradingForm()
+    current_answer = int(current_answer)
+    answer_num = int(answer_num)
     if quizsetID is None:
         return 'the quiz does not exists'
-    if int(current_answer) is int(answer_num):
+    if current_answer is answer_num:
         return 'you have graded all answers'
     else: 
         answer_dict = Answer.query.filter_by(quizset_id=quizsetID).all()
-        answer = answer_dict[int(current_answer)]
+        answer = str(answer_dict[int(current_answer)])
+        answer = answer.split(",")
         if form.validate_on_submit():
-            #!!!! haven't added answerer_id!!
-            grade = Grade(mark=form.mark.data, comment=form.comment.data, grader_id=current_user.id)
+            grade = Grade(mark=form.mark.data, comment=form.comment.data, answer_id=answer[1], answerer_id=int(answer[0]))
             db.session.add(grade)
             db.session.commit()
             return redirect(url_for('nextAnswer', quizsetID=quizsetID, current_answer=current_answer, answer_num=answer_num))
-        return render_template('reviewAnswer.html', answer=answer, form=form)
+        return render_template('reviewAnswer.html', answer=answer[2], form=form)
 
 
 @app.route('/nextAnswer/<quizsetID>/<current_answer>/<answer_num>', methods = ['GET', 'POST'])
@@ -251,3 +253,12 @@ def nextQuestion(current_question_id, quizsetID, question_n):
     question_n = int(question_n) + 1
     return redirect(url_for('reviewQuiz', current_question_id=current_question_id, quizsetID=quizsetID, question_n=question_n))
 
+
+@app.route('/viewGrade',  methods = ['GET', 'POST'])
+@login_required
+def viewGrade():
+    grade_dict = Grade.query.filter_by(answerer_id=current_user.id).all()
+    
+    #grade = grade_dict[0]
+    #grade = grade.split(",")
+    return render_template('viewGrade.html', grade_dict=grade_dict, str=str, Answer=Answer)
