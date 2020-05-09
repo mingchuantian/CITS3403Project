@@ -54,6 +54,16 @@ class QuizLoginForm(FlaskForm):
     QuizID = StringField("QuizID: ")
     submit = SubmitField("Start Quiz!")
 
+#for teacher changes quizes
+class QuizReviewForm(FlaskForm):
+    QuizID = StringField("QuizID (this Quiz has to be in the database): ")
+    submit = SubmitField("Start Editing Quiz!")
+
+class changeQuestionForm(FlaskForm):
+    newQuestion = StringField("Change question to :")
+    submit = SubmitField("Save question")
+
+
 
 
     

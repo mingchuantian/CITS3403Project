@@ -21,12 +21,11 @@ Start Quiz Edit
 
 {% block content %}
 
-{% for key in answer_dict %}
-<!--- key --->
-{{ answer_dict[key] }}
-{% endfor %}
+<p>{{ Question.query.filter_by(id=current_question_id).first().Question }}</p>
 
-{{ answer_dict }}
+{{ wtf.quick_form(form)}}
+<hr>
+
 
 
 {% endblock %}

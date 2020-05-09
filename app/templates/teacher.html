@@ -31,10 +31,26 @@ User Registration
     <button action="button" type="submit">Edit Quiz</button>
 </form>
 
-<div class = "loginQuizForm">
-    {{ wtf.quick_form(loginQuizForm)}}
-</div>
+{{ wtf.quick_form(add_form)}}
+<hr>
+{{ wtf.quick_form(edit_form)}}
 
+<!---
+<h1>Add Quiz</h1>
+<form action="addQuiz" method="post">
+    {{ add_form.QuizID }}
+    {{ add_form.submit }}
+    <button action="button" type="submit">start making quiz</button>
+
+</form>
+<hr>
+<h1>Change Quiz</h1>
+<form action="changeQuiz" method="post">
+    {{ edit_form.QuizID }}
+    {{ edit_form.submit }}
+    <button action="button" type="submit">start changing quiz</button>
+</form>
+-->
 
 <form action="logout">
     <button action="button" type="submit">Log out</button>

@@ -1,6 +1,6 @@
 from app import app, db
 from flask import render_template, flash, redirect, request, url_for
-from app.forms import LoginForm, RegisterForm, QuizEditForm, QuizLoginForm, QuizStartForm, QuizAnswerForm
+from app.forms import LoginForm, RegisterForm, QuizEditForm, QuizLoginForm, QuizStartForm, QuizAnswerForm, QuizReviewForm, changeQuestionForm
 from flask_login import login_user, login_required, logout_user, current_user
 from app.models import User, Question, QuizSet, Answer
 
@@ -110,11 +110,26 @@ def finishQuiz():
 @app.route('/teacher', methods = ['GET', 'POST'])
 @login_required
 def teacher():
-    form= QuizLoginForm()
-    if form.validate_on_submit():
-        QuizID=form.QuizID.data
+    add_form = QuizLoginForm()
+    edit_form = QuizReviewForm()
+
+    if edit_form.validate_on_submit() and edit_form.QuizID.data is not None:
+        QuizID=edit_form.QuizID.data
+        quizset = QuizSet.query.filter_by(quiz_id=QuizID).first()
+        if quizset is not None:
+            quizsetID = quizset.id
+            current_question_id = Prev_Questions_num(quizsetID) + 1
+            question_n = 0
+            return redirect(url_for('reviewQuiz', quizsetID=quizsetID, current_question_id=current_question_id, question_n=question_n))
+        else: 
+            return 'the quiz does not exists'
+    if add_form.validate_on_submit() and add_form.QuizID.data is not None:
+        QuizID=add_form.QuizID.data
         return redirect(url_for('reviewAnswer', QuizID=QuizID))
-    return render_template('teacher.html', loginQuizForm=form)
+    
+
+
+    return render_template('teacher.html', add_form=add_form, edit_form=edit_form)
 
 
 @app.route('/logout')
@@ -163,13 +178,36 @@ def questionSaved(current_question, QuizsetID, num_question):
 @app.route('/reviewAnswer/<QuizID>', methods = ['GET', 'POST'])
 @login_required
 def reviewAnswer(QuizID):
-    quizID = QuizSet.query.filter_by(quiz_id=QuizID).first().id
-    answer_num = Answer.query.filter_by(quizset_id=quizID).count()
-    answers = []
-    if quizID is None:
+    quizsetID = QuizSet.query.filter_by(quiz_id=QuizID).first().id
+    answer_num = Answer.query.filter_by(quizset_id=quizsetID).count()
+    if quizsetID is None:
         return 'the quiz does not exists'
     else: 
-        for i in range(1, answer_num):
-            #the query problem needs to be solved
-            answers.append(Answer.query.filter_by(quizset_id=QuizID).get(i).Answer)
-    return render_template('reviewAnswer.html', answers=answers)
+        answer_dict = Answer.query.filter_by(quizset_id=quizsetID).all()
+    return render_template('reviewAnswer.html', answer_dict=answer_dict)
+
+@app.route('/reviewQuiz/<quizsetID>/<current_question_id>/<question_n>', methods = ['Get', 'POST'])
+@login_required
+def reviewQuiz(quizsetID,current_question_id, question_n):
+
+    if(current_user.id is not QuizSet.query.filter_by(id=quizsetID).first().author_id):
+        return 'you cannot edit the quiz because you are not the author'
+    elif(int(question_n) is QuizSet.query.filter_by(id=quizsetID).first().question_num):
+        return 'you have done editing all questions in this quizset'
+    else:
+        current_question_id = int(current_question_id)
+        form=changeQuestionForm()
+        if form.validate_on_submit():
+            changeQuestion = Question.query.filter_by(id=current_question_id).first()
+            changeQuestion.Question=form.newQuestion.data
+            db.session.commit()
+            return redirect(url_for('nextQuestion', current_question_id=current_question_id, quizsetID=quizsetID, question_n=question_n))
+        return render_template('reviewQuiz.html',  form=form, Question=Question, current_question_id=current_question_id)
+
+@app.route('/nextQuestion/<current_question_id>/<quizsetID>/<question_n>', methods = ['Get', 'POST'])
+@login_required
+def nextQuestion(current_question_id, quizsetID, question_n):
+    current_question_id = int(current_question_id) + 1
+    question_n = int(question_n) + 1
+    return redirect(url_for('reviewQuiz', current_question_id=current_question_id, quizsetID=quizsetID, question_n=question_n))
+
