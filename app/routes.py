@@ -52,7 +52,7 @@ def student():
         if QuizSet.query.filter_by(quiz_id=form.QuizID.data).first() is None:
             return 'You entered a wrong quizset ID!'
         QuizsetID = QuizSet.query.filter_by(quiz_id=form.QuizID.data).first().id
-        if QuizsetID is not None:
+        if QuizsetID is not None:     
             return redirect(url_for('startQuiz', QuizsetID = QuizsetID, current_question=1)) #render_template('startQuiz.html')
         else:
             return 'the quiz does not exist!'
@@ -262,3 +262,54 @@ def viewGrade():
     #grade = grade_dict[0]
     #grade = grade.split(",")
     return render_template('viewGrade.html', grade_dict=grade_dict, str=str, Answer=Answer)
+
+
+@app.route('/viewRanking',  methods = ['GET', 'POST'])
+@login_required
+def viewRanking():
+    #get all quizsets ID recorded in this user's answers
+    quizsets_taken = []
+    answerlist = Answer.query.filter_by(student_id=current_user.id).all()
+    for key in answerlist:
+        each_answerlist = str(key)
+        each_answerlist = each_answerlist.split(',')
+        this_quizset = each_answerlist[3]
+        quizsets_taken.append(this_quizset)
+
+    #get unique quizsets ID
+    unique_quizsets = unique_items(quizsets_taken)
+
+    all_marks = []
+    all_students_id = []
+
+    return render_template('viewRanking.html', unique_quizsets=unique_quizsets, QuizSet=QuizSet, User=User, Answer=Answer, Grade=Grade, str=str, all_marks=all_marks, calcualte_total_mark=calcualte_total_mark, calculate_ranking=calculate_ranking, all_students_id=all_students_id, len=len, unique_items=unique_items)
+
+def calcualte_total_mark(all_marks):
+    total_mark = 0
+    for marks in all_marks:
+        ###!!!!!!theres bug when user is not graded
+        total_mark = total_mark + marks
+    return total_mark 
+
+def calculate_ranking(all_students_id, quizset_id, student_mark):
+    all_students_id = unique_items(all_students_id)
+    all_students_total_marks = []
+    for each_student_id in all_students_id:
+        all_marks = []
+        #calculate mark for each student
+        for answers in Answer.query.filter_by(quizset_id=quizset_id, student_id=each_student_id).all():
+            all_marks.append(Grade.query.filter_by(answer_id = str(answers).split(',')[1]).first().mark)
+        all_students_total_marks.append(calcualte_total_mark(all_marks))
+    all_students_total_marks.sort(reverse=True)
+    rank = all_students_total_marks.index(student_mark) + 1
+
+    return rank
+
+def unique_items(all_items):
+    unique_items = []
+    for key in all_items: 
+        if key not in unique_items:
+            unique_items.append(key)
+    return unique_items
+
+#bug: teacher will unevidably regrade questions. Thus students receive double marks which result in faulty ranking

@@ -76,7 +76,7 @@ class Answer(db.Model):
 
 
     def __repr__(self):
-        return str(self.student_id) + ',' + str(self.id) + ',' + str(self.Answer)
+        return str(self.student_id) + ',' + str(self.id) + ',' + str(self.Answer) + ',' + str(self.quizset_id)
 
 class Grade(db.Model):
     __tablename__='grades'
