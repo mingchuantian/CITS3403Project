@@ -8,8 +8,24 @@
 
 -  22541459  Hanlin Zhang
 
-## Things need to be done:
+## HOW TO RUN THIS APPLICATION
 
-1.
-2.
-3.
+1. Enter virtual environment:
+source /venv/bin/activate
+
+2. Set up running application & enable debug mode:
+export FLASK_RUN=run.py
+export FLASK_DEBUG=TRUE
+
+## DATABASE MANIPULATION
+
+Enter flask shell:
+flask shell
+
+- Drop all tables (in flask shell):
+db.drop_all()
+
+- Create all tables (in flask shell):
+db.create_all()
+
+
