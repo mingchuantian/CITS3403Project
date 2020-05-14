@@ -17,6 +17,12 @@ source /venv/bin/activate
 export FLASK_RUN=run.py
 export FLASK_DEBUG=TRUE
 
+## Things need to install
+
+pip install flask_sqlalchemy
+pip install flask_migrate 
+pip install flask_wtf      
+
 ## DATABASE MANIPULATION
 
 Enter flask shell:
