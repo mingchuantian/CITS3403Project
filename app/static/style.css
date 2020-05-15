@@ -12,3 +12,15 @@
 .logg{
 
 }
+
+#s_tab {
+    background: #f8f8f8;
+    line-height: 36px;
+    height: 38px;
+    padding: 55px 0 0 121px;
+    float: none;
+}
+.s_tab {
+    line-height: 18px;
+    padding: 20px 0 0;
+}

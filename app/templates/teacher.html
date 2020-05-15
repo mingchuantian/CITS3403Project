@@ -25,22 +25,39 @@ User Registration
     {{ current_user.name}}
     {% endif %} !
 </h1>
-<p>You are logged in as teacher!</p>
+<div style="margin-left: 5px;">
+    <table>
+        <tr>
+            <td><img alt = "tick" style="width: 15px;" src = "{{ url_for('static', filename='ticker.jpg', _external=True) }}")></td>
+            <td><br><p style="color: red; font-size: larger;"><b>&ensp;&ensp;You are logged in as teacher, welcome!</b></p></td>
+        </tr>
+    </table>
+    
+   
 
-<form action="startEditQuiz">
-    <button action="button" type="submit">Edit Quiz</button>
-</form>
+    <p>To make a new quiz, please click here!</p>
+    <form action="startEditQuiz">
+        <button action="button" type="submit" class="btn btn-primary">New Quiz</button>
+    </form>
+    <p style="margin-top: 10px;">Or edit the quiz already exists, please click here!</p>
+</div>
+
 
 {{ wtf.quick_form(form)}}
 <hr>
-<form action="markQuiz">
-    <button action="button" type="submit">Mark Quiz</button>
-</form>
 
+<div style=" margin-left: 5px;">
+    <p>To mark the quiz, please click here!</p>
+    <form action="markQuiz">
+        <button action="button" type="submit" class="btn btn-success">Mark Quiz</button>
+    </form>
+    
+    <p>To log out your account, please click here!</p>
+    <form action="logout" style="margin-top: 10px;">
+        <button action="button" type="submit" class="btn btn-danger">&ensp;&ensp;Log out&ensp;&ensp;</button>
+    </form>
+</div>
 
-<form action="logout">
-    <button action="button" type="submit">Log out</button>
-</form>
 
 
 {% endblock %}
