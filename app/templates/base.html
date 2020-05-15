@@ -8,6 +8,9 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+		<!-- icon -->
+		<link rel="shortcut icon" href="../static/quiz_icon.png" >
+
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -15,17 +18,35 @@
 
 	    {% endblock %}
     </head>
-    
+	
 	<body>
-		<div>
-			Navigation
-			<a href="{{ url_for('index') }}">Home</a>
-			{% if current_user.is_anonymous %}
-			<a href="{{ url_for('login') }}">Login</a>
-			{% else %}
-			<a href="{{ url_for('logout') }}">Logout</a>
-			{% endif %}
+
+		{% block navbar %}
+		<div class="navbar navbar-inverse" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/">Navigation</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a  href="{{ url_for('index') }}">Home</a></li>
+						{% if current_user.is_anonymous %}
+						<li><a  href="{{ url_for('login') }}">Log in</a></li>
+						{% else %}
+						<li><a  href="{{ url_for('logout') }}">Log out</a></li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
 		</div>
+		{% endblock %}
+
         {% block body %}
         <img class="logo" alt = "uwaLogo" src = "{{ url_for('static', filename='logo.jpeg', _external=True) }}")>
 
@@ -35,5 +56,26 @@
 			{% endblock %}
 		</article>
 		{% endblock %}
+
+		<hr>
+		<h5 style="margin-left: 15px;">This page</h5>
+		<div style="margin-left: 30px;">
+			<p>Written by:</p>
+			<ul>
+				<li>22636589 Mingchuan Tian</li>
+				<li>22762872 Ruida He</li>
+				<li>22797012 Jiayu Wu</li>
+				<li>22541459 Hanlin Zhang</li>
+			</ul>
+		</div>
+		
+		<hr>
+		&nbsp;current time:
+		<!-- 定义一个id为cg,时间模块 -->
+		<span id="cg"> 2016/12/21 am 12:00:00</span>
+		<!--这个cg就是span的id，初始化Date时间并转化为字符string类型,每1000毫秒，setInterval() 就会调用函数，直到被关闭。-->
+		<script>
+			setInterval("cg.innerHTML=new Date().toLocaleString('en-us')",1000);
+		</script>
 	</body>
 </html>

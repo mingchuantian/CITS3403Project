@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 {% endblock %}
 
+
 {% block title %}
 User Registration
 {% endblock %}
@@ -22,8 +23,11 @@ User Registration
 {{ wtf.quick_form(registerForm)}}
 </div>
 <hr>
-<p>Already a user?</p>
-<form action="login">
-    <button action="button" type="submit">Login here</button>
-</form>
+<div style="margin-left: 5px;">
+    <p>Already a user? Click here to log in!</p>
+    <form action="login">
+        <button action="button" type="submit" class="btn-info"> >>> Login here</button>
+    </form>
+</div>
+
 {% endblock %}
