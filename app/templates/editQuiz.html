@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
 
@@ -12,10 +12,23 @@
 {% endblock %}
 
 {% block title %}
-Quiz Edit
+Create a new quiz
 {% endblock %}
 
 {% block body %}
+<img class="logo" alt = "uwaLogo" src = "{{ url_for('static', filename='logo.jpeg', _external=True) }}">
+<table style="background-color: #ede7d3;margin: 10px;">
+    <tr>
+        <td style="background-color: orange;">&emsp;&emsp;</td>
+        <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Welcome to create a new quiz!</h3><br>
+        <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
+        Each time when you finish a qustion edit, please click the "Save" button to save your question and move to the next qustion. All the questions will save to the database. Please make sure you insert the correct quiz id and quiz name!
+        
+        </div>
+        <br>
+    </td>
+    </tr>
+</table>
 {{ super() }}
 {% endblock %}
 
