@@ -20,19 +20,33 @@ User Registration
 {% endblock %}
 
 {% block content %}
-<h1>Hello, 
+<h2>Hello, 
     {% if current_user.is_authenticated %}
     {{ current_user.name}}
     {% endif %} !
-</h1>
+</h2>
 <div style="margin-left: 5px;">
     <table>
         <tr>
-            <td><img alt = "tick" style="width: 15px;" src = "{{ url_for('static', filename='ticker.jpg', _external=True) }}")></td>
+            <td><img alt = "tick" style="width: 15px;" src = "{{ url_for('static', filename='ticker.jpg', _external=True) }}"></td>
             <td><br><p style="color: red; font-size: larger;"><b>&ensp;&ensp;You are logged in as teacher, welcome!</b></p></td>
         </tr>
     </table>
-    
+
+    <table style="background-color: #ede7d3;margin: 10px;">
+        <tr>
+            <td style="background-color: orange;">&emsp;&emsp;</td>
+            <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Welcome to the quiz page!</h3><br>
+            <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
+            Please click the button "New Quiz" to make a new quiz, or insert the quiz id and click the "Start Editing Quiz" button to start editing the quiz! Please give the quiz id to your students to allowed them access the quiz page and answer the question!
+            <br><br>
+            In this page, you can also view mark the quiz by click the "Mark Quiz" button or click "Log out" button to log out your account and make it safety.
+            </div>
+            <br>
+        </td>
+        </tr>
+    </table>
+    <br>
    
 
     <p>To make a new quiz, please click here!</p>
