@@ -17,6 +17,10 @@
 
 }
 
+.left40px{
+    margin-left: 40px;
+}
+
 #s_tab {
     background: #f8f8f8;
     line-height: 36px;
@@ -27,6 +31,11 @@
 .s_tab {
     line-height: 18px;
     padding: 20px 0 0;
+}
+
+.text_boder{
+    border: 1px black solid;
+    margin:20px 5px;
 }
 
 .p_not_change_line{

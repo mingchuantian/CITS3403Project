@@ -9,12 +9,13 @@
 -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 
-{% endblock %}
+<!--remember to delete this-->
+<script src="{{url_for('static',filename='js.js',_external=True)}}"></script>
 
+{% endblock %}
 {% block title %}
 Start Quiz Edit
 {% endblock %}
-
 {% block body %}
 <img class="logo" alt = "uwaLogo" src = "{{ url_for('static', filename='logo.jpeg', _external=True) }}">
 <table style="background-color: #ede7d3;margin: 10px;">
@@ -31,36 +32,44 @@ Start Quiz Edit
     </tr>
 </table>
 
-<div class="text_boder" style="background-color: white; margin: 15px;">
-    <div class="left40px" style="margin-bottom: 20px;">
-        <div class="wrap" style="margin-top: 20px; font-weight: 500;background-color: whitesmoke;font-size: 30px;">Total time: 60 min &emsp;&emsp;&emsp;Time left : <span class="time_min"></span> minutes &emsp;<span class="time_sec"></span> seconds</div>
-            <script type="text/javascript">
-                var timeEle = document.querySelector('.time'),
-                timeEle_sec = document.querySelector('.time_sec'),
-                timeEle_min = document.querySelector('.time_min'),
-                    count   = 3600,
-                    second = count%60;
-                    min = Math.floor(count/60);
-                //timeEle.innerHTML = count;
-                // set the timer
-                var judge = setInterval(function() {
-                    count--;
-                    second = count%60;
-                    min = Math.floor(count/60);
-                    if (!count) {
-                        // clean the timer
-                        clearInterval(judge);
-                        alert("time is up!");
-                    };
-                    // show the current timer time
-                    //timeEle.innerHTML = count;
-                    timeEle_sec.innerHTML = second;
-                    timeEle_min.innerHTML = min;
-                }, 1000);
-            </script>
-        </div>
-</div>
-
+<SCRIPT LANGUAGE="JavaScript">
+    var maxtime;
+    if(window.name==''){ 
+     maxtime = 120*60;
+     }else{
+     maxtime = window.name;
+    }
+      
+    function CountDown(){
+     if(maxtime>=0){
+     if(Math.floor(maxtime/(3600))==0){
+        hours = "0"+0;
+     }else{
+        hours = Math.floor(maxtime/(3600));
+     }
+     if(Math.floor(maxtime/120)==60||Math.floor(maxtime/120)==0){
+         minutes = "0"+0;
+     }else{
+        minutes = Math.floor(maxtime/120);
+     }
+    if(Math.floor(maxtime%60)==0||Math.floor(maxtime%60)==60){
+        seconds = "0"+0;
+    }else{
+        seconds = Math.floor(maxtime%60);
+    }
+     msg = "  Time left: "+ hours +" hours : " + minutes +" minutes : "+ seconds +" seconds ";
+     document.getElementById("timer").innerHTML = msg;
+     --maxtime;
+     window.name = maxtime; 
+     }
+     else{
+     clearInterval(timer);
+     alert("Time is up!");
+     }
+    }
+    timer = setInterval("CountDown()",1000);
+    </SCRIPT>
+    <div id="timer" style="color:black;font-weight: 500;margin-left: 10px;background-color: whitesmoke;font-size: 30px;">&emsp;</div>
 {{ super() }}
 
 {% endblock %}
@@ -83,5 +92,9 @@ Start Quiz Edit
     <button action="button" type="submit" class="btn btn-info" style="margin-top: 10px; margin-right: 20px;float: right;">&ensp;&ensp;Finish Quiz&ensp;&ensp;</button>
 </form>
 <div class="clearfix"></div>
+
+<!--remember to delete this-->
+<button onclick="run()">click to test</button>
+
 
 {% endblock %}
