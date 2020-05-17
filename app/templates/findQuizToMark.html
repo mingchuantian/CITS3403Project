@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
 
@@ -12,10 +12,12 @@
 {% endblock %}
 
 {% block title %}
-Start Quiz Edit
+Mark the quiz
 {% endblock %}
 
 {% block body %}
+<img class="logo" alt = "uwaLogo" src = "{{ url_for('static', filename='logo.jpeg', _external=True) }}" style="width: 400px;">
+<h3 style="margin-left: 5px; margin-bottom: 20px;">Please insert the quiz number to the quiz you want to mark!</h3>
 {{ super() }}
 {% endblock %}
 

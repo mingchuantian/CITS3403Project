@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+ 
+<body>
+    <SCRIPT LANGUAGE="JavaScript">
+    var maxtime;
+    if(window.name==''){ 
+     maxtime = 0.1*60;
+     }else{
+     maxtime = window.name;
+    }
+      
+    function CountDown(){
+     if(maxtime>=0){
+     if(Math.floor(maxtime/(3600))==0){
+        hours = "0"+0;
+     }else{
+        hours = Math.floor(maxtime/(3600));
+     }
+     if(Math.floor(maxtime/120)==60||Math.floor(maxtime/120)==0){
+         minutes = "0"+0;
+     }else{
+        minutes = Math.floor(maxtime/120);
+     }
+    if(Math.floor(maxtime%60)==0||Math.floor(maxtime%60)==60){
+        seconds = "0"+0;
+    }else{
+        seconds = Math.floor(maxtime%60);
+    }
+     msg = "Time left: "+ hours +" hours : " + minutes +" minutes : "+ seconds +" seconds ";
+     document.getElementById("timer").innerHTML = msg;
+     --maxtime;
+     window.name = maxtime; 
+     }
+     else{
+     clearInterval(timer);
+     alert("Time is up!");
+     }
+    }
+    timer = setInterval("CountDown()",1000);
+    </SCRIPT>
+    <div id="timer" style="color:red"></div> 
+      
+    </body>
+ 
+</html>
