@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="style.css">
 -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='tick_css.css', _external=True) }}">
+
 {% endblock %}
 
 {% block title %}
@@ -25,10 +27,16 @@ User Registration
     {{ current_user.name}}
     {% endif %} !
 </h2>
-<div style="margin-left: 5px;">
+<div style="margin-left: 5px;" class="body_tick">
     <table>
         <tr>
-            <td><img alt = "tick" style="width: 15px;" src = "{{ url_for('static', filename='ticker.jpg', _external=True) }}"></td>
+            <td>  <input type="checkbox" checked style="display: none;">
+
+                <svg width="20" height="20">
+                  <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
+                  <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
+                </svg>
+            </td>
             <td><br><p style="color: red; font-size: larger;"><b>&ensp;&ensp;You are logged in as teacher, welcome!</b></p></td>
         </tr>
     </table>

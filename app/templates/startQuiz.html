@@ -17,7 +17,7 @@
 Start Quiz Edit
 {% endblock %}
 {% block body %}
-<img class="logo" alt = "uwaLogo" src = "{{ url_for('static', filename='logo.jpeg', _external=True) }}">
+<img class="logo" alt = "uwaLogo" src = "{{ url_for('static', filename='logo.jpeg', _external=True) }}" style="width: 400px;">
 <table style="background-color: #ede7d3;margin: 10px;">
     <tr>
         <td style="background-color: orange;">&emsp;&emsp;</td>
@@ -93,8 +93,8 @@ Start Quiz Edit
 </form>
 <div class="clearfix"></div>
 
-<!--remember to delete this-->
-<button onclick="run()">click to test</button>
+<!--remember to delete this  <button onclick="run()">click to test</button>-->
+
 
 
 {% endblock %}
