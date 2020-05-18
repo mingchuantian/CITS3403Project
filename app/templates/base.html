@@ -37,7 +37,14 @@
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
+						{% if current_user.is_anonymous %}
 						<li><a  href="{{ url_for('index') }}">Home</a></li>
+						{% endif %}
+						{% if current_user.is_authenticated and current_user.is_teacher %}
+						<li><a  href="{{ url_for('teacher') }}">Teacher Homepage</a></li>
+						{% elif current_user.is_authenticated %}
+						<li><a  href="{{ url_for('student') }}">Student Homepage</a></li>
+						{% endif %}
 						{% if current_user.is_anonymous %}
 						<li><a  href="{{ url_for('login') }}">Log in</a></li>
 						{% else %}

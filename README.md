@@ -36,11 +36,13 @@ db.create_all()
 
 ## Bug need to fix or some advices
 
-1.  when click the "home" button after log in, will return to the "log in" page
-2.  after click the "save" button, the question will desapeal and move to next question(can not go to previous question or next question)
+1.  when click the "home" button after log in, will return to the "log in" pagei
+(Fixed)
+2.  after click the "save" button, the question disappeas and move on to the next question(can not go to previous question or next question)
 3.  need to auto mark the quiz (when create the quiz, teacher can select auto mark or not, if "Yes", then need to insert the answer for each question then check the student answer with the correct answer.)
 4.  when create the exam, teacher can modify the mark of each question (when mark the exam, if the mark teacher insert is higher than the modify mark, warning)
-5.  after click the "log out" button, there has a small button inside of the html page, i am not sure what that is (click it will jump to a error page)
+5.  after click the "log out" button, there is a small button inside of the html page, i am not sure what that is (click it will jump to a error page)
+(Fixed)
 6.  after login, can not jump to the student or teacher page
 7.  after create a new quiz, can not back to the teacher page or view the quiz
 8.  when insert a correct email with incorrect password, the html page will warning "the count is not exists", it should be "incorrect password or the count is not exists", then it should have a button to jump back to the login page

@@ -21,6 +21,11 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(64), unique=True)
     password_hash = db.Column(db.String(128))
     is_teacher = db.Column(db.Boolean)
+    faculty = db.Column(db.String(64))
+    title = db.Column(db.String(64))
+    phone = db.Column(db.Integer)
+    address = db.Column(db.Text)
+
     #add a relationship between User and Quiz
     create_quizsets = db.relationship('QuizSet', backref='author', lazy='dynamic')
     answer_quizzes = db.relationship('Answer', backref='answerer', lazy='dynamic')

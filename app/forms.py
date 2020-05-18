@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, TextField, validators
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Length
 
 class LoginForm(FlaskForm):
 
@@ -40,7 +40,7 @@ class QuizStartForm(FlaskForm):
     quiz_id = StringField("Give your quiz an ID", validators = [DataRequired()])
     #need to restrict the number of questions
     #question_num = StringField("Number of questions", validators = [DataRequired()])
-    question_num = SelectField("Number of questions", choices=[('1','1'),('2','2'),('3','3'),('4','4'),('5','5')])
+    question_num = SelectField("Number of questions", choices=[('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'),('8','8'),('9','9'),('10','10')])
     submit = SubmitField("Continue")
 
 #For teachers adding questions to the new quiz
@@ -78,4 +78,12 @@ class GradingForm(FlaskForm):
     submit = SubmitField("Save and Proceed to next question")
     
 
+class EditProfileForm(FlaskForm):
+    name = StringField("Name: ", validators = [DataRequired()])
+    title = SelectField("Title: ", choices=[('Mr. ', 'Mr.'),('Mrs. ', 'Mrs. '),('Miss. ', 'Miss '),('Dr. ', 'Dr. '),('Prof. ', 'Prof. ')], validators = [DataRequired()])
+    faculty = SelectField("Faculty: ", choices=[('Arts, Business, Law and Education','Arts, Business, Law and Education'),('Health and Medical Sciences','Health and Medical Sciences'),('Engineering and Mathematical Sciences','Engineering and Mathematical Sciences'),('Science','Science')], validators = [DataRequired()])
+    phone = StringField("Phone: ", validators=[DataRequired(), Length(min=10, max=10)])
+    address = TextField("Address: ", validators=[DataRequired()] )
+
+    submit = SubmitField("Save")
 
