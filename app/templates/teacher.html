@@ -51,18 +51,18 @@ User Registration
 <a class="btn btn-default" href = "{{ url_for('editProfile') }}">
     Edit Profile
 </a>
-
+<br>
 <div style="margin-left: 5px;" class="body_tick">
     <table>
         <tr>
+            <td style="padding-left:5px; width: 350px;"><br><p style="color: red; font-size: larger;"><b>You are logged in as teacher, welcome!</b></p></td>
             <td>  <input type="checkbox" checked style="display: none;">
-
                 <svg width="20" height="20">
                   <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
                   <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
                 </svg>
             </td>
-            <td><br><p style="color: red; font-size: larger;"><b>&ensp;&ensp;You are logged in as teacher, welcome!</b></p></td>
+           
         </tr>
     </table>
 
@@ -89,8 +89,10 @@ User Registration
     <p style="margin-top: 10px;">Or edit the quiz already exists, please click here!</p>
 </div>
 
+<div style="margin-top: -50px;">
+    {{ wtf.quick_form(form)}}
+</div>
 
-{{ wtf.quick_form(form)}}
 <hr>
 
 <div style=" margin-left: 5px;">
