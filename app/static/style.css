@@ -38,3 +38,11 @@
     padding: 0px;
     margin: 0px;
 }
+
+.quiz_submit_button{
+    float: right;
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color: #85C1E9;
+    font-size: larger;
+}
