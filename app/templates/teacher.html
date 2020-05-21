@@ -9,6 +9,7 @@
 -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='tick_css.css', _external=True) }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='teachercss.css', _external=True) }}">
 
 {% endblock %}
 
@@ -66,7 +67,7 @@ User Registration
         </tr>
     </table>
 
-    <table style="background-color: #ede7d3;margin: 10px;">
+    <table style="background-color: #ede7d3;margin: 5px;">
         <tr>
             <td style="background-color: orange;">&emsp;&emsp;</td>
             <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Welcome to the quiz page!</h3><br>
@@ -82,31 +83,30 @@ User Registration
     <br>
    
 
-    <p>To make a new quiz, please click here!</p>
+    <p class="new_quiz_title">To make a new quiz, please click here!</p>
     <form action="startEditQuiz">
         <button action="button" type="submit" class="btn btn-primary">New Quiz</button>
     </form>
-    <p style="margin-top: 10px;">Or edit the quiz already exists, please click here!</p>
+    <p style="margin-top: 10px; margin-bottom: 20px;" class="new_quiz_title">Or edit the quiz already exists, please click here!</p>
+
+    <div style="margin-left: 5px;">
+        {{ wtf.quick_form(form)}}
+    </div>
+
+    <hr>
+
+    <div style=" margin-left: 5px;">
+        <p class="new_quiz_title">To mark the quiz, please click here!</p>
+        <form action="markQuiz">
+            <button action="button" type="submit" class="btn btn-success">Mark Quiz</button>
+        </form>
+        
+        <p class="new_quiz_title">To log out your account, please click here!</p>
+        <form action="logout" style="margin-top: 10px;">
+            <button action="button" type="submit" class="btn btn-danger">&ensp;&ensp;Log out&ensp;&ensp;</button>
+        </form>
+    </div>
 </div>
-
-<div style="margin-top: -50px;">
-    {{ wtf.quick_form(form)}}
-</div>
-
-<hr>
-
-<div style=" margin-left: 5px;">
-    <p>To mark the quiz, please click here!</p>
-    <form action="markQuiz">
-        <button action="button" type="submit" class="btn btn-success">Mark Quiz</button>
-    </form>
-    
-    <p>To log out your account, please click here!</p>
-    <form action="logout" style="margin-top: 10px;">
-        <button action="button" type="submit" class="btn btn-danger">&ensp;&ensp;Log out&ensp;&ensp;</button>
-    </form>
-</div>
-
 
 
 {% endblock %}
