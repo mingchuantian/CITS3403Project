@@ -8,8 +8,7 @@
 <link rel="stylesheet" href="style.css">
 -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
-<!--remember to delete this-->
-<script type="text/javascript" src="{{url_for('static', filename='alert.js')}}"></script>
+
 
 {% endblock %}
 {% block title %}
@@ -83,6 +82,7 @@ Start Quiz Edit
 {% endblock %}
 
 {% block content %}
+
 
 
 <p style="font-weight: 600; font-size: 30px;">Your teacher is: {{ teacher_name }}</p>
