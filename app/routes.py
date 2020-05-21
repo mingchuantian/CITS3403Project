@@ -26,6 +26,11 @@ def index():
     return render_template('index.html', registerForm = form)
 
 
+@app.route('/main', methods = ['GET', 'POST'])
+def main():
+    return render_template('Main_page.html')
+
+
 # ----  Notification page -----
 
 @app.route('/notification/<content>/<buttonText>/<link>')

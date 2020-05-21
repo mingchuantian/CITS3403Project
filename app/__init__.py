@@ -9,7 +9,7 @@ from flask_login import LoginManager
 app = Flask(__name__)
 #configure app from Config
 #now using testConfig
-app.config.from_object(TestConfig)
+app.config.from_object(Config)
 
 #create SQLAlchemy object 'db'
 db = SQLAlchemy(app)

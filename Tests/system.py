@@ -5,9 +5,17 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+# SystemTest class does testing on system level 
+# and checks workflow from users perspective in different scenarios
+# (Due to time limitation, it is not 100% coverage. 
+#  However, it should have a good amount of coverage and fully demonstrate the testing process)
+
 class SystemTest(unittest.TestCase):
     driver = None
 
+    # setUp will run before running any testing functions
+    # tables are dropped and re-created to make sure emptiness
+    # insert initial values into tables for later testing
     def setUp(self):
         self.driver = webdriver.Firefox(executable_path=os.path.join(basedir,'geckodriver'))
         if not self.driver:
@@ -24,8 +32,9 @@ class SystemTest(unittest.TestCase):
             db.session.add(u2)
             db.session.commit()
             self.driver.maximize_window()
-            #self.driver.get('http://localhost:5000/')
 
+    # tearDown runs after testing finished
+    # it will close the webdriver and remove user session
     def tearDown(self):
         if self.driver:
             self.driver.close()
@@ -33,10 +42,9 @@ class SystemTest(unittest.TestCase):
 
 
 
-    # Test teacher account login & open 'Add quiz' page
+    # Test teacher's account login function
+    # returns ERROR or False if anything goes wrong
     def test_login(self):
-
-        #Login process
         self.driver.get('http://localhost:5000/login')
         time.sleep(1) 
         email_field = self.driver.find_element_by_id('email')
@@ -51,14 +59,9 @@ class SystemTest(unittest.TestCase):
         login_identifier = self.driver.find_element_by_id('Logged in successful').get_attribute('innerHTML')
         self.assertEqual(login_identifier, 'The University of Western Australia')
 
-        #Open quiz page
-        make_quiz = self.driver.find_element_by_id('makeQuiz')
-        make_quiz.click()
-        time.sleep(1)
-        quiz_identifier = self.driver.find_element_by_id('quizPage')
-        self.assertTrue(quiz_identifier)
 
-    #Test teacher account register
+    # Test user's register function
+    # returns ERROR or False if anything goes wrong
     def test_register(self):
         self.driver.get('http://localhost:5000/')
         time.sleep(1)
@@ -77,7 +80,9 @@ class SystemTest(unittest.TestCase):
 
         signup_identifier = self.driver.find_element_by_id('notif').get_attribute('innerHTML')
         self.assertEqual(signup_identifier, 'The user is successfully registered')
-    
+
+    # Test teacher's workflow for adding a new quiz
+    # returns ERROR or False if anything goes wrong
     def test_addQuiz(self):
         #Login process
         self.driver.get('http://localhost:5000/login')
@@ -112,9 +117,22 @@ class SystemTest(unittest.TestCase):
         submit.click()
         time.sleep(1)
 
+        #add question
+        question = self.driver.find_element_by_id('question')
+        submit = self.driver.find_element_by_id('submit')
+        question.send_keys('This is a test question')
+        submit.click()
+
+        # needed to add a 'finish' button and check that all blanks are saved!
+        question_finder = self.driver.find_element_by_id('question')
+        if question_finder is None:
+            self.assertFalse()
+        else:
+            self.assertTrue()
         
 
-    
+    # Test student's workflow for adding a new quiz
+    # returns ERROR or False if anything goes wrong 
     def test_answerQuiz(self):
         #Login process
         self.driver.get('http://localhost:5000/login')
@@ -136,14 +154,6 @@ class SystemTest(unittest.TestCase):
         quizID_field.send_keys('111')
         submit.click()
         time.sleep(3)
-
-    
- #   def test_addQuiz(self):
-#        self.driver.get('http://localhost:5000/login')
-
-
-
-
 
 if __name__=='__main__':
   unittest.main(verbosity=2)

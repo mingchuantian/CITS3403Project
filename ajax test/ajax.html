@@ -6,12 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <script type="text/javascript" src="ajax.js" async></script>
+    <script type="text/javascript" src="ajaxdoc.js" async></script>
 
     <!--show how ajax work-->
 
     <div id="mainText">
         <h1 style="font-size: 20px;">Globals covid-19!</h1>
+        <form action="get_mark()"">
+            <button action="button" type="submit" class="btn btn-primary">start</button>
+        </form>
+        <button onclick="get_mark()">start ajax</button>
             <table id="table_testing"  class ="table-bordered" style="background-color:thistle">
                 <thead><tr><th>name</th><th> times</th></tr></thead>
             </table>

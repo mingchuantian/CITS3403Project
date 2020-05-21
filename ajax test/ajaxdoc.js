@@ -2,14 +2,15 @@ function get_mark(){
     const table =document.getElementById("table_testing");
 
     //  Set the url where we create the students
-     const url='http://127.0.0.1:5000/students_taken';
+     const url='localhost:5000/students_taken';
     
     //  'Fetching' the information
     fetch(url)
-        .then(function(resp){
-           return resp.json();
-        })
+        //.then(function(resp){
+        //   return resp.json();
+        //})
         .then(function(data){
+            console.log('123')
             console.log(data);
             let marks = data.locations;
             console.log(marks);

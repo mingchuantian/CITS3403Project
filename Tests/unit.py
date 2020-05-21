@@ -3,14 +3,17 @@ from app import app, db
 from app.models import User, Question, QuizSet, Answer, Grade
 
 
+# Unit test does testing on models (database)
+# checks functions (eg. set_password() for User)
+# and see if all attributes have intended values
+# (It should be 100% coverage on all models & attributes)
+
 class UserModelTest(unittest.TestCase):
 
-
+    # setUp will run before running any testing functions
+    # it creates a virtual environment & make sure databse is empty
     def setUp(self):
-        #creates an virtual environment
         self.app = app.test_client()
-        #make sure database is empty
-        #db.session.query(User).delete()
         db.drop_all()
         db.create_all()
         u = User(name='Ming', email='mingchuantian@gmail.com',  faculty="Science", title="Mr.", phone = "499382201", address="311 road")
@@ -19,8 +22,6 @@ class UserModelTest(unittest.TestCase):
 
     def tearDown(self):
         db.session.remove()
-
-#each time the following funtion is called, it will call Setup and tearDown
 
     def test_set_pw(self):  
         u = User.query.get(1)
