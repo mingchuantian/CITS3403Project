@@ -52,6 +52,9 @@ User Registration
 <p id = "Logged in successful">The University of Western Australia</p>
 </div>
 
+<img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
+
+
 <a class="btn btn-default" href = "{{ url_for('editProfile') }}">
     Edit Profile
 </a>
@@ -85,6 +88,16 @@ User Registration
     </table>
     <br>
    
+    <!--
+    <select method = "GET" action="/">
+        {% for quizsetID in exist_quizes %}
+        <option value="{{ quizsetID }}" SELECTED>
+            {{ quizsetID }}
+        </option>
+        {% endfor %}
+    </select>
+
+    --->
 
     <p class="new_quiz_title">To make a new quiz, please click here!</p>
     <form action="startEditQuiz">

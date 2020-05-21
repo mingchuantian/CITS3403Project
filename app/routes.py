@@ -76,7 +76,7 @@ def student():
             return redirect(url_for('startQuiz', QuizsetID = QuizsetID, current_question=1))
         else:
             return render_template('notify.html', content='The quiz does not exist!',  buttonText='Back to profile page', link=student) 
-    return render_template('student.html', loginQuizForm = form)
+    return render_template('student.html', loginQuizForm = form, user = current_user)
 
 
 # ----  Student quiz page -----
@@ -142,7 +142,9 @@ def teacher():
         else: 
             return 'the quiz does not exists'
 
-    return render_template('teacher.html',  form=form)
+    #quizes = QuizSet.Query.filter_by(author_id = current_user.id)
+    #exist_quizes = {'111', '333', '999'}
+    return render_template('teacher.html',  form=form, user=current_user)
 
 
 # ----  Page for teachers to find the quiz to mark -----

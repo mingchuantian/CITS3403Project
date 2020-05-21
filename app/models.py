@@ -1,5 +1,6 @@
-import os
+import os, hashlib
 from app import app, db, login_manager
+from flask import request
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -25,12 +26,38 @@ class User(UserMixin, db.Model):
     title = db.Column(db.String(64))
     phone = db.Column(db.Integer)
     address = db.Column(db.Text)
+    avatar_hash = db.Column(db.String(32))
 
     #add a relationship between User and Quiz
     create_quizsets = db.relationship('QuizSet', backref='author', lazy='dynamic')
     answer_quizzes = db.relationship('Answer', backref='answerer', lazy='dynamic')
     graded = db.relationship('Grade', backref='gradedAnswerer', lazy='dynamic')
 
+    
+    def __init__(self, **kwargs):
+        super(User, self).__init__(**kwargs)
+        #if self.email is not None and self.avatar_hash is None:
+        self.avatar_hash = self.gravatar_hash()
+    
+    
+    def change_email(self, token):
+        self.email = new_email
+        self.avatar_hash = self.gravatar_hash()
+        db.session.add(self)
+        return True
+    
+
+    def gravatar_hash(self):
+        return hashlib.md5(self.email.lower().encode('utf-8')).hexdigest()
+
+    def gravatar(self, size=100, default='identicon', rating='g'):
+        if request.is_secure:
+            url = 'https://secure.gravatar.com/avatar'
+        else:
+            url = 'http://www.gravatar.com/avatar'
+        hash = self.avatar_hash or self.gravatar_hash()
+        #hash = hashlib.md5(self.email.lower().encode('utf-8')).hexdigest()
+        return '{url}/{hash}?s={size}&d={default}&r={rating}'.format(url=url, hash=hash, size=size, default=default, rating=rating)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -39,7 +66,7 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
     
     def __repr__(self):
-        return '<User>' + self.name
+        return '<User>' + str(self.name)
 
 
 class Question(db.Model):
@@ -61,6 +88,7 @@ class QuizSet(db.Model):
     questions = db.relationship('Question', backref='quizset', lazy='dynamic')
     answers = db.relationship('Answer', backref='answerman', lazy='dynamic')
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
 
     def __repr__(self):
         return '<Quizset>' + str(self.id)

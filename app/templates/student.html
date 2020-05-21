@@ -47,6 +47,8 @@ Student
     <p id = "Logged in successful">The University of Western Australia</p>
     </div>
 
+<img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
+
 <a class="btn btn-default" href = "{{ url_for('editProfile') }}">
     Edit Profile
 </a>
