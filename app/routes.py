@@ -1,5 +1,5 @@
 from app import app, db
-from flask import render_template, flash, redirect, request, url_for
+from flask import render_template, flash, redirect, request, url_for, jsonify
 from app.forms import LoginForm, RegisterForm, QuizEditForm, QuizLoginForm, QuizStartForm, QuizAnswerForm, QuizReviewForm, changeQuestionForm, QuizMarkForm, GradingForm, EditProfileForm
 from flask_login import login_user, login_required, logout_user, current_user
 from app.models import User, Question, QuizSet, Answer, Grade
@@ -325,6 +325,14 @@ def editProfile():
 
 
 
+#API that returns the number of students who have taken the quiz
+@app.route('/students_taken')
+def students_taken():
+    return jsonify({'Ming': 4, 'Hanlin': 5, "Tim": 3 })
+
+
+
+
 #Helper function that calculates the total mark of each quiz
 def calcualte_total_mark(all_marks):
     total_mark = 0
@@ -355,6 +363,7 @@ def unique_items(all_items):
         if key not in unique_items:
             unique_items.append(key)
     return unique_items
+
 
 
 
