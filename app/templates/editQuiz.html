@@ -8,6 +8,11 @@
 <link rel="stylesheet" href="style.css">
 -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
+<script type="text/javascript" src="{{url_for('static', filename='quiz_edit_submit.js')}}"></script>
+
+<!-- icon -->
+<link rel="shortcut icon" href="/static/quiz_icon.png" >
+
 
 {% endblock %}
 
@@ -40,5 +45,11 @@ Create a new quiz
     {{ wtf.quick_form(quizEditForm)}}
     </div> 
 {% endfor %}
+
+<button class="quiz_submit_button" onclick="submit_new_quiz()">click to finish creating</button>
+
+<div class="clearfix">
+
+</div>
 
 {% endblock %}
