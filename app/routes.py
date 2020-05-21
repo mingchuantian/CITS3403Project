@@ -174,13 +174,17 @@ def logout():
 def startEditQuiz():
     form = QuizStartForm()
     if form.validate_on_submit():
-        num_question=form.question_num.data
-        id_quiz = form.quiz_id.data
-        quizset = QuizSet(title=form.title.data, quiz_id=id_quiz, question_num=num_question, author_id=current_user.id)
-        db.session.add(quizset)
-        db.session.commit()
-        quizset_id = QuizSet.query.filter_by(quiz_id=id_quiz).first().id
-        return redirect(url_for('editQuiz', current_question=1, QuizsetID=quizset_id, num_question=num_question))
+        #if the Quiz Id entered already exists
+        if QuizSet.query.filter_by(quiz_id=form.quiz_id.data).first() is not None:
+            return render_template('notify.html', content='The quiz id already exists',  buttonText='Back', link='startEditQuiz')
+        else:
+            num_question=form.question_num.data
+            id_quiz = form.quiz_id.data
+            quizset = QuizSet(title=form.title.data, quiz_id=id_quiz, question_num=num_question, author_id=current_user.id)
+            db.session.add(quizset)
+            db.session.commit()
+            quizset_id = QuizSet.query.filter_by(quiz_id=id_quiz).first().id
+            return redirect(url_for('editQuiz', current_question=1, QuizsetID=quizset_id, num_question=num_question))
     return render_template('startEditQuiz.html', quizStartForm=form)
 
 
