@@ -94,15 +94,20 @@ Start Quiz Edit
     </div> 
 {% endfor %}
 
+<br>
+<button class="quiz_submit_button" onclick="submit_quiz_answer()">check all questions </button>
+<div class="clearfix"></div>
+
 <hr style="margin: 20px; margin-bottom: 5px; margin-bottom: 10px;">
 <i style="margin-left: 40px; margin-top: 10px; font-size: 16px; color: #5D6D7E ;">Click Submit button to submit your answers or click check all to check all the answers finished or not.</i>
 <br><br>
 
-<button class="quiz_submit_button" onclick="submit_quiz_answer()">check you finished all questions </button>
+
 <form action= {{ url_for('finishQuiz') }}>
     <button action="button" type="submit" class="btn btn-info" id="submit" style="margin-top: 10px; margin-right: 20px;float: right;">&ensp;&ensp;Finish Quiz&ensp;&ensp;</button>
 </form>
 <div class="clearfix"></div>
+
 
 <!--remember to delete this  <button onclick="run()">click to test</button>-->
 
