@@ -49,7 +49,7 @@ User Registration
 {% if current_user.faculty %}
 <p>Faculty: {{ current_user.faculty }} </p>
 {% endif %}
-<p>The University of Western Australia</p>
+<p id = "Logged in successful">The University of Western Australia</p>
 </div>
 
 <a class="btn btn-default" href = "{{ url_for('editProfile') }}">

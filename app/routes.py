@@ -5,7 +5,8 @@ from flask_login import login_user, login_required, logout_user, current_user
 from app.models import User, Question, QuizSet, Answer, Grade
 
 
-# ----  Home page -----
+# ----  Index page -----
+#New users register from here
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
@@ -13,7 +14,9 @@ def index():
     if form.validate_on_submit():
         email = User.query.filter_by(email=form.email.data).first()
         if email is None:
-            user = User(name=form.name.data, email=form.email.data, password=form.password.data, is_teacher=form.teacher.data)
+            user = User(name=form.name.data, email=form.email.data, is_teacher=form.teacher.data)
+            #password=form.password.data,
+            user.set_password(form.password.data)
             db.session.add(user)
             db.session.commit()
             return render_template('notify.html', content='The user is successfully registered',  buttonText='Back to home page', link='index') 

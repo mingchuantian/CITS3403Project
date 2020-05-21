@@ -13,3 +13,7 @@ class Config(object):
     #locate the database, if db is not found, create a new one
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+class TestConfig(Config):   
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'Tests/test.db')

@@ -1,5 +1,5 @@
 from flask import Flask
-from config import Config
+from config import Config, TestConfig
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_bootstrap import Bootstrap
@@ -8,7 +8,8 @@ from flask_login import LoginManager
 #create Flask object 'app'
 app = Flask(__name__)
 #configure app from Config
-app.config.from_object(Config)
+#now using testConfig
+app.config.from_object(TestConfig)
 
 #create SQLAlchemy object 'db'
 db = SQLAlchemy(app)
