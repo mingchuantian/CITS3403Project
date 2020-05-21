@@ -1,0 +1,107 @@
+{% extends base.html %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block head %}
+
+{{ super() }}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+    .block {
+      display: block;
+      width: 70%;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 28px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+      margin-left:auto;
+      margin-right:auto;
+      border-radius: 12px;
+    }
+    
+    .block:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+</style>
+
+{% endblock %}
+
+
+{% block title %}
+
+Student Quiz
+
+{% endblock %}
+
+
+{% block body %}
+
+<img class="logo" alt = "uwaLogo" src = "{{ url_for('static', filename='logo1.jpg', _external=True) }}" style = "display:block; margin-left:auto; margin-right:auto; width:40%;">
+
+<table style="background-color: #ede7d3; text-align: center; margin-left:auto; margin-right:auto;">
+
+    <tr> 
+        <td style="background-color: orange;">&emsp;&emsp;</td>
+    </tr>
+    <tr>
+
+    </tr>
+        <td>
+            <h2 style="font-weight: 800;"> Welcome to our student quiz </h2><br>
+
+            <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
+
+                <p>This student quiz is written by:</p>
+                
+			    <ul style = "list-style-type:none;">
+                    <li> Mingchuan Tian (22636589) </li>
+                    <li> Hanlin Zhang (22541459) </li>
+				    <li> Ruida He (22762872) </li>
+				    <li> Jiayu Wu (22797012) </li>
+                </ul>
+            
+            </div>
+        
+        </td>
+    </tr>
+
+    <tr> 
+        <td>
+
+            <p>
+                Please try to log in as a teacher or a student. 
+                If you don't have an account, just click the register buttom to get new account.
+            </p>
+
+            <br>
+
+        </td>
+    </tr>
+
+</table>
+
+{{ super() }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<button class = "block" href = "{{ url_for('login') }}"> Log in as a teacher </button>
+<br><br>
+<button class = "block" href = "{{ url_for('login') }}"> Log in as a student </button>
+<br><br>
+<button class = "block" href = "{{ url_for('login') }}"> Register </button>
+<br><br>
+
+{% endblock %}
