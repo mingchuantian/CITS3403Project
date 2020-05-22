@@ -3,6 +3,7 @@ function submit_new_quiz(){
         alert('The quiz creating is not finished already, you can not submit it!');
     }else{
         alert('you finished all the quiz question creating!');
+        window.open("/teacher","_self");
     }
 }
 
