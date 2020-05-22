@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block head %}
+{{ super() }}
+<!---refers to a css that contains styling for register page
+<link rel="stylesheet" href="style.css">
+-->
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='tick_css.css', _external=True) }}">
+{% endblock %}
+
+{% block title %}
+Student
+{% endblock %}
+
+
+{% block body %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<h2>Hello, 
+    {% if current_user.is_authenticated %}
+    {% if current_user.title %}
+    {{ current_user.title }}
+    {% endif %}
+    {{ current_user.name}}
+    {% endif %} !
+</h2>
+
+
+<div>
+    {% if current_user.email %}
+    <p>Email: <a href = "mailto: {{ current_user.email }}"> {{ current_user.email }}</a></p>
+    {% endif %}
+    {% if current_user.address %}
+    <p>Address: {{ current_user.address }} </p>
+    {% endif %}
+    {% if current_user.phone %}
+    <p>Phone: {{ current_user.phone }} </p>
+    {% endif %}
+    {% if current_user.faculty %}
+    <p>Faculty: {{ current_user.faculty }} </p>
+    {% endif %}
+    <p id = "Logged in successful">The University of Western Australia</p>
+    </div>
+
+<img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
+
+<a class="btn btn-default" href = "{{ url_for('editProfile') }}">
+    Edit Profile
+</a>
+
+<div style="margin-left: 5px;">
+    <table>
+        <tr>
+            <td>  <input type="checkbox" checked style="display: none;">
+
+                <svg width="20" height="20">
+                  <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
+                  <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
+                </svg>
+            </td>
+            <td><br><p style="color: red; font-size: larger;"><b>&ensp;&ensp;You are logged in as student, welcome!</b></p></td>
+        </tr>
+    </table>
+
+    <table style="background-color: #ede7d3;margin: 10px;">
+        <tr>
+            <td style="background-color: orange;">&emsp;&emsp;</td>
+            <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Welcome to the quiz page!</h3><br>
+            <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
+            Please insert the quiz id that the teacher give to you and click the "Start Quiz" button below to start your quiz. If you do not have a quiz id, please check your email or contact to your unit coordinator!
+            <br><br>
+            In this page, you can view your grade by click the "View grades" button or click "View ranking" button to see your rank in the class.
+            </div>
+            <br>
+        </td>
+        </tr>
+    </table>
+
+</div>
+
+<div class = "loginQuizForm" style = "padding-left: 100px;">
+    {{ wtf.quick_form(loginQuizForm)}}
+</div>
+
+
+
+
+{% endblock %}
