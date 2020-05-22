@@ -21,15 +21,30 @@ Student
 {% endblock %}
 
 {% block content %}
-<h2>Hello, 
+<h1>Hello, 
     {% if current_user.is_authenticated %}
     {% if current_user.title %}
     {{ current_user.title }}
     {% endif %}
     {{ current_user.name}}
     {% endif %} !
-</h2>
+</h1>
 
+<div style="margin-left: 5px;">
+    <table>
+        <tr>
+            <td>  <input type="checkbox" checked style="display: none;">
+
+                <svg width="20" height="20">
+                  <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
+                  <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
+                </svg>
+            </td>
+            <td><br><p style="color: red; font-size: larger;"><b>&ensp;&ensp;You are logged in as student, welcome!</b></p></td>
+        </tr>
+    </table>
+    <hr>
+</div>
 
 <div>
     <h3 class="title-thin text-muted">PERSONAL INFORMATION</h3>
@@ -57,61 +72,58 @@ Student
         <dt class="text-upper">UNIVERSITY:</dt>
         <dd>The University of Western Australia</dd>
     </dl>
-
-<a class="btn btn-default" href = "{{ url_for('editProfile') }}">
+</div>
+<a class="btn btn-default col-sm-1" href = "{{ url_for('editProfile') }}">
     Edit Profile
 </a>
 
-<div style="margin-left: 5px;">
-    <table>
-        <tr>
-            <td>  <input type="checkbox" checked style="display: none;">
+    <hr>
 
-                <svg width="20" height="20">
-                  <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
-                  <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
-                </svg>
-            </td>
-            <td><br><p style="color: red; font-size: larger;"><b>&ensp;&ensp;You are logged in as student, welcome!</b></p></td>
-        </tr>
-    </table>
+    <div>
+        <h2>Qiuz Page</h2>
 
-    <table style="background-color: #ede7d3;margin: 10px;">
-        <tr>
-            <td style="background-color: orange;">&emsp;&emsp;</td>
-            <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Welcome to the quiz page!</h3><br>
-            <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
-            Please insert the quiz id that the teacher give to you and click the "Start Quiz" button below to start your quiz. If you do not have a quiz id, please check your email or contact to your unit coordinator!
-            <br><br>
-            In this page, you can view your grade by click the "View grades" button or click "View ranking" button to see your rank in the class.
-            </div>
-            <br>
-        </td>
-        </tr>
-    </table>
+          <table style="background-color: #ede7d3;margin: 10px;">
+             <tr>
+                 <td style="background-color: orange;">&emsp;&emsp;</td>
+                 <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Welcome to the quiz page!</h3><br>
+                    <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
+                      Please insert the quiz id that the teacher give to you and click the "Start Quiz" button below to start your quiz. If you do not have a quiz id, please check your email or contact to your unit coordinator!
+                      <br><br>
+                     In this page, you can view your grade by click the "View grades" button or click "View ranking" button to see your rank in the class.
+                     </div>
+                    <br>
+                </td>
+             </tr>
+        </table>
+        <hr>
 
-</div>
+    </div>
 
-<div class = "loginQuizForm">
-    {{ wtf.quick_form(loginQuizForm)}}
-</div>
+    <div>
+        <h3 style="margin-top: 10px;">Start a quiz:</h3>
+        <div class = "loginQuizForm">
+            {{ wtf.quick_form(loginQuizForm)}}
+         </div>
+    </div>
+    <hr>
 
-<div>
-    <form action="viewGrade" style="margin-top: 10px;">
-        <h4 style="margin-top: 10px;">Try to view your grade?</h4>
-        <button action="button" type="submit" class="btn btn-primary">View grades&ensp;</button>
-    </form>
+    <div>
+        <h4 style="margin-top: 10px;">About your quiz:</h4>
+        <form action="viewGrade" style="margin-top: 10px;">
+         <!-- <h4 style="margin-top: 10px;">Try to view your grade?</h4> -->
+           <button action="button" type="submit" class="btn btn-primary">View grades&ensp;</button>
+        </form>
     
-    <form action="viewRanking">
-        <h4 style="margin-top: 10px;">Try to view your ranking?</h4>
-        <button action="button" type="submit" class="btn btn-warning" style="margin-top: 10px;">View ranking</button>
-    </form>
-    
-    <form action="logout">
-        <h4 style="margin-top: 10px;">Finish all things? Log out here to make your account safety!</h4>
-        <button action="button" type="submit" class="btn btn-danger" style="margin-top: 10px;">>>> Log out&ensp;</button>
-    </form>
-</div>
+        <form action="viewRanking">
+         <button action="button" type="submit" class="btn btn-warning" style="margin-top: 10px;">View ranking</button>
+        </form>
+        <hr>
+
+        <form action="logout">
+            <h4 style="margin-top: 10px;">Finish all things? Log out here to make your account safety!</h4>
+            <button action="button" type="submit" class="btn btn-danger" style="margin-top: 10px;">>>> Log out&ensp;</button>
+        </form>
+    </div>
 
 
 {% endblock %}
