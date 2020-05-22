@@ -1,0 +1,67 @@
+
+/* For everything */
+*{
+    box-sizing: border-box;
+}
+
+.clearfix{
+    clear: both;
+}
+
+.register_form{
+    background-color: f6f6f6;
+    padding: 100px;
+}
+
+.left40px{
+    margin-left: 40px;
+}
+
+#s_tab {
+    background: #f8f8f8;
+    line-height: 36px;
+    height: 38px;
+    padding: 55px 0 0 121px;
+    float: none;
+}
+.s_tab {
+    line-height: 18px;
+    padding: 20px 0 0;
+}
+
+.text_boder{
+    border: 1px black solid;
+    margin:20px 5px;
+}
+
+.p_not_change_line{
+    padding: 0px;
+    margin: 0px;
+}
+
+.dl-horizontal dt {
+    text-align: left;
+    width: 150px;
+    overflow: hidden;
+    clear: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dl-horizontal dd {
+    margin-left: 130px;
+}
+
+.text-upper {
+    text-transform: uppercase;
+}
+
+.title-thin {
+    font-size: 1.35em;
+    font-weight: 400;
+    margin-bottom: 1.571em;
+}
+
+.title-muted {
+    color: #757575;
+}

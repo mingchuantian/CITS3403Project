@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block head %}
+{{ super() }}
+<!---refers to a css that contains styling for register page
+<link rel="stylesheet" href="style.css">
+-->
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='tick_css.css', _external=True) }}">
+{% endblock %}
+
+{% block title %}
+Student
+{% endblock %}
+
+
+{% block body %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<h2>Hello, 
+    {% if current_user.is_authenticated %}
+    {% if current_user.title %}
+    {{ current_user.title }}
+    {% endif %}
+    {{ current_user.name}}
+    {% endif %} !
+</h2>
+
+
+<div>
+    <h3 class="title-thin text-muted">PERSONAL INFORMATION</h3>
+    <dl class="dl-horizontal">
+        {% if current_user.email %}
+        <dt class="text-upper">EMAIL:</dt>
+        <dd><a href = "mailto: {{ current_user.email }}"> {{ current_user.email }}</a></dd>
+        {% endif %}
+
+        {% if current_user.address %}
+        <dt class="text-upper">ADDRESS:</dt>
+        <dd>{{ current_user.address }}</dd>
+        {% endif %}
+
+        {% if current_user.phone %}
+        <dt class="text-upper">PHONE:</dt>
+        <dd>{{ current_user.phone }}</dd>
+        {% endif %}
+
+        {% if current_user.faculty %}
+        <dt class="text-upper">FACULTY:</dt>
+        <dd>{{ current_user.faculty }}</dd>
+        {% endif %}
+
+        <dt class="text-upper">UNIVERSITY:</dt>
+        <dd>The University of Western Australia</dd>
+    </dl>
+
+<a class="btn btn-default" href = "{{ url_for('editProfile') }}">
+    Edit Profile
+</a>
+
+<div style="margin-left: 5px;">
+    <table>
+        <tr>
+            <td>  <input type="checkbox" checked style="display: none;">
+
+                <svg width="20" height="20">
+                  <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
+                  <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
+                </svg>
+            </td>
+            <td><br><p style="color: red; font-size: larger;"><b>&ensp;&ensp;You are logged in as student, welcome!</b></p></td>
+        </tr>
+    </table>
+
+    <table style="background-color: #ede7d3;margin: 10px;">
+        <tr>
+            <td style="background-color: orange;">&emsp;&emsp;</td>
+            <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Welcome to the quiz page!</h3><br>
+            <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
+            Please insert the quiz id that the teacher give to you and click the "Start Quiz" button below to start your quiz. If you do not have a quiz id, please check your email or contact to your unit coordinator!
+            <br><br>
+            In this page, you can view your grade by click the "View grades" button or click "View ranking" button to see your rank in the class.
+            </div>
+            <br>
+        </td>
+        </tr>
+    </table>
+
+</div>
+
+<div class = "loginQuizForm">
+    {{ wtf.quick_form(loginQuizForm)}}
+</div>
+
+<div>
+    <form action="viewGrade" style="margin-top: 10px;">
+        <h4 style="margin-top: 10px;">Try to view your grade?</h4>
+        <button action="button" type="submit" class="btn btn-primary">View grades&ensp;</button>
+    </form>
+    
+    <form action="viewRanking">
+        <h4 style="margin-top: 10px;">Try to view your ranking?</h4>
+        <button action="button" type="submit" class="btn btn-warning" style="margin-top: 10px;">View ranking</button>
+    </form>
+    
+    <form action="logout">
+        <h4 style="margin-top: 10px;">Finish all things? Log out here to make your account safety!</h4>
+        <button action="button" type="submit" class="btn btn-danger" style="margin-top: 10px;">>>> Log out&ensp;</button>
+    </form>
+</div>
+
+
+{% endblock %}

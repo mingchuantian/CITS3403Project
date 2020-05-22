@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block head %}
+{{ super() }}
+<!---refers to a css that contains styling for register page
+<link rel="stylesheet" href="style.css">
+-->
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='tick_css.css', _external=True) }}">
+
+{% endblock %}
+
+{% block title %}
+User Registration
+{% endblock %}
+
+
+{% block body %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<h2>Hello, 
+    {% if current_user.is_authenticated %}
+    {% if current_user.title %}
+    {{ current_user.title }}
+    {% endif %}
+    {{ current_user.name}}
+    {% endif %} !
+</h2>
+
+<hr>
+<div>
+    <h3 class="title-thin text-muted">PERSONAL INFORMATION</h3>
+    <dl class="dl-horizontal">
+        {% if current_user.email %}
+        <dt class="text-upper">EMAIL:</dt>
+        <dd><a href = "mailto: {{ current_user.email }}"> {{ current_user.email }}</a></dd>
+        {% endif %}
+
+        {% if current_user.address %}
+        <dt class="text-upper">ADDRESS:</dt>
+        <dd>{{ current_user.address }}</dd>
+        {% endif %}
+
+        {% if current_user.phone %}
+        <dt class="text-upper">PHONE:</dt>
+        <dd>{{ current_user.phone }}</dd>
+        {% endif %}
+
+        {% if current_user.faculty %}
+        <dt class="text-upper">FACULTY:</dt>
+        <dd>{{ current_user.faculty }}</dd>
+        {% endif %}
+
+        <dt class="text-upper">UNIVERSITY:</dt>
+        <dd>The University of Western Australia</dd>
+    </dl>
+
+</div>
+
+<a class="btn btn-default" href = "{{ url_for('editProfile') }}">
+    Edit Profile
+</a>
+<br>
+<div style="margin-left: 5px;" class="body_tick">
+    <table>
+        <tr>
+            <td style="padding-left:5px; width: 350px;"><br><p style="color: red; font-size: larger;"><b>You are logged in as teacher, welcome!</b></p></td>
+            <td>  <input type="checkbox" checked style="display: none;">
+                <svg width="20" height="20">
+                  <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
+                  <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
+                </svg>
+            </td>
+           
+        </tr>
+    </table>
+
+    <table style="background-color: #ede7d3;margin: 10px;">
+        <tr>
+            <td style="background-color: orange;">&emsp;&emsp;</td>
+            <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Welcome to the quiz page!</h3><br>
+            <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
+            Please click the button "New Quiz" to make a new quiz, or insert the quiz id and click the "Start Editing Quiz" button to start editing the quiz! Please give the quiz id to your students to allowed them access the quiz page and answer the question!
+            <br><br>
+            In this page, you can also view mark the quiz by click the "Mark Quiz" button or click "Log out" button to log out your account and make it safety.
+            </div>
+            <br>
+        </td>
+        </tr>
+    </table>
+    <br>
+   
+
+    <p>To make a new quiz, please click here!</p>
+    <form action="startEditQuiz">
+        <button action="button" type="submit" class="btn btn-primary">New Quiz</button>
+    </form>
+    <p style="margin-top: 10px;">Or edit the quiz already exists, please click here!</p>
+</div>
+
+<div style="margin-top: -50px;">
+    {{ wtf.quick_form(form)}}
+</div>
+
+<hr>
+
+<div style=" margin-left: 5px;">
+    <p>To mark the quiz, please click here!</p>
+    <form action="markQuiz">
+        <button action="button" type="submit" class="btn btn-success">Mark Quiz</button>
+    </form>
+    
+    <p>To log out your account, please click here!</p>
+    <form action="logout" style="margin-top: 10px;">
+        <button action="button" type="submit" class="btn btn-danger">&ensp;&ensp;Log out&ensp;&ensp;</button>
+    </form>
+</div>
+
+
+
+{% endblock %}
