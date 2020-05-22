@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 		<!-- icon -->
-		<link rel="shortcut icon" href="../../static/quiz_icon.png" >
+		<link rel="shortcut icon" href="{{url_for('static',filename='quiz_icon.png')}}" >
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -17,7 +17,7 @@
 		<link rel="stylesheet" href="{{ url_for('static', filename='action_style.css', _external=True) }}">
 
 		<!-- Link to the javascript file -->
-		<script src = "../static/Javascript.js"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='Javascript.js')}}"></script>
 
 
 		<style>
