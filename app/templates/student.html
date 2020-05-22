@@ -9,6 +9,18 @@
 -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='tick_css.css', _external=True) }}">
+
+
+<style>
+    #b1, #b2, #b3, #b4{
+        font-size: 25px;;
+        font-weight: 380;
+        color: white;
+        min-height: 100px; 
+        border-radius: 20px;
+    }
+</style>
+
 {% endblock %}
 
 {% block title %}
@@ -21,54 +33,56 @@ Student
 {% endblock %}
 
 {% block content %}
-<h2>Hello, 
-    {% if current_user.is_authenticated %}
-    {% if current_user.title %}
-    {{ current_user.title }}
-    {% endif %}
-    {{ current_user.name}}
-    {% endif %} !
-</h2>
+
+<br><br>
 
 <div class = "container-fluid">
 
     <div class="row">
 
-    <div class="col-sm-4" style="background-color:yellow;">
+    <div class="col-sm-4">
 
     <div>
         {% if current_user.email %}
-        <p>Email: <a href = "mailto: {{ current_user.email }}"> {{ current_user.email }}</a></p>
+        <h4>Email: <a href = "mailto: {{ current_user.email }}"> {{ current_user.email }}</a></h4>
         {% endif %}
         {% if current_user.address %}
-        <p>Address: {{ current_user.address }} </p>
+        <h4>Address: {{ current_user.address }} </h4>
         {% endif %}
         {% if current_user.phone %}
-        <p>Phone: {{ current_user.phone }} </p>
+        <h4>Phone: {{ current_user.phone }} </h4>
         {% endif %}
         {% if current_user.faculty %}
-        <p>Faculty: {{ current_user.faculty }} </p>
+        <h4>Faculty: {{ current_user.faculty }} </h4>
         {% endif %}
-        <p id = "Logged in successful">The University of Western Australia</p>
+        <h4 id = "Logged in successful">The University of Western Australia</h4>
     </div>
 
     <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
 
-    <a class="btn btn-default" href = "{{ url_for('editProfile') }}">
-        Edit Profile
-    </a>
+    <h3 style = "padding-left: 100px;">
+        {% if current_user.is_authenticated %}
+        {% if current_user.title %}
+        {{ current_user.title }}
+        {% endif %}
+        {{ current_user.name}}
+        {% endif %} 
+    </h3>
+
+    <div style = "padding-left: 75px;"> 
+        <a class="btn btn-default" href = "{{ url_for('editProfile') }}"> Edit Profile </a>
+        </div>
 
     <div style="margin-left: 5px;">
         <table>
             <tr>
                 <td>  <input type="checkbox" checked style="display: none;">
-
                     <svg width="20" height="20">
                         <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
                         <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
                     </svg>
                 </td>
-                <td><br><p style="color: red; font-size: larger;"><b>&ensp;&ensp;You are logged in as student, welcome!</b></p></td>
+                <td><br><p style="color: red; font-size: larger;"><b>&ensp;&ensp;You are logged in as a student, welcome!</b></p></td>
             </tr>
         </table>
     </div>
@@ -78,25 +92,39 @@ Student
     
 
 
-    <div class="col-sm-8" style="background-color:pink;">
+    <div class="col-sm-8">
 
-        <button class="btn btn-primary" href = "{{ url_for('Input_quiz_ID') }}">Start quiz&ensp;</button>
+        <br><br><br><br>
 
-        <form action="Input_quiz_ID">
-            <button action="button" type="submit" class="btn btn-primary">Start quiz&ensp;</button>
-        </form>
+        <div class="col-sm-6">
 
-        <form action="viewGrade">
-            <button action="button" type="submit" class="btn btn-primary">View grades&ensp;</button>
-        </form>
+            <form action="Input_quiz_ID">
+                <button action="button" type="submit" class="btn btn-primary btn-lg btn-block" id = "b1" >Start quiz&ensp;</button>
+            </form>
+
+            <br><br>
+
+            <form action="viewGrade">
+                <button action="button" type="submit" class="btn btn-primary btn-lg btn-block" id = "b2" >View grades&ensp;</button>
+            </form>
+
+            <br><br>
+
+        </div>
+
+        <div class="col-sm-6">
     
-        <form action="viewRanking">
-            <button action="button" type="submit" class="btn btn-warning" style="margin-top: 10px;">View ranking</button>
-        </form>
-    
-        <form action="logout">
-        <button action="button" type="submit" class="btn btn-danger" style="margin-top: 10px;">>>> Log out&ensp;</button>
-        </form>
+            <form action="viewRanking">
+                <button action="button" type="submit" class="btn btn-primary btn-lg btn-block" id = "b3" >View ranking</button>
+            </form>
+
+            <br><br>
+        
+            <form action="logout">
+            <button action="button" type="submit" class="btn btn-primary btn-lg btn-block" id = "b4" > Log out&ensp;</button>
+            </form>
+
+        </div>
 
     </div>
 

@@ -15,6 +15,17 @@
 <!--js doc-->
 <script type="text/javascript" src="{{url_for('static', filename='jsdocs.js')}}"></script>
 
+<style>
+    #b1, #b2, #b3, #b4{
+        font-size: 25px;;
+        font-weight: 380;
+        color: white;
+        min-height: 100px; 
+        background-color: #138D75;
+        border-radius: 20px;
+    }
+</style>
+
 {% endblock %}
 
 {% block title %}
@@ -28,63 +39,63 @@ User Registration
 
 
 {% block content %}
-<h2>Hello, 
-    {% if current_user.is_authenticated %}
-    {% if current_user.title %}
-    {{ current_user.title }}
-    {% endif %}
-    {{ current_user.name}}
-    {% endif %} !
-</h2>
-
 
 <div class = "container-fluid">
 
     <div class="row">
 
-    <div class="col-sm-4" style="background-color:yellow;">
+    <div class="col-sm-4">
 
 
     <div>
 
         {% if current_user.email %}
-        <p>Email: <a href = "mailto: {{ current_user.email }}"> {{ current_user.email }}</a></p>
+        <h4>Email: <a href = "mailto: {{ current_user.email }}"> {{ current_user.email }}</a></h4>
         {% endif %}
 
         {% if current_user.address %}
-        <p>Address: {{ current_user.address }} </p>
+        <h4>Address: {{ current_user.address }} </h4>
         {% endif %}
 
         {% if current_user.phone %}
-        <p>Phone: {{ current_user.phone }} </p>
+        <h4>Phone: {{ current_user.phone }} </h4>
         {% endif %}
 
         {% if current_user.faculty %}
-        <p>Faculty: {{ current_user.faculty }} </p>
+        <h4>Faculty: {{ current_user.faculty }} </h4>
         {% endif %}
 
-        <p id = "Logged in successful">The University of Western Australia</p>
+        <h4 id = "Logged in successful">The University of Western Australia</h4>
 
     </div>
 
     <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
 
-
-    <a class="btn btn-default" href = "{{ url_for('editProfile') }}"> Edit Profile </a>
-
     <br>
 
-    <div style="margin-left: 5px;" class="body_tick">
+    <h3 style = "padding-left: 100px;">
+        {% if current_user.is_authenticated %}
+        {% if current_user.title %}
+        {{ current_user.title }}
+        {% endif %}
+        {{ current_user.name}}
+        {% endif %} 
+    </h3>
+
+    <div style = "padding-left: 75px;"> 
+    <a class="btn btn-default" href = "{{ url_for('editProfile') }}"> Edit Profile </a>
+    </div>
+
+    <div style="margin-left: 5px;">
         <table>
             <tr>
-                <td style="padding-left:5px; width: 350px;"><br><p style="color: red; font-size: larger;"><b>You are logged in as teacher, welcome!</b></p></td>
-                <td>  
-                    <input type="checkbox" checked style="display: none;">
+                <td>  <input type="checkbox" checked style="display: none;">
                     <svg width="20" height="20">
                         <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
                         <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
                     </svg>
                 </td>
+                <td><br><p style="color: red; font-size: larger;"><b>&ensp;&ensp;You are logged in as a teacher, welcome!</b></p></td>
             </tr>
         </table>
     </div>
@@ -95,24 +106,34 @@ User Registration
 
 
     
-    <div class="col-sm-8" style="background-color:pink;">
+    <div class="col-sm-8">
 
-        <div>
+        <br><br><br><br>
+
+        <div class="col-sm-6">
     
             <form action="startEditQuiz">
-                <button id="makeQuiz" action="button" type="submit" class="btn btn-primary">New Quiz</button>
+                <button action="button" type="submit" class="btn btn-lg btn-block" id = "b1" >New Quiz</button>
             </form>
+
+            <br><br>
       
-            <button id="makeQuiz" class="btn btn-primary" href = "{{ url_for('Edit_quiz_ID') }}" >Edit Quiz</button>
+            <form action="Edit_quiz_ID">
+                <button action="button" type="submit" class="btn btn-lg btn-block" id = "b2" >Edit Quiz</button>
+            </form>
             
-            
+        </div>
+
+        <div class="col-sm-6">
 
             <form action="markQuiz">
-                <button action="button" type="submit" class="btn btn-success">Mark Quiz</button>
+                <button action="button" type="submit" class="btn btn-lg btn-block" id = "b3" >Mark Quiz</button>
             </form>
+
+            <br><br>
         
-            <form action="logout" style="margin-top: 10px;">
-                <button action="button" type="submit" class="btn btn-danger">&ensp;&ensp;Log out&ensp;&ensp;</button>
+            <form action="logout">
+                <button action="button" type="submit" class="btn btn-lg btn-block" id = "b4" > Log out</button>
             </form>
 
         </div>

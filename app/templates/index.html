@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
 
@@ -48,7 +48,9 @@ Student Quiz
 
 <img class="logo" alt = "uwaLogo" src = "{{ url_for('static', filename='logo1.jpg', _external=True) }}" style = "display:block; margin-left:auto; margin-right:auto; width:40%;">
 
-<table style="background-color: #ede7d3; text-align: center; margin-left:auto; margin-right:auto;">
+<br><br>
+
+<table style="background-color: #ede7d3; text-align: center; margin-left:auto; margin-right:auto; width:70%;">
 
     <tr> 
         <td style="background-color: orange;">&emsp;&emsp;</td>
@@ -90,6 +92,8 @@ Student Quiz
 
 </table>
 
+<br><br>
+
 {{ super() }}
 
 {% endblock %}
@@ -97,11 +101,17 @@ Student Quiz
 
 {% block content %}
 
-<button class = "block" action ="login"> Log in as a teacher </button>
+<form action="login">
+    <button action="button" type="submit" class="block" > Log in as a teacher </button>
+</form>
 <br><br>
-<button class = "block" href = "{{ url_for('login') }}"> Log in as a student </button>
+<form action="login">
+    <button action="button" type="submit" class="block" > Log in as a student </button>
+</form>
 <br><br>
-<button class = "block" href = "{{ url_for('login') }}"> Register </button>
-<br><br>
+<form action="register">
+    <button action="button" type="submit" class="block" > Register </button>
+</form>
+<br><br><br><br>
 
 {% endblock %}

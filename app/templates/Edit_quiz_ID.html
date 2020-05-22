@@ -37,42 +37,8 @@ User Registration
 </h2>
 
 <hr>
-<div>
-{% if current_user.email %}
-<p>Email: <a href = "mailto: {{ current_user.email }}"> {{ current_user.email }}</a></p>
-{% endif %}
-{% if current_user.address %}
-<p>Address: {{ current_user.address }} </p>
-{% endif %}
-{% if current_user.phone %}
-<p>Phone: {{ current_user.phone }} </p>
-{% endif %}
-{% if current_user.faculty %}
-<p>Faculty: {{ current_user.faculty }} </p>
-{% endif %}
-<p id = "Logged in successful">The University of Western Australia</p>
-</div>
 
-<img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
-
-
-<a class="btn btn-default" href = "{{ url_for('editProfile') }}">
-    Edit Profile
-</a>
-<br>
 <div style="margin-left: 5px;" class="body_tick">
-    <table>
-        <tr>
-            <td style="padding-left:5px; width: 350px;"><br><p style="color: red; font-size: larger;"><b>You are logged in as teacher, welcome!</b></p></td>
-            <td>  <input type="checkbox" checked style="display: none;">
-                <svg width="20" height="20">
-                  <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
-                  <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
-                </svg>
-            </td>
-           
-        </tr>
-    </table>
 
     <table style="background-color: #ede7d3;margin: 5px;">
         <tr>
