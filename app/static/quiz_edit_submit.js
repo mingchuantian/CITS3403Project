@@ -16,3 +16,14 @@ function submit_quiz_answer(){
     }
 }
 
+function back_teacher_page(){
+    window.open("/teacher","_self");
+}
+
+function back_home_page(){
+    window.open("/login","_self");
+}
+
+function back_student_page(){
+    window.open("/student","_self");
+}

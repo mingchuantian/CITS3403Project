@@ -8,6 +8,10 @@
 <link rel="stylesheet" href="style.css"> -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='tick_css.css', _external=True) }}">
+
+<!--js doc-->
+<script type="text/javascript" src="{{url_for('static', filename='quiz_edit_submit.js')}}"></script>
+
 {% endblock %}
 
 {% block title %}
@@ -39,6 +43,6 @@ Log out
         <button action="button" style="margin-top: 10px;" type="submit" class="btn btn-info">{{ buttonText }}</button>
     </form>
 
-
+    <button class="quiz_submit_button" onclick="back_home_page()">Back to the home page</button>
 
 {% endblock %}

@@ -9,6 +9,10 @@
 -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='tick_css.css', _external=True) }}">
+
+<!--js doc-->
+<script type="text/javascript" src="{{url_for('static', filename='quiz_edit_submit.js')}}"></script>
+
 {% endblock %}
 
 {% block title %}
@@ -55,7 +59,6 @@ Student
     {{ wtf.quick_form(loginQuizForm)}}
 </div>
 
-
-
-
+<button class="quiz_submit_button" onclick="back_student_page()">Back to the student page</button>
+<br><br><br><br><br><br>
 {% endblock %}

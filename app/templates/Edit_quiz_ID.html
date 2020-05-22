@@ -14,6 +14,7 @@
 
 <!--js doc-->
 <script type="text/javascript" src="{{url_for('static', filename='jsdocs.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='quiz_edit_submit.js')}}"></script>
 
 {% endblock %}
 
@@ -43,11 +44,10 @@ User Registration
     <table style="background-color: #ede7d3;margin: 5px;">
         <tr>
             <td style="background-color: orange;">&emsp;&emsp;</td>
-            <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Welcome to the quiz page!</h3><br>
+            <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Welcome to the quiz editing page!</h3><br>
             <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
-            Please click the button "New Quiz" to make a new quiz, or insert the quiz id and click the "Start Editing Quiz" button to start editing the quiz! Please give the quiz id to your students to allowed them access the quiz page and answer the question!
+            Please insert the QuizID then click the button "Start Editing Quiz" to edit the  quiz. Plese make sure you insert the correct QuizID!
             <br><br>
-            In this page, you can also view mark the quiz by click the "Mark Quiz" button or click "Log out" button to log out your account and make it safety.
             </div>
             <br>
         </td>
@@ -70,9 +70,9 @@ User Registration
         {{ wtf.quick_form(form)}}
     </div>
 
-
-
+    <button class="quiz_submit_button" onclick="back_teacher_page()" style="width: 18%;">Back to the teacher page</button>
 </div>
+
 
 
 {% endblock %}
