@@ -1,48 +1,107 @@
-{% extends "base2.html" %}
+{% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
 
 {% block head %}
+
 {{ super() }}
-<!---refers to a css that contains styling for register page
-<link rel="stylesheet" href="style.css"> -->
+
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+    .block {
+      display: block;
+      width: 70%;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 28px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+      margin-left:auto;
+      margin-right:auto;
+      border-radius: 12px;
+    }
+    
+    .block:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+</style>
+
 {% endblock %}
 
 
 {% block title %}
-User Registration
+
+Student Quiz
+
 {% endblock %}
+
 
 {% block body %}
+
 <img class="logo" alt = "uwaLogo" src = "{{ url_for('static', filename='logo1.jpg', _external=True) }}" style = "display:block; margin-left:auto; margin-right:auto; width:40%;">
-<table style="background-color: #ede7d3;margin: 10px;">
-    <tr>
+
+<table style="background-color: #ede7d3; text-align: center; margin-left:auto; margin-right:auto;">
+
+    <tr> 
         <td style="background-color: orange;">&emsp;&emsp;</td>
-        <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Create a new account</h3><br>
-        <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
-        Please use your name, email and password to create your account! If you are a stuff, you need to tick the "Register as teacher" below, otherwise you do not need to do that! 
-        If you alreay have an account yet, plese click the button "Log in" at the left top side corner to log in to the quiz page!
-        <br><br>
-        For the name, email and password, please use your name, email and password. Remember, it is not able to find your password back currently if you forget it, so please remember it carefully! 
-        </div>
-        <br>
-    </td>
     </tr>
+    <tr>
+
+    </tr>
+        <td>
+            <h2 style="font-weight: 800;"> Welcome to our student quiz </h2><br>
+
+            <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
+
+                <p>This student quiz is written by:</p>
+                
+			    <ul style = "list-style-type:none;">
+                    <li> Mingchuan Tian (22636589) </li>
+                    <li> Hanlin Zhang (22541459) </li>
+				    <li> Ruida He (22762872) </li>
+				    <li> Jiayu Wu (22797012) </li>
+                </ul>
+            
+            </div>
+        
+        </td>
+    </tr>
+
+    <tr> 
+        <td>
+
+            <p>
+                Please try to log in as a teacher or a student. 
+                If you don't have an account, just click the register buttom to get new account.
+            </p>
+
+            <br>
+
+        </td>
+    </tr>
+
 </table>
+
 {{ super() }}
+
 {% endblock %}
 
+
 {% block content %}
-<div class = "register_form" style="margin-top: -65px;">
-{{ wtf.quick_form(registerForm)}}
-</div>
-<hr style="margin-top: -50px;">
-<div style="margin-left: 5px;">
-    <p>Already a user? Click here to log in!</p>
-    <form action="login">
-        <button action="button" type="submit" class="btn-info"> >>> Login here</button>
-    </form>
-</div>
+
+<button class = "block" action ="login"> Log in as a teacher </button>
+<br><br>
+<button class = "block" href = "{{ url_for('login') }}"> Log in as a student </button>
+<br><br>
+<button class = "block" href = "{{ url_for('login') }}"> Register </button>
+<br><br>
 
 {% endblock %}

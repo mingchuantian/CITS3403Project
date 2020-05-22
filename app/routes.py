@@ -6,10 +6,17 @@ from app.models import User, Question, QuizSet, Answer, Grade
 
 
 # ----  Index page -----
-#New users register from here
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
+    return render_template('index.html')
+
+
+#----- Registration page -------------
+#New users register from here
+
+@app.route('/register', methods = ['GET', 'POST'])
+def register():
     form = RegisterForm()
     if form.validate_on_submit():
         email = User.query.filter_by(email=form.email.data).first()
@@ -23,12 +30,8 @@ def index():
         else:
             return render_template('notify.html', content='The user already exists!',  buttonText='Back to home page', link='index') 
 
-    return render_template('index.html', registerForm = form)
+    return render_template('register.html', registerForm = form)
 
-
-@app.route('/main', methods = ['GET', 'POST'])
-def main():
-    return render_template('Main_page.html')
 
 
 # ----  Notification page -----
@@ -67,6 +70,15 @@ def login():
 @app.route('/student', methods = ['GET', 'POST'])
 @login_required
 def student():
+ 
+    return render_template('student.html', user = current_user)
+
+# ----  Student page for inputting a quiz ID -----
+
+@app.route('/Input_quiz_ID', methods = ['GET', 'POST'])
+@login_required
+def Input_quiz_ID():
+
     form = QuizLoginForm()
     if form.validate_on_submit():
         if QuizSet.query.filter_by(quiz_id=form.QuizID.data).first() is None:
@@ -75,9 +87,8 @@ def student():
         if QuizsetID is not None:     
             return redirect(url_for('startQuiz', QuizsetID = QuizsetID, current_question=1))
         else:
-            return render_template('notify.html', content='The quiz does not exist!',  buttonText='Back to profile page', link=student) 
-    return render_template('student.html', loginQuizForm = form, user = current_user)
-
+            return render_template('notify.html', content='The quiz does not exist!',  buttonText='Back to profile page', link=student)
+    return render_template('Input_quiz_ID.html', loginQuizForm = form, user=current_user) 
 
 # ----  Student quiz page -----
 
@@ -129,6 +140,11 @@ def finishQuiz():
 @app.route('/teacher', methods = ['GET', 'POST'])
 @login_required
 def teacher():
+    return render_template('teacher.html',user=current_user)
+
+@app.route('/Edit_quiz_ID', methods = ['GET', 'POST'])
+@login_required
+def Edit_quiz_ID():
 
     form = QuizReviewForm()
     if form.validate_on_submit() and form.QuizID.data is not None:
@@ -141,11 +157,7 @@ def teacher():
             return redirect(url_for('reviewQuiz', quizsetID=quizsetID, current_question_id=current_question_id, question_n=question_n))
         else: 
             return 'the quiz does not exists'
-
-    #quizes = QuizSet.Query.filter_by(author_id = current_user.id)
-    #exist_quizes = {'111', '333', '999'}
-    return render_template('teacher.html',  form=form, user=current_user)
-
+    return render_template('Edit_quiz_ID.html', form=form, user=current_user)
 
 # ----  Page for teachers to find the quiz to mark -----
 
