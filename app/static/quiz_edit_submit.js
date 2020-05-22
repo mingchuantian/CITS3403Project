@@ -15,3 +15,4 @@ function submit_quiz_answer(){
         document.getElementsByTagName('button')[2].click();
     }
 }
+
