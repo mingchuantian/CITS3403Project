@@ -365,16 +365,16 @@ def changeAvatar():
 
 
 #API that returns the number of students who have taken the quiz
-@app.route('/students_taken')
+@app.route('/API')
 def students_taken():
-    return jsonify({'Ming': 4, 'Hanlin': 5, "Tim": 3 })
+    resp = {"name":"Ming", "ID": "1", "Quiz_taken":"5"}
+    return resp
 
 
 #Helper function that calculates the total mark of each quiz
 def calcualte_total_mark(all_marks):
     total_mark = 0
     for marks in all_marks:
-        ###!!!!!!theres bug when user is not graded
         total_mark = total_mark + marks
     return total_mark 
 
