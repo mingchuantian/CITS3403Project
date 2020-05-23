@@ -37,6 +37,10 @@
     .img-rounded profile-thumbnail{
         padding-left: 100px;
     }
+
+    #b1, #b2, #b3, #b4:hover {
+        background-color: slategray;
+    }
 </style>
 
 {% endblock %}
@@ -84,6 +88,8 @@ User Registration
         <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
         <div>
 
+        <br>
+
         {% if current_user.email %}
         <h4>Email: <a href = "mailto: {{ current_user.email }}"> {{ current_user.email }}</a></h4>
         {% endif %}
@@ -104,8 +110,6 @@ User Registration
 
     </div>
 
-    <br>
-
     <h3 style = "padding-left: 100px;">
         {% if current_user.is_authenticated %}
         {% if current_user.title %}
@@ -115,7 +119,7 @@ User Registration
         {% endif %} 
     </h3>
 
-    <div style = "padding-left: 75px;"> 
+    <div style = "padding-left: 10px;"> 
     <a class="btn btn-default" href = "{{ url_for('editProfile') }}"> Edit Profile </a>
     <a class="btn btn-default" href = "{{ url_for('changeAvatar') }}"> Change Avatar </a>
     </div>
@@ -125,7 +129,9 @@ User Registration
 
     {% if current_user.is_teacher %}
 
-    <div class="col-sm-8" style="margin-top: 200px; margin-bottom: 200px;">
+    <div class="col-sm-8" >
+
+        <br><br><br>
 
         <div class="col-sm-6">
     

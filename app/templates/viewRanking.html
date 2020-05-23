@@ -9,6 +9,20 @@
 -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 
+<style>
+    .rank {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-weight: 600;
+    }
+    .common {
+        color:maroon;
+        font-weight: 800;
+    }
+</style>
+
 {% endblock %}
 
 {% block title %}
@@ -18,38 +32,43 @@ Start Quiz Edit
 {% block body %}
 {% block content %}
 
+<div class = "rank">
+
+    <br>
+    {% for key in unique_quizsets %}
+    <h1>The quiz you have taken is : <span class = "common">"{{ QuizSet.query.filter_by(id=key).first().title }}"</span></h1>
+    <br>
+    <h3>Quiz ID: <span class = "common">{{ QuizSet.query.filter_by(id=key).first().quiz_id }}</span></h3>
+    <h3>Teacher: <span class = "common">{{ User.query.filter_by(id=QuizSet.query.filter_by(id=key).first().author_id).first().name }}</span></h3>
 
 
-{% for key in unique_quizsets %}
-<h3>The quiz you have taken is : "{{ QuizSet.query.filter_by(id=key).first().title }}"</h3>
-<p>Quiz ID: {{ QuizSet.query.filter_by(id=key).first().quiz_id }}</p>
-<p>Teacher: {{ User.query.filter_by(id=QuizSet.query.filter_by(id=key).first().author_id).first().name }}</p>
+    <!--get a list of marks under current student, current quizset-->
+    {% for answers in Answer.query.filter_by(quizset_id=key, student_id=current_user.id).all() %}
+    <h3 hidden><span class = "common">{{ all_marks.append(Grade.query.filter_by(answer_id = str(answers).split(',')[1]).first().mark) }}</span></h3>
 
+    {% endfor %}
 
-<!--get a list of marks under current student, current quizset-->
-{% for answers in Answer.query.filter_by(quizset_id=key, student_id=current_user.id).all() %}
-<p hidden>{{ all_marks.append(Grade.query.filter_by(answer_id = str(answers).split(',')[1]).first().mark) }}</p>
+    <!--get a list of student ids under current quizset-->
+    {% for allAnswers in Answer.query.filter_by(quizset_id=key).all() %}
+    {% for students in str(allAnswers).split(',')[0] %}
+    <h3 hidden><span class = "common">{{ all_students_id.append(students) }}</span></h3>
+    {% endfor %}
+    {% endfor %}
 
-{% endfor %}
+    {% if all_marks %}
+    <h3>Your mark is : <span class = "common">{{ calcualte_total_mark(all_marks) }}</span></h3>
 
-<!--get a list of student ids under current quizset-->
-{% for allAnswers in Answer.query.filter_by(quizset_id=key).all() %}
-{% for students in str(allAnswers).split(',')[0] %}
-<p hidden>{{ all_students_id.append(students) }}</p>
-{% endfor %}
-{% endfor %}
+    <h3>Your ranking is : <span class = "common">{{ calculate_ranking(all_students_id, key, calcualte_total_mark(all_marks)) }} / {{ len(unique_items(all_students_id)) }}</span> </h3>
 
-{% if all_marks %}
-<p>Your mark is : {{ calcualte_total_mark(all_marks) }}</p>
+    {% else %}
 
-<p>Your ranking is : {{ calculate_ranking(all_students_id, key, calcualte_total_mark(all_marks)) }} / {{ len(unique_items(all_students_id)) }} </p>
+    <h1>There is no grade and ranking yet!</h1>
 
-{% else %}
-<p>There is no grade and ranking yet!</p>
+    {% endif %}
 
-{% endif %}
+    {% endfor %}
 
-{% endfor %}
+</div>
 
 
 {% endblock %}

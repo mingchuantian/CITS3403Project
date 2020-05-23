@@ -5,6 +5,15 @@
 {% block head %}
 {{ super() }}
 
+<style>
+    .avartar {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+</style>
+
 
 {% endblock %}
 
@@ -15,13 +24,18 @@ Change Avatar
 {% block body %}
 {% block content %}
 
+<div class = "avartar">
 
-<h4>Your current avartar</h4>
-<img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
-<p>Change your avatar by changing your email</p>
-<div class = "change_avatar">
-    {{ wtf.quick_form(changeAvatarForm)}}
-    </div>
+    <br><br>
+
+    <h4>Your current avartar</h4>
+    <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}"> <br><br>
+    <p>Change your avatar by changing your email</p> <br>
+    <div class = "change_avatar" style = "width:60%; margin-left: auto; margin-right: auto;">
+        {{ wtf.quick_form(changeAvatarForm)}}
+        </div>
+
+</div>
 
 {% endblock %}
 {% endblock %}

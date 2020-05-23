@@ -10,6 +10,15 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 <script type="text/javascript" src="{{url_for('static', filename='quiz_edit_submit.js')}}"></script>
 
+<style>
+    .quizID {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+</style>
+
 {% endblock %}
 
 {% block title %}
@@ -24,9 +33,14 @@ Mark the quiz
 
 
 {% block content %}
-<h3 style="margin-left: 5px; margin-bottom: 20px;">Please insert the quiz number to the quiz you want to mark!</h3>
-<div class = "quiz">
-{{ wtf.quick_form(form)}}
+
+<br><br>
+
+<div class = "quizID">
+    <h3 style="margin-left: 5px; margin-bottom: 20px;">Please insert the quiz number to the quiz you want to mark!</h3> <br>
+    <div class = "quiz" style = "width:60%; margin-left: auto; margin-right: auto;">
+    {{ wtf.quick_form(form)}}
+    </div>
 </div>
 {% endblock %}
 

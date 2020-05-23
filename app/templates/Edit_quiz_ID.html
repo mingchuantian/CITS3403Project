@@ -16,10 +16,18 @@
 <script type="text/javascript" src="{{url_for('static', filename='jsdocs.js')}}"></script>
 <script type="text/javascript" src="{{url_for('static', filename='quiz_edit_submit.js')}}"></script>
 
+<style>
+    #Edit_quizID {
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+    }
+</style>
+
 {% endblock %}
 
 {% block title %}
-User Registration
+Input quiz ID
 {% endblock %}
 
 
@@ -32,7 +40,8 @@ User Registration
 {% endblock %}
 
 {% block content %}
-<h2>Hello, 
+<h2 style = "padding-left: 10px;">
+    Hello, 
     {% if current_user.is_authenticated %}
     {% if current_user.title %}
     {{ current_user.title }}
@@ -43,7 +52,9 @@ User Registration
 
 <hr>
 
-<div style="margin-left: 5px;" class="body_tick">
+<div class="body_tick" id = "Edit_quizID">
+
+    <br>
 
     <table style="background-color: #ede7d3;margin: 5px;">
         <tr>
@@ -58,23 +69,11 @@ User Registration
         </tr>
     </table>
     <br>
-   
-    <!--
-    <select method = "GET" action="/">
-        {% for quizsetID in exist_quizes %}
-        <option value="{{ quizsetID }}" SELECTED>
-            {{ quizsetID }}
-        </option>
-        {% endfor %}
-    </select>
 
-    --->
-
-    <div style="margin-left: 5px;">
+    <div style = "width:50%; margin-left: auto; margin-right: auto; text-align: center;">
         {{ wtf.quick_form(form)}}
     </div>
 
-    <button class="quiz_submit_button" onclick="back_teacher_page()" style="width: 18%;">Back to the teacher page</button>
 </div>
 
 

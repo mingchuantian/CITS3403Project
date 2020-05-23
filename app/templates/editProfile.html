@@ -5,6 +5,15 @@
 {% block head %}
 {{ super() }}
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
+
+<style>
+    .profile {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
 {% endblock %}
 
 {% block title %}
@@ -13,7 +22,12 @@ Student
 
 {% block body %}
 {% block content %}
-{{ wtf.quick_form(EditProfileForm)}}
+
+<br><br>
+
+<div class = "profile">
+    {{ wtf.quick_form(EditProfileForm)}}
+</div>
 
 {% endblock %}
 {% endblock %}

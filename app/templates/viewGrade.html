@@ -12,6 +12,19 @@
 <!--js doc-->
 <script type="text/javascript" src="{{url_for('static', filename='quiz_edit_submit.js')}}"></script>
 
+<style>
+    .grade {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 600;
+    }
+    .common {
+        color:maroon;
+        font-weight: 800;
+    }
+</style>
+
 {% endblock %}
 
 {% block title %}
@@ -21,15 +34,26 @@ Start Quiz Edit
 {% block body %}
 {% block content %}
 
+<div class = "grade"> 
 
-{% for key in grade_dict %} 
+    <br>
 
-<h3>Your answer: {{ Answer.query.filter_by(id=(str(key).split(',')[0])).first().Answer }}</h3>
-<h3>Mark: {{ str(key).split(',')[1] }} </h3>
-<h3>Comment: {{ str(key).split(',')[2] }}</h3>
+    <h1> Here's your grade of each answer.</h1>
 
-<br>
-{% endfor %}
+    <br>
+
+    {% for key in grade_dict %} 
+
+    <h3>Your answer for question {{ str(key)[0] }} : <span class = "common">{{ Answer.query.filter_by(id=(str(key).split(',')[0])).first().Answer }}</span></h3>
+    <h3>Mark: <span class = "common">{{ str(key).split(',')[1] }}</span> </h3>
+    <h3>Comment: <span class = "common">{{ str(key).split(',')[2] }}</span></h3>
+
+    <br>
+    <hr>
+    <br>
+    {% endfor %}
+
+</div>
 
 <br><br><br><br><br>
 {% endblock %}

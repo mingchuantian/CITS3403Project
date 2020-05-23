@@ -9,6 +9,15 @@
 -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 
+<style>
+    .quiz {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+</style>
+
 
 {% endblock %}
 
@@ -18,11 +27,12 @@ Start Quiz Edit
 
 {% block body %}
 {% block content %}
-<div class = "quiz">
-<div id ="quizPage">
-{{ wtf.quick_form(quizStartForm)}}
-</div>
-</div>
+    <br><br>
+    <div class = "quiz">
+    <div id ="quizPage">
+        {{ wtf.quick_form(quizStartForm)}}
+    </div>
+    </div>
 {% endblock %}
 {% endblock %}
 
