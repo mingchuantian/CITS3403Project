@@ -40,11 +40,12 @@ class User(UserMixin, db.Model):
         self.avatar_hash = self.gravatar_hash()
     
     
-    def change_email(self, token):
+    def change_email(self, new_email):
         self.email = new_email
         self.avatar_hash = self.gravatar_hash()
-        db.session.add(self)
-        return True
+
+        #db.session.add(self)
+        #return True
     
 
     def gravatar_hash(self):
