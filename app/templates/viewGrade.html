@@ -44,7 +44,7 @@ Start Quiz Edit
 
     {% for key in grade_dict %} 
 
-    <h3>Your answer for question {{ str(key)[0] }} : <span class = "common">{{ Answer.query.filter_by(id=(str(key).split(',')[0])).first().Answer }}</span></h3>
+    <h3>Your answer : <span class = "common">{{ Answer.query.filter_by(id=(str(key).split(',')[0])).first().Answer }}</span></h3>
     <h3>Mark: <span class = "common">{{ str(key).split(',')[1] }}</span> </h3>
     <h3>Comment: <span class = "common">{{ str(key).split(',')[2] }}</span></h3>
 
