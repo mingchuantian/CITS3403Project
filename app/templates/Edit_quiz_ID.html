@@ -4,17 +4,6 @@
 
 {% block head %}
 {{ super() }}
-<!---refers to a css that contains styling for register page
-<link rel="stylesheet" href="style.css">
--->
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='tick_css.css', _external=True) }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='teachercss.css', _external=True) }}">
-
-
-<!--js doc-->
-<script type="text/javascript" src="{{url_for('static', filename='jsdocs.js')}}"></script>
-<script type="text/javascript" src="{{url_for('static', filename='quiz_edit_submit.js')}}"></script>
 
 {% endblock %}
 

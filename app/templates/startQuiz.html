@@ -4,17 +4,11 @@
 
 {% block head %}
 {{ super() }}
-<!---refers to a css that contains styling for register page
-<link rel="stylesheet" href="style.css">
--->
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
-<script type="text/javascript" src="{{url_for('static', filename='quiz_edit_submit.js')}}"></script>
-
 
 {% endblock %}
 
 {% block title %}
-Start Quiz Edit
+Answer Quiz
 {% endblock %}
 
 {% block body %}
@@ -116,7 +110,7 @@ Start Quiz Edit
         <span><button class="btn btn-primary btn-lg clearfix" onclick="submit_quiz_answer()" style="margin-top: 10px; float: right;">check all questions </button> </span>
 
         <span>
-            <form action= {{ url_for('finishQuiz') }}>
+            <form action= "{{ url_for('finishQuiz') }}" >
                 <button action="button" type="submit" class="btn btn-primary btn-lg" id="submit" style="margin-top: 10px; margin-right: 20px;float: right;">&ensp;&ensp;Finish Quiz&ensp;&ensp;</button>
             </form>
         </span>

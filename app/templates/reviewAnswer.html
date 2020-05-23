@@ -4,15 +4,10 @@
 
 {% block head %}
 {{ super() }}
-<!---refers to a css that contains styling for register page
-<link rel="stylesheet" href="style.css">
--->
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
-
 {% endblock %}
 
 {% block title %}
-Start Quiz Edit
+Quiz marking page
 {% endblock %}
 
 {% block body %}

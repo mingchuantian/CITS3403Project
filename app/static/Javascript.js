@@ -55,7 +55,7 @@ function myFunc (xml) {
 
 async function getAPI(){
 
-    const url = "http://localhost:5000/API"
+    const url = "/API"  
 
     fetch(url)
         .then((resp) => resp.json())
@@ -79,4 +79,41 @@ async function getAPI(){
             
         )
 
+}
+
+/*  check the new quiz finished or not */
+function submit_new_quiz(){
+    if(document.getElementsByClassName("quiz").length > 0){
+        alert('The quiz creating is not finished already, you can not submit it!');
+    }else{
+        alert('you finished all the quiz question creating!');
+        window.open("/user","_self");
+    }
+}
+
+
+/*  click it to check the student finished or not*/
+function submit_quiz_answer(){
+    if(document.getElementsByClassName("quiz").length > 0){
+        alert('You did not finish all questions, please do not submit it!');
+    }else{
+        alert('you finished all the quiz question, now submit it!');
+        document.getElementsByTagName('button')[1].click();
+    }
+}
+
+/*  back to the user page */
+function back_teacher_page(){
+    window.open("/user","_self");
+}
+
+function back_student_page(){
+    window.open("/user","_self");
+}
+
+
+function loadPage(){
+    var target = document.getElementById('url').value;
+    console.log(target);
+    document.getElementById('iframePosition').src = target;
 }

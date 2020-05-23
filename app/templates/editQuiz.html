@@ -4,11 +4,6 @@
 
 {% block head %}
 {{ super() }}
-<!---refers to a css that contains styling for register page
-<link rel="stylesheet" href="style.css">
--->
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
-<script type="text/javascript" src="{{url_for('static', filename='quiz_edit_submit.js')}}"></script>
 
 {% endblock %}
 
@@ -50,12 +45,13 @@ Create a new quiz
 
     <button class="btn btn-primary btn-lg" onclick="submit_new_quiz()" style = "float:right;">click to finish creating</button>
 
-    <div class="clearfix"></div> <br><br><br><br><br>
+    <div class="clearfix"></div>
 
 </div>
 
 
 {% endblock %}
+<br><br><br><br><br>
 {% endblock %}
 
 

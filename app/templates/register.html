@@ -4,9 +4,6 @@
 
 {% block head %}
 {{ super() }}
-<!---refers to a css that contains styling for register page
-<link rel="stylesheet" href="style.css"> -->
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 {% endblock %}
 
 
@@ -44,7 +41,7 @@ User Registration
 <hr style="margin-top: -50px;">
 <div style="margin-left: 5px;">
     <p>Already a user? Click here to log in!</p>
-    <form action="index">
+    <form action="/">
         <button action="button" type="submit" class="btn btn-primary"> >>> Login here</button>
     </form>
 </div>

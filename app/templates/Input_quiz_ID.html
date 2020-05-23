@@ -4,14 +4,6 @@
 
 {% block head %}
 {{ super() }}
-<!---refers to a css that contains styling for register page
-<link rel="stylesheet" href="style.css">
--->
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='tick_css.css', _external=True) }}">
-
-<!--js doc-->
-<script type="text/javascript" src="{{url_for('static', filename='quiz_edit_submit.js')}}"></script>
 
 {% endblock %}
 
@@ -47,8 +39,7 @@ Student
             <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Welcome to the quiz page!</h3><br>
             <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
             Please insert the quiz id that the teacher give to you and click the "Start Quiz" button below to start your quiz. If you do not have a quiz id, please check your email or contact to your unit coordinator!
-            <br><br>
-            In this page, you can view your grade by click the "View grades" button or click "View ranking" button to see your rank in the class.
+            <br>
             </div>
             <br>
         </td>
