@@ -9,6 +9,14 @@
 -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 
+<style>
+    .Edit_questions {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
 {% endblock %}
 
 {% block title %}
@@ -18,10 +26,18 @@ Start Quiz Edit
 {% block body %}
 {% block content %}
 
-<p>{{ Question.query.filter_by(id=current_question_id).first().Question }}</p>
+<div class = "Edit_questions">
 
-{{ wtf.quick_form(form)}}
-<hr>
+    <br>
+
+    <h3 style = "font-weight: 600;">The question is : {{ Question.query.filter_by(id=current_question_id).first().Question }}</h3>
+
+    <br>
+
+    {{ wtf.quick_form(form)}}
+
+</div>
+
 {% endblock %}
 {% endblock %}
 

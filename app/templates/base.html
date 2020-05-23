@@ -16,6 +16,10 @@
 
 		<link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 		<!-- Link to the javascript file -->
 		<script type="text/javascript" src="{{url_for('static', filename='Javascript.js')}}"></script>
 
@@ -30,15 +34,15 @@
   				font-size: 18px;
   				border: none;
   				outline: none;
-  				background-color: #555;
+  				background-color: rgb(184, 176, 176);
   				color: white;
   				cursor: pointer;
   				padding: 15px;
-  				border-radius: 4px;
+  				border-radius: 10px;
 			}
 
 			.myBtn:hover {
-  				background-color: lightcoral;
+  				background-color: #555;
 			}
 
 			.header{
@@ -77,18 +81,14 @@
 					<img src="{{url_for('static', filename='logo.png')}}">
 				</div>
 				<div class="title-header">
-					<h3>CITS3403 Final Project</h3>
+					<h3>CITS3403 Quiz Management System </h3> 
 				</div>
 				<br style="clear:both;"/>
 			</div>
 			<div class="navbar navbar-default">
 				<div class="container-fluid">
 					<div class="navbar-header">
-					{% if current_user.is_anonymous %}
-					<a class="navbar-brand" href="{{ url_for('index') }}">QuizMe</a>
-					{% else %}
-					<a class="navbar-brand" href="{{ url_for('user') }}">QuizMe</a>
-					{% endif %}
+					<a class="navbar-brand" href="{{ url_for('index') }}">	<i class="fa fa-home" style = "font-size: larger;"></i> </a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
@@ -202,7 +202,7 @@
 
 		</div>
 
-		<button onclick = "toTopFunc()" class = "myBtn" title = "Go back to top"> &#xf106; </button>
+		<button onclick = "toTopFunc()" class = "myBtn" title = "Go back to top"> ^ </button>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

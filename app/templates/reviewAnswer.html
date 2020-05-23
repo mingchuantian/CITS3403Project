@@ -9,6 +9,14 @@
 -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 
+<style>
+    .Mark_answer {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
 {% endblock %}
 
 {% block title %}
@@ -18,9 +26,18 @@ Start Quiz Edit
 {% block body %}
 {% block content %}
 
-<h3>{{ answer }}</h3>
-<div class = "quiz">
-{{ wtf.quick_form(form)}}
+<div class = "Mark_answer">
+
+    <br>
+
+    <h3 style = "font-weight: 600;">The answer is : {{ answer }}</h3>
+
+    <br>
+    
+    <div class = "quiz">
+    {{ wtf.quick_form(form)}}
+    </div>
+
 </div>
 
 {% endblock %}

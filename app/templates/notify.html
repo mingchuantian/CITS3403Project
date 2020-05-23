@@ -12,6 +12,15 @@
 <!--js doc-->
 <script type="text/javascript" src="{{url_for('static', filename='quiz_edit_submit.js')}}"></script>
 
+<style>
+    .notify {
+        text-align: center;
+        width: 70%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+</style>
+
 {% endblock %}
 
 {% block title %}
@@ -20,29 +29,23 @@ Log out
 
 {% block body %}
 {% block content %}
-<table>
-    <tr>
-        <td style="padding-left: 5px;">
-            <div class = 'Notification' style="font-size: 30px; font-weight: 500;">
-                <div id = 'notif'>{{ content }}</div>
-            </div>
-        </td>
-        <td style="padding-left: 15px;">
-            <input type="checkbox" checked style="display: none;">
 
-            <svg width="20" height="20">
-              <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
-              <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
-            </svg>
-        </td>
-    </tr>
-</table>
+<div class = "notify">
 
+    <br><br>
 
+    <div class = 'Notification' style="font-size: 30px; font-weight: 500;">
+        <div id = 'notif'>{{ content }}</div>
+    </div>
+            
+
+    <br><br>
     
     <form action= "{{ link }}" >
-        <button action="button" style="margin-top: 10px;" type="submit" class="btn btn-info">{{ buttonText }}</button>
+        <button action="button" type="submit" class="btn btn-primary btn-lg">{{ buttonText }}</button>
     </form>
+
+</div>
     
 {% endblock %}
 {% endblock %}
