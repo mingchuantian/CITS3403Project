@@ -16,9 +16,6 @@ Start Quiz Edit
 {% endblock %}
 
 {% block body %}
-{{ super() }}
-{% endblock %}
-
 {% block content %}
 
 <h3>{{ answer }}</h3>
@@ -26,6 +23,6 @@ Start Quiz Edit
 {{ wtf.quick_form(form)}}
 </div>
 
-
-
 {% endblock %}
+{% endblock %}
+
