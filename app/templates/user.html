@@ -34,6 +34,9 @@
         background-color: #138D75;
         border-radius: 20px;
     }
+    .img-rounded profile-thumbnail{
+        padding-left: 100px;
+    }
 </style>
 
 {% endblock %}
@@ -76,9 +79,10 @@ User Registration
     <div class="row">
 
     <div class="col-sm-4">
-        <br>
 
-    <div>
+        <br>
+        <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
+        <div>
 
         {% if current_user.email %}
         <h4>Email: <a href = "mailto: {{ current_user.email }}"> {{ current_user.email }}</a></h4>
@@ -100,10 +104,7 @@ User Registration
 
     </div>
 
-    <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
-
     <br>
-
 
     <h3 style = "padding-left: 100px;">
         {% if current_user.is_authenticated %}
