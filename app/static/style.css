@@ -62,3 +62,254 @@
     padding-top: 10px;
     padding-bottom: 8px;
   }
+
+
+
+
+
+
+
+
+/* CSS for base.html */
+
+.myBtn {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: rgb(184, 176, 176);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.myBtn:hover {
+    background-color: #555;
+}
+
+.header{
+  background-color: #273484;
+  clear:both;
+}
+.logo-header{
+  width: 50%;
+  float: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  
+}
+.title-header{
+  color: #ffffff;
+  width: 50%;
+  float: right;
+  padding-right: 20px;
+  padding-top: 55px;
+  text-align :right;
+}
+
+
+
+
+/* CSS for changeAvatar.html */
+
+.avartar {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+
+
+
+
+/* CSS for Edit_quiz_ID.html */
+
+#Edit_quizID {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+
+
+
+
+/* CSS for editProfile.html */
+
+.profile {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+/* CSS for editQuiz.html */
+
+.Craete_quiz {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+/* CSS for findQuizToMark.html */
+
+.quizID {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+
+
+
+/* CSS for index.html */
+
+.block {
+    display: block;
+    width: 70%;
+    border: none;
+    background-color: rgb(64, 78, 143);
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius: 12px;
+  }
+  
+  .block:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+
+
+
+
+  /* CSS for notify.html */
+
+  .notify {
+    text-align: center;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+
+
+
+
+/* CSS for reviewAnswer.html */
+
+.Mark_answer {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+
+/* CSS for reviewQuiz.html */
+
+.Edit_questions {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+
+/* CSS for startEditQuiz.html */
+
+.quiz {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+
+/* CSS for user.html */
+
+#b1, #b2, #b3, #b4 {
+    font-size: 25px;
+    font-weight: 380;
+    color: white;
+    min-height: 100px; 
+    background-color: #138D75;
+    border-radius: 20px;
+}
+.img-rounded profile-thumbnail{
+    padding-left: 100px;
+}
+#b5 {
+    background-color: #138D75;
+    border-radius: 20px;
+    font-weight: 380;
+    color: white;
+}
+.box {
+    width : 100%;
+    height : 50px;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+
+
+
+
+
+/* CSS for viewGrade.html */
+
+.grade {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+}
+.common {
+    color:maroon;
+    font-weight: 800;
+}
+
+
+
+
+
+/* CSS for viewRanking.html */
+
+.rank {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-weight: 600;
+}

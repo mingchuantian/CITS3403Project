@@ -25,24 +25,6 @@
 
 </script>
 
-<style>
-    #b1, #b2, #b3, #b4{
-        font-size: 25px;;
-        font-weight: 380;
-        color: white;
-        min-height: 100px; 
-        background-color: #138D75;
-        border-radius: 20px;
-    }
-    .img-rounded profile-thumbnail{
-        padding-left: 100px;
-    }
-
-    #b1, #b2, #b3, #b4:hover {
-        background-color: slategray;
-    }
-</style>
-
 {% endblock %}
 
 {% block title %}
@@ -129,7 +111,7 @@ User Registration
 
     {% if current_user.is_teacher %}
 
-    <div class="col-sm-8" >
+    <div class="col-sm-8">
 
         <br><br><br>
 
@@ -164,7 +146,21 @@ User Registration
 
         <br><br>
 
-        <button type = "button" onclick = "loadDoc()"> Click to get info </button> <br><br>
+        <div class="col-sm-8">
+
+            <br><br><br>
+
+            <input class = "box" type="text" name="searching"  placeholder = "Try to input a quiz ID" ><br>
+
+        </div>
+
+        <div class="col-sm-4">
+
+            <br><br><br>
+
+            <button type = "button" onclick = "loadDoc()" class="btn btn-lg btn-block" id = "b5"> Click to get info </button> <br><br>
+
+        </div>
     
         <table id = "myJSON"></table>
 
