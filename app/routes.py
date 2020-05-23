@@ -366,8 +366,8 @@ def changeAvatar():
 
 #API that returns the number of students who have taken the quiz
 @app.route('/API', methods = ['GET', 'POST'])
-def students_taken():
-    resp = {"name":"Ming", "ID": "1", "Quiz_taken":"5"}
+def API():
+    resp = {"name": [1,2,3,4,5]}
     return jsonify(resp)
 
 

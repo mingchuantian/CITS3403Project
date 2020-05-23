@@ -21,14 +21,20 @@ function loadDoc () {
 
 function myFunc (xml) {
 
-    let x0 = xml.responseText;
+
+    let xmlDoc = xml.responseText;
 
     let t1 = "<tr> <th> Student Name </th> <th> Quiz_taken Times </th> </tr>";
+    
 
-    // let x0 = JSON.parse(xmlDoc);
+    let x0 = JSON.parse(xmlDoc);
 
-    console.log(x0);             
+    console.log(x0);  
+    console.log(x0.name);        
 
+    //t1 = "<p>" + x0.ID + "</p>"
+
+    /*
     x0.map(
 
         function (x0) {
@@ -37,7 +43,40 @@ function myFunc (xml) {
                 + x.Quiz_taken + "</td> </tr>";
         }
     )
+    */
+   const container = document.getElementById("myJSON")
+   var t2 = document.createElement("p")
+   var t2content = document.createTextNode(x0)
+   t2.appendChild(t2content)
+    container.appendChild(t2)
 
-    document.getElementById("myJSON").innerHTML = t1;
+}
+
+
+async function getAPI(){
+
+    const url = "http://localhost:5000/API"
+
+    fetch(url)
+        .then((resp) => resp.json())
+        .then(
+            function(data){
+                console.log(data)
+                console.log(data.name)
+
+                let names = data.name;
+
+                return names.map(
+                    function(names){
+                        const container = document.getElementById("myJSON")
+                        var t2 = document.createElement("p")
+                        var t2content = document.createTextNode(data.name)
+                        t2.appendChild(t2content)
+                         container.appendChild(t2)
+                    }
+                )
+            }
+            
+        )
 
 }
