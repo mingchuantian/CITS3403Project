@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block head %}
+{{ super() }}
+
+
+{% endblock %}
+
+{% block title %}
+Change Avatar
+{% endblock %}
+
+{% block body %}
+{% block content %}
+
+
+<h4>Your current avartar</h4>
+<img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
+<p>Change your avatar by changing your email</p>
+<div class = "change_avatar">
+    {{ wtf.quick_form(changeAvatarForm)}}
+    </div>
+
+{% endblock %}
+{% endblock %}

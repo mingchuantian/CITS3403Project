@@ -47,3 +47,18 @@
     font-size: larger;
     margin-top: 10px;
 }
+
+/* There is are highlighted divs called note, which mark something worth noting. */
+.note{
+    background-color: #feffcb;
+    width: 70%;
+    padding-left: 15px;
+    border-left-color: #ffea3a;
+    border-left-width: 5px;
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-style: solid;
+    padding-top: 10px;
+    padding-bottom: 8px;
+  }
