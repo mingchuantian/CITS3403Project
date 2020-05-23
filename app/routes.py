@@ -1,6 +1,6 @@
 from app import app, db
 from flask import render_template, flash, redirect, request, url_for, jsonify
-from app.forms import LoginForm, RegisterForm, QuizEditForm, QuizLoginForm, QuizStartForm, QuizAnswerForm, QuizReviewForm, changeQuestionForm, QuizMarkForm, GradingForm, EditProfileForm
+from app.forms import LoginForm, RegisterForm, QuizEditForm, QuizLoginForm, QuizStartForm, QuizAnswerForm, QuizReviewForm, changeQuestionForm, QuizMarkForm, GradingForm, EditProfileForm, ChangeAvatarForm
 from flask_login import login_user, login_required, logout_user, current_user
 from app.models import User, Question, QuizSet, Answer, Grade
 
@@ -331,14 +331,23 @@ def editProfile():
  
     return render_template('editProfile.html', EditProfileForm=form)
 
+@app.route('/changeAvatar',  methods = ['GET', 'POST'])
+@login_required
+def changeAvatar():
+    form = ChangeAvatarForm()
+    if form.validate_on_submit():
+        newEmail = form.email.data
+        current_user.change_email(newEmail)
+        db.session.add(current_user._get_current_object())
+        db.session.commit()
+        return render_template('user.html', user=current_user)
+    return render_template('changeAvatar.html', changeAvatarForm = form, user=current_user)
 
 
 #API that returns the number of students who have taken the quiz
 @app.route('/students_taken')
 def students_taken():
     return jsonify({'Ming': 4, 'Hanlin': 5, "Tim": 3 })
-
-
 
 
 #Helper function that calculates the total mark of each quiz
