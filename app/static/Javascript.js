@@ -14,33 +14,30 @@ function loadDoc () {
         myFunc(this);
     };
 
-    xhttp.open ("GET", "/students_taken", true);
+    xhttp.open ("GET", "/API", true);
     xhttp.send();
 
 }
 
 function myFunc (xml) {
 
-    let xmlDoc = xml.responseText;
+    let x0 = xml.responseText;
 
-    let t1 = "<tr> <th> Student </th> <th> Times of taking quiz </th> </tr>";
+    let t1 = "<tr> <th> Student Name </th> <th> Quiz_taken Times </th> </tr>";
 
-    let x0 = JSON.parse(xmlDoc);
+    // let x0 = JSON.parse(xmlDoc);
 
-    console.log(x0);
+    console.log(x0);             
 
-    // let x = x0.locations;              
+    x0.map(
 
-    // x.map(
+        function (x0) {
+            t1 += "<tr> <td>" 
+                + x.name + "</td> <td>" 
+                + x.Quiz_taken + "</td> </tr>";
+        }
+    )
 
-    //     function (x) {
-    //         t1 += "<tr> <td>" 
-    //             + x.country + "</td> <td>" 
-    //             + x.latest.confirmed + "</td> <td>" 
-    //             + x.latest.deaths + "</td> </tr>";
-    //     }
-    // )
-
-    document.getElementById("myJSON").innerHTML = x0;
+    document.getElementById("myJSON").innerHTML = t1;
 
 }

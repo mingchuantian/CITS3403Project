@@ -365,10 +365,10 @@ def changeAvatar():
 
 
 #API that returns the number of students who have taken the quiz
-@app.route('/API')
+@app.route('/API', methods = ['GET', 'POST'])
 def students_taken():
     resp = {"name":"Ming", "ID": "1", "Quiz_taken":"5"}
-    return resp
+    return jsonify(resp)
 
 
 #Helper function that calculates the total mark of each quiz
