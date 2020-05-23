@@ -15,6 +15,16 @@
 <!--js doc-->
 <script type="text/javascript" src="{{url_for('static', filename='jsdocs.js')}}"></script>
 
+<script>
+    
+    setTimeout(fade_out, 4000);
+
+    function fade_out() {
+        $("#mydiv").fadeOut().empty();
+    }
+
+</script>
+
 <style>
     #b1, #b2, #b3, #b4{
         font-size: 25px;;
@@ -35,8 +45,31 @@ User Registration
 
 {% block body %}
 
+{% block logo %}
+{{ super() }}
+{% endblock %}
 
 {% block content %}
+
+<div style="margin-left: 5px;" id = "mydiv">
+    <table>
+        <tr>
+            <td>  <input type="checkbox" checked style="display: none;">
+                <svg width="20" height="20">
+                    <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
+                    <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
+                </svg>
+            </td>
+            <td><br><p style="color: red; font-size: larger;">
+                {% if current_user.is_teacher %}
+                <b>&ensp;&ensp;You are logged in as a teacher, welcome!</b>
+                {% else %}
+                <b>&ensp;&ensp;You are logged in as a student, welcome!</b>
+                {% endif %}
+            </p></td>
+        </tr>
+    </table>
+</div>
 
 <div class = "container-fluid">
 
@@ -44,25 +77,6 @@ User Registration
 
     <div class="col-sm-4">
         <br>
-        <div style="margin-left: 5px;">
-            <table>
-                <tr>
-                    <td>  <input type="checkbox" checked style="display: none;">
-                        <svg width="20" height="20">
-                            <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
-                            <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
-                        </svg>
-                    </td>
-                    <td><br><p style="color: red; font-size: larger;">
-                        {% if current_user.is_teacher %}
-                        <b>&ensp;&ensp;You are logged in as a teacher, welcome!</b>
-                        {% else %}
-                        <b>&ensp;&ensp;You are logged in as a student, welcome!</b>
-                        {% endif %}
-                    </p></td>
-                </tr>
-            </table>
-        </div>
 
     <div>
 

@@ -17,29 +17,37 @@ User Login
 {% endblock %}
 
 {% block body %}
+
 {% block logo %}
 {{ super() }}
 {% endblock %}
 
 {% block content %}
-<table style="background-color: #ede7d3;margin: 10px;">
-    <tr>
-        <td style="background-color: orange;">&emsp;&emsp;</td>
-        <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Login to the quiz page</h3><br>
-        <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
-        Please use your email and password to log in to the quiz page! If you are a stuff, you will log in to the stuff page, otherwise you will go to the student page! 
-        If you do not have an account yet, plese click the button "Home" at the left top side corner to create a new account!
-        <br><br>
-        For the email and password, please use the email and password that you use when you create your quiz account.
-        </div>
-        <br>
-    </td>
-    </tr>
-</table>
-<br>
 
-<div class = "login_form">
-{{ wtf.quick_form(loginForm)}}
+<div style = "width:80%; margin-left: auto; margin-right:auto;">
+
+    <br><br>
+
+    <table style="background-color: #ede7d3;">
+        <tr>
+            <td style="background-color: orange;">&emsp;&emsp;</td>
+            <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Login to the quiz page</h3><br>
+            <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
+            Please use your email and password to log in to the quiz page! If you are a stuff, you will log in to the stuff page, otherwise you will go to the student page! 
+            If you do not have an account yet, plese click the button "Home" at the left top side corner to create a new account!
+            <br><br>
+            For the email and password, please use the email and password that you use when you create your quiz account.
+            </div>
+            <br>
+        </td>
+        </tr>
+    </table>
+    <br><br>
+
+
+    <div class = "login_form">
+    {{ wtf.quick_form(loginForm)}}
+    </div>
 </div>
 <br><br><br><br><br>
 {% endblock %}
