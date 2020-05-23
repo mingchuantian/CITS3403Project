@@ -66,9 +66,9 @@
 						<li><a  href="{{ url_for('index') }}">Home</a></li>
 						{% endif %}
 						{% if current_user.is_authenticated and current_user.is_teacher %}
-						<li><a  href="{{ url_for('teacher') }}">Teacher Homepage</a></li>
+						<li><a  href="{{ url_for('user') }}">Teacher Homepage</a></li>
 						{% elif current_user.is_authenticated %}
-						<li><a  href="{{ url_for('student') }}">Student Homepage</a></li>
+						<li><a  href="{{ url_for('user') }}">Student Homepage</a></li>
 						{% endif %}
 					</ul>
 					<ul class="nav navbar-nav navbar-right">

@@ -33,6 +33,12 @@ def register():
     return render_template('register.html', registerForm = form)
 
 
+# ----  User profile page -----
+
+@app.route('/user', methods = ['GET', 'POST'])
+@login_required
+def user():
+    return render_template('user.html',user=current_user)
 
 # ----  Notification page -----
 
@@ -49,15 +55,9 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user is not None and user.verify_password(form.password.data):
             login_user(user, form.remember_me.data)
-            if user.is_teacher == True:
-                next = request.args.get('next')
-                if next is None or not next.startswith('/'):
-                    next = url_for('teacher')
-                return redirect(next)
-            else:
-                next = request.args.get('next')
-                if next is None or not next.startswith('/'):
-                    next = url_for('student')
+            next = request.args.get('next')
+            if next is None or not next.startswith('/'):   
+                next = url_for('user')
                 return redirect(next)
         else:
             return 'The account does not exist'
@@ -65,13 +65,6 @@ def login():
     return render_template('login.html', loginForm = form)
 
 
-# ----  Student profile page -----
-
-@app.route('/student', methods = ['GET', 'POST'])
-@login_required
-def student():
- 
-    return render_template('student.html', user = current_user)
 
 # ----  Student page for inputting a quiz ID -----
 
@@ -82,12 +75,12 @@ def Input_quiz_ID():
     form = QuizLoginForm()
     if form.validate_on_submit():
         if QuizSet.query.filter_by(quiz_id=form.QuizID.data).first() is None:
-            return render_template('notify.html', content='You entered a wrong quizset ID!',  buttonText='Back to profile page', link=student) 
+            return render_template('notify.html', content='You entered a wrong quizset ID!',  buttonText='Back to profile page', link=user) 
         QuizsetID = QuizSet.query.filter_by(quiz_id=form.QuizID.data).first().id
         if QuizsetID is not None:     
             return redirect(url_for('startQuiz', QuizsetID = QuizsetID, current_question=1))
         else:
-            return render_template('notify.html', content='The quiz does not exist!',  buttonText='Back to profile page', link=student)
+            return render_template('notify.html', content='The quiz does not exist!',  buttonText='Back to profile page', link=user)
     return render_template('Input_quiz_ID.html', loginQuizForm = form, user=current_user) 
 
 # ----  Student quiz page -----
@@ -135,12 +128,6 @@ def finishQuiz():
     return render_template('notify.html', content='You have finished your quiz', buttonText='Back to profile page', link=url_for('student'))
 
 
-# ----  Teacher profile page -----
-
-@app.route('/teacher', methods = ['GET', 'POST'])
-@login_required
-def teacher():
-    return render_template('teacher.html',user=current_user)
 
 @app.route('/Edit_quiz_ID', methods = ['GET', 'POST'])
 @login_required
@@ -168,7 +155,7 @@ def markQuiz():
     if form.validate_on_submit():
          
         if QuizSet.query.filter_by(quiz_id=form.QuizID.data).first() is None:
-            return render_template('notify.html', content= 'You entered a wrong quizset ID!', buttonText='Back to profile page', link=url_for('teacher'))
+            return render_template('notify.html', content= 'You entered a wrong quizset ID!', buttonText='Back to profile page', link=url_for('user'))
         else:
             quizsetID = QuizSet.query.filter_by(quiz_id=form.QuizID.data).first().id
             answer_num = Answer.query.filter_by(quizset_id=quizsetID).count()
@@ -274,9 +261,9 @@ def nextAnswer(quizsetID, current_answer, answer_num):
 def reviewQuiz(quizsetID,current_question_id, question_n):
 
     if(current_user.id is not QuizSet.query.filter_by(id=quizsetID).first().author_id):
-        return render_template('notify.html', content='you cannot edit the quiz because you are not the author',  buttonText='Back to profile page', link='teacher') 
+        return render_template('notify.html', content='you cannot edit the quiz because you are not the author',  buttonText='Back to profile page', link='user') 
     elif(int(question_n) is QuizSet.query.filter_by(id=quizsetID).first().question_num):
-        return render_template('notify.html', content='you have done editing all questions in this quizset',  buttonText='Back to profile page', link='teacher') 
+        return render_template('notify.html', content='you have done editing all questions in this quizset',  buttonText='Back to profile page', link='user') 
     else:
         current_question_id = int(current_question_id)
         form=changeQuestionForm()
@@ -340,10 +327,8 @@ def editProfile():
         current_user.address = form.address.data
         db.session.add(current_user._get_current_object())
         db.session.commit()
-        if current_user.is_teacher:
-            return render_template('notify.html', content='Your profile has been successfuly updated', buttonText='Back to profile page', link='teacher')
-        else:
-            return render_template('notify.html', content='Your profile has been successfuly updated', buttonText='Back to profile page', link='student')
+        return render_template('notify.html', content='Your profile has been successfuly updated', buttonText='Back to profile page', link='user')
+ 
     return render_template('editProfile.html', EditProfileForm=form)
 
 

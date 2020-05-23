@@ -53,7 +53,13 @@ User Registration
                             <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
                         </svg>
                     </td>
-                    <td><br><p style="color: red; font-size: larger;"><b>&ensp;&ensp;You are logged in as a teacher, welcome!</b></p></td>
+                    <td><br><p style="color: red; font-size: larger;">
+                        {% if current_user.is_teacher %}
+                        <b>&ensp;&ensp;You are logged in as a teacher, welcome!</b>
+                        {% else %}
+                        <b>&ensp;&ensp;You are logged in as a student, welcome!</b>
+                        {% endif %}
+                    </p></td>
                 </tr>
             </table>
         </div>
@@ -101,6 +107,8 @@ User Registration
 
     </div>
 
+    {% if current_user.is_teacher %}
+
     <div class="col-sm-8" style="margin-top: 200px; margin-bottom: 200px;">
 
         <div class="col-sm-6">
@@ -137,6 +145,51 @@ User Registration
 
 </div>
 <br><br>
+
+{% else %}
+<div class="col-sm-8">
+
+    <br><br><br><br>
+<div style="margin-top: 30px;">
+
+    <div class="col-sm-6">
+
+        <form action="Input_quiz_ID">
+            <button action="button" type="submit" class="btn btn-primary btn-lg btn-block" id = "b1" >Start quiz&ensp;</button>
+        </form>
+
+        <br><br>
+
+        <form action="viewGrade">
+            <button action="button" type="submit" class="btn btn-primary btn-lg btn-block" id = "b2" >View grades&ensp;</button>
+        </form>
+
+        <br><br>
+
+    </div>
+
+    <div class="col-sm-6">
+
+        <form action="viewRanking">
+            <button action="button" type="submit" class="btn btn-primary btn-lg btn-block" id = "b3" >View ranking</button>
+        </form>
+
+        <br><br>
+    
+        <form action="logout">
+        <button action="button" type="submit" class="btn btn-primary btn-lg btn-block" id = "b4" > Log out&ensp;</button>
+        </form>
+
+    </div>
+
+        
+</div>
+
+</div>
+</div>
+</div>
+<br><br><br><br><br>
+{% endif %}
 
 {% endblock %}
 
