@@ -116,53 +116,60 @@
 		
 		<br>
 
+			<div style="background-color: white; position: fixed; bottom:0; width:100%; border-radius: 10px;">
+				
+				<div style = "text-align:center; ">
 
-			<div style="padding-left: 30%; padding-right: 30%; background-color: lightgrey; position: relative; bottom:0; width:100%; border-radius: 10px;">
-				<p> <b>Current time: </b><span id="cg" class="p_not_change_line"> 2016/12/21 am 12:00:00</span></p>
-				<div class="bar bar1"></div>
-				<div class="bar bar2"></div>
-				<div class="bar bar3"></div>
-				<div class="bar bar4"></div>
-				<div class="bar bar5"></div>
-				<div class="bar bar6"></div>
-				<div class="bar bar7"></div>
-				<div class="bar bar8"></div>
-				<div class="bar bar9"></div>
-				<div class="bar bar10"></div>
-				<div class="bar bar11"></div>
-				<div class="bar bar12"></div>
-				<div class="bar bar13"></div>
-				<div class="bar bar14"></div>
-				<div class="bar bar15"></div>
-				<div class="bar bar16"></div>
-				<div class="bar bar1"></div>
-				<div class="bar bar2"></div>
-				<div class="bar bar3"></div>
-				<div class="bar bar4"></div>
-				<div class="bar bar5"></div>
-				<div class="bar bar6"></div>
-				<div class="bar bar7"></div>
-				<div class="bar bar8"></div>
-				<div class="bar bar9"></div>
-				<div class="bar bar10"></div>
-				<div class="bar bar11"></div>
-				<div class="bar bar12"></div>
-				<div class="bar bar13"></div>
-				<div class="bar bar14"></div>
-				<div class="bar bar15"></div>
-				<div class="bar bar16"></div>
-				<div class="bar bar1"></div>
-				<div class="bar bar2"></div>
-				<div class="bar bar3"></div>
-				<div class="bar bar4"></div>
-			</div>
+					<hr>
+
+					<p> <b>Current time: </b><span id="cg" class="p_not_change_line"> 2016/12/21 am 12:00:00</span></p>
+					<div class="bar bar1"></div>
+					<div class="bar bar2"></div>
+					<div class="bar bar3"></div>
+					<div class="bar bar4"></div>
+					<div class="bar bar5"></div>
+					<div class="bar bar6"></div>
+					<div class="bar bar7"></div>
+					<div class="bar bar8"></div>
+					<div class="bar bar9"></div>
+					<div class="bar bar10"></div>
+					<div class="bar bar11"></div>
+					<div class="bar bar12"></div>
+					<div class="bar bar13"></div>
+					<div class="bar bar14"></div>
+					<div class="bar bar15"></div>
+					<div class="bar bar16"></div>
+					<div class="bar bar1"></div>
+					<div class="bar bar2"></div>
+					<div class="bar bar3"></div>
+					<div class="bar bar4"></div>
+					<div class="bar bar5"></div>
+					<div class="bar bar6"></div>
+					<div class="bar bar7"></div>
+					<div class="bar bar8"></div>
+					<div class="bar bar9"></div>
+					<div class="bar bar10"></div>
+					<div class="bar bar11"></div>
+					<div class="bar bar12"></div>
+					<div class="bar bar13"></div>
+					<div class="bar bar14"></div>
+					<div class="bar bar15"></div>
+					<div class="bar bar16"></div>
+					<div class="bar bar1"></div>
+					<div class="bar bar2"></div>
+					<div class="bar bar3"></div>
+					<div class="bar bar4"></div>
+
+				</div>
 
 			<!--cg is the id of span,change Date time to the String type,each 1000 ms will fresh once, setInterval() call the function, until close the web-->
 			<script>
 				setInterval("cg.innerHTML=new Date().toLocaleString('en-us')",1000);
 			</script>
 
-		<button onclick = "toTopFunc()" class = "myBtn" title = "Go back to top"> &#xf102; </button>
+		</div>
+
+		<button onclick = "toTopFunc()" class = "myBtn" title = "Go back to top"> &#xf106; </button>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

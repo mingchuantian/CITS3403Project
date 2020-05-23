@@ -3,7 +3,7 @@ function submit_new_quiz(){
         alert('The quiz creating is not finished already, you can not submit it!');
     }else{
         alert('you finished all the quiz question creating!');
-        window.open("/teacher","_self");
+        window.open("/user","_self");
     }
 }
 
@@ -17,13 +17,9 @@ function submit_quiz_answer(){
 }
 
 function back_teacher_page(){
-    window.open("/teacher","_self");
-}
-
-function back_home_page(){
-    window.open("/login","_self");
+    window.open("/user","_self");
 }
 
 function back_student_page(){
-    window.open("/student","_self");
+    window.open("/user","_self");
 }
