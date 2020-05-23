@@ -1,4 +1,4 @@
-{% extends "base2.html" %}
+{% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
 
@@ -46,8 +46,11 @@ Student Quiz
 
 {% block body %}
 
-<img class="logo" alt = "uwaLogo" src = "{{ url_for('static', filename='logo1.jpg', _external=True) }}" style = "display:block; margin-left:auto; margin-right:auto; width:40%;">
+{% block logo %}
+{{ super() }}
+{% endblock %}
 
+{% block content %}
 <br><br>
 
 <table style="background-color: #ede7d3; text-align: center; margin-left:auto; margin-right:auto; width:70%;">
@@ -94,13 +97,6 @@ Student Quiz
 
 <br><br>
 
-{{ super() }}
-
-{% endblock %}
-
-
-{% block content %}
-
 <form action="login">
     <button action="button" type="submit" class="block" > Log in as a teacher </button>
 </form>
@@ -114,4 +110,5 @@ Student Quiz
 </form>
 <br><br><br><br>
 
+{% endblock %}
 {% endblock %}

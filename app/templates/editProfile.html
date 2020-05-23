@@ -11,9 +11,10 @@
 Student
 {% endblock %}
 
-
 {% block body %}
-
+{% block content %}
 {{ wtf.quick_form(EditProfileForm)}}
 
 {% endblock %}
+{% endblock %}
+

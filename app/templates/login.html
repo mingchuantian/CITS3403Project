@@ -1,4 +1,4 @@
-{% extends "base2.html" %}
+{% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
 
@@ -17,7 +17,11 @@ User Login
 {% endblock %}
 
 {% block body %}
-<img class="logo" alt = "uwaLogo" src = "{{ url_for('static', filename='logo1.jpg', _external=True) }}" style = "display:block; margin-left:auto; margin-right:auto; width:40%;">
+{% block logo %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
 <table style="background-color: #ede7d3;margin: 10px;">
     <tr>
         <td style="background-color: orange;">&emsp;&emsp;</td>
@@ -33,12 +37,14 @@ User Login
     </tr>
 </table>
 <br>
-{{ super() }}
-{% endblock %}
 
-{% block content %}
 <div class = "login_form">
 {{ wtf.quick_form(loginForm)}}
 </div>
 <br><br><br><br><br>
 {% endblock %}
+
+{% endblock %}
+
+
+

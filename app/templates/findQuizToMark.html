@@ -1,4 +1,4 @@
-{% extends "base2.html" %}
+{% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
 
@@ -17,14 +17,21 @@ Mark the quiz
 {% endblock %}
 
 {% block body %}
-<img class="logo" alt = "uwaLogo" src = "{{ url_for('static', filename='logo1.jpg', _external=True) }}" style = "display:block; margin-left:auto; margin-right:auto; width:40%;">
-<h3 style="margin-left: 5px; margin-bottom: 20px;">Please insert the quiz number to the quiz you want to mark!</h3>
+
+{% block logo %}
 {{ super() }}
 {% endblock %}
 
+
 {% block content %}
+<h3 style="margin-left: 5px; margin-bottom: 20px;">Please insert the quiz number to the quiz you want to mark!</h3>
 <div class = "quiz">
 {{ wtf.quick_form(form)}}
 </div>
 <button class="quiz_submit_button" onclick="back_teacher_page()">Back to the teacher page</button>
 {% endblock %}
+
+{% endblock %}
+
+
+

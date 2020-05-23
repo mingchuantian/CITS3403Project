@@ -1,4 +1,4 @@
-{% extends "base2.html" %}
+{% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
 
@@ -10,16 +10,18 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
 <script type="text/javascript" src="{{url_for('static', filename='quiz_edit_submit.js')}}"></script>
 
-
-
 {% endblock %}
 
 {% block title %}
 Create a new quiz
 {% endblock %}
 
+
 {% block body %}
-<img class="logo" alt = "uwaLogo" src = "{{ url_for('static', filename='logo1.jpg', _external=True) }}" style = "display:block; margin-left:auto; margin-right:auto; width:40%;">
+{% block logo %}
+{{ super() }}
+{% endblock %}
+{% block content %}
 <table style="background-color: #ede7d3;margin: 10px;">
     <tr>
         <td style="background-color: orange;">&emsp;&emsp;</td>
@@ -32,10 +34,6 @@ Create a new quiz
     </td>
     </tr>
 </table>
-{{ super() }}
-{% endblock %}
-
-{% block content %}
 
 
 {% for i in range(current_question, question_num + 1) %}
@@ -50,4 +48,8 @@ Create a new quiz
 
 </div>
 
+
 {% endblock %}
+{% endblock %}
+
+

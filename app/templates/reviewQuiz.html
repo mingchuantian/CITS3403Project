@@ -16,16 +16,12 @@ Start Quiz Edit
 {% endblock %}
 
 {% block body %}
-{{ super() }}
-{% endblock %}
-
 {% block content %}
 
 <p>{{ Question.query.filter_by(id=current_question_id).first().Question }}</p>
 
 {{ wtf.quick_form(form)}}
 <hr>
-
-
-
 {% endblock %}
+{% endblock %}
+
