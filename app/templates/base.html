@@ -86,8 +86,8 @@
 								<li><a class="dropdown-item" href="{{ url_for('markQuiz') }}">Mark Quiz</a></li>
 								{% else %}
 								<li><a class="dropdown-item" href="{{ url_for('Input_quiz_ID') }}">Start Quiz</a></li>
-								<li><a class="dropdown-item" href="{{ url_for('editProfile') }}">View Grades</a></li>
-								<li><a class="dropdown-item" href="{{ url_for('editProfile') }}">View Ranking</a></li>
+								<li><a class="dropdown-item" href="{{ url_for('viewGrade') }}">View Grades</a></li>
+								<li><a class="dropdown-item" href="{{ url_for('viewRanking') }}">View Ranking</a></li>
 								{% endif %}
 								<li><a class="dropdown-item" href="{{ url_for('logout') }}">Log Out</a></li>
 							</ul> 

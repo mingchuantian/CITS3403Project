@@ -18,6 +18,8 @@ Start Quiz Edit
 {% block body %}
 {% block content %}
 
+
+
 {% for key in unique_quizsets %}
 <h3>The quiz you have taken is : "{{ QuizSet.query.filter_by(id=key).first().title }}"</h3>
 <p>Quiz ID: {{ QuizSet.query.filter_by(id=key).first().quiz_id }}</p>
@@ -37,11 +39,15 @@ Start Quiz Edit
 {% endfor %}
 {% endfor %}
 
-
+{% if all_marks %}
 <p>Your mark is : {{ calcualte_total_mark(all_marks) }}</p>
 
 <p>Your ranking is : {{ calculate_ranking(all_students_id, key, calcualte_total_mark(all_marks)) }} / {{ len(unique_items(all_students_id)) }} </p>
 
+{% else %}
+<p>There is no grade and ranking yet!</p>
+
+{% endif %}
 
 {% endfor %}
 

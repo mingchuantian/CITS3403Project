@@ -5,14 +5,14 @@ from wtforms.fields.html5 import EmailField
 
 class LoginForm(FlaskForm):
 
-    email = StringField("Email", validators = [DataRequired()])
+    email = EmailField('Email', [validators.DataRequired(), validators.Email()])
     password = PasswordField("Password", validators = [DataRequired()])
     remember_me = BooleanField("Remember Me")
     submit = SubmitField("Sign In")
 
 class RegisterForm(FlaskForm):
     name = StringField("Name", validators = [DataRequired()])
-    email = StringField("Email", validators = [DataRequired()])
+    email = EmailField('Email', [validators.DataRequired(), validators.Email()])
     password = PasswordField("Password", validators = [DataRequired()])
     teacher = BooleanField("Register as teacher")
     submit = SubmitField("Sign up")

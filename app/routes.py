@@ -26,9 +26,9 @@ def register():
             user.set_password(form.password.data)
             db.session.add(user)
             db.session.commit()
-            return render_template('notify.html', content='The user is successfully registered',  buttonText='Back to home page', link='index') 
+            return render_template('notify.html', content='The user is successfully registered',  buttonText='Back to home page', link=url_for('index')) 
         else:
-            return render_template('notify.html', content='The user already exists!',  buttonText='Back to home page', link='index') 
+            return render_template('notify.html', content='The user already exists!',  buttonText='Back to home page', link=url_for('index')) 
 
     return render_template('register.html', registerForm = form)
 
@@ -42,9 +42,9 @@ def user():
 
 # ----  Notification page -----
 
-@app.route('/notification/<content>/<buttonText>/<link>')
-def notification(content, buttonText, link):
-    return render_template('notify.html', content=content, buttonText=buttonText, link=link)
+#@app.route('/notification/<content>/<buttonText>/<link>')
+#def notification(content, buttonText, link):
+#    return render_template('notify.html', content=content, buttonText=buttonText, link=link)
 
 # ----  Login page -----
 
@@ -75,12 +75,12 @@ def Input_quiz_ID():
     form = QuizLoginForm()
     if form.validate_on_submit():
         if QuizSet.query.filter_by(quiz_id=form.QuizID.data).first() is None:
-            return render_template('notify.html', content='You entered a wrong quizset ID!',  buttonText='Back to profile page', link=user) 
+            return render_template('notify.html', content='You entered a wrong quizset ID!',  buttonText='Back to profile page', link=url_for('user')) 
         QuizsetID = QuizSet.query.filter_by(quiz_id=form.QuizID.data).first().id
         if QuizsetID is not None:     
             return redirect(url_for('startQuiz', QuizsetID = QuizsetID, current_question=1))
         else:
-            return render_template('notify.html', content='The quiz does not exist!',  buttonText='Back to profile page', link=user)
+            return render_template('notify.html', content='The quiz does not exist!',  buttonText='Back to profile page', link=url_for('user'))
     return render_template('Input_quiz_ID.html', loginQuizForm = form, user=current_user) 
 
 # ----  Student quiz page -----
@@ -125,7 +125,7 @@ def answerSaved(current_question, QuizsetID):
 @app.route('/finishQuiz')
 @login_required
 def finishQuiz():
-    return render_template('notify.html', content='You have finished your quiz', buttonText='Back to profile page', link=url_for('student'))
+    return render_template('notify.html', content='You have finished your quiz', buttonText='Back to profile page', link=url_for('user'))
 
 
 
@@ -182,7 +182,7 @@ def startEditQuiz():
     if form.validate_on_submit():
         #if the Quiz Id entered already exists
         if QuizSet.query.filter_by(quiz_id=form.quiz_id.data).first() is not None:
-            return render_template('notify.html', content='The quiz id already exists',  buttonText='Back', link='startEditQuiz')
+            return render_template('notify.html', content='The quiz id already exists',  buttonText='Back', link=url_for('startEditQuiz'))
         else:
             num_question=form.question_num.data
             id_quiz = form.quiz_id.data
@@ -261,9 +261,9 @@ def nextAnswer(quizsetID, current_answer, answer_num):
 def reviewQuiz(quizsetID,current_question_id, question_n):
 
     if(current_user.id is not QuizSet.query.filter_by(id=quizsetID).first().author_id):
-        return render_template('notify.html', content='you cannot edit the quiz because you are not the author',  buttonText='Back to profile page', link='user') 
+        return render_template('notify.html', content='you cannot edit the quiz because you are not the author',  buttonText='Back to profile page', link=url_for('user')) 
     elif(int(question_n) is QuizSet.query.filter_by(id=quizsetID).first().question_num):
-        return render_template('notify.html', content='you have done editing all questions in this quizset',  buttonText='Back to profile page', link='user') 
+        return render_template('notify.html', content='you have done editing all questions in this quizset',  buttonText='Back to profile page', link=url_for('user')) 
     else:
         current_question_id = int(current_question_id)
         form=changeQuestionForm()
@@ -299,6 +299,7 @@ def viewGrade():
 @app.route('/viewRanking',  methods = ['GET', 'POST'])
 @login_required
 def viewRanking():
+    
     quizsets_taken = []
     answerlist = Answer.query.filter_by(student_id=current_user.id).all()
     for key in answerlist:
@@ -327,7 +328,7 @@ def editProfile():
         current_user.address = form.address.data
         db.session.add(current_user._get_current_object())
         db.session.commit()
-        return render_template('notify.html', content='Your profile has been successfuly updated', buttonText='Back to profile page', link='user')
+        return render_template('notify.html', content='Your profile has been successfuly updated', buttonText='Back to profile page', link=url_for('user'))
  
     return render_template('editProfile.html', EditProfileForm=form)
 
