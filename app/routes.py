@@ -1,6 +1,6 @@
 from app import app, db
 from flask import render_template, flash, redirect, request, url_for, jsonify
-from app.forms import LoginForm, RegisterForm, QuizEditForm, QuizLoginForm, QuizStartForm, QuizAnswerForm, QuizReviewForm, changeQuestionForm, QuizMarkForm, GradingForm, EditProfileForm, ChangeAvatarForm
+from app.forms import TeacherLoginForm, StudentLoginForm, RegisterForm, QuizEditForm, QuizLoginForm, QuizStartForm, QuizAnswerForm, QuizReviewForm, changeQuestionForm, QuizMarkForm, GradingForm, EditProfileForm, ChangeAvatarForm
 from flask_login import login_user, login_required, logout_user, current_user
 from app.models import User, Question, QuizSet, Answer, Grade
 
@@ -48,19 +48,38 @@ def user():
 
 # ----  Login page -----
 
-@app.route('/login', methods = ['GET', 'POST'])
-def login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user is not None and user.verify_password(form.password.data):
-            login_user(user, form.remember_me.data)
-            next = request.args.get('next')
-            if next is None or not next.startswith('/'):   
-                next = url_for('user')
-                return redirect(next)
-        else:
-            return 'The account does not exist'
+@app.route('/login/<identity>', methods = ['GET', 'POST'])
+def login(identity):
+    if identity == 'teacher':
+        form = TeacherLoginForm()
+        if form.validate_on_submit():
+            user = User.query.filter_by(email=form.email.data).first()
+            if user is not None and user.verify_password(form.password.data):
+                if user.is_teacher:
+                    login_user(user, form.remember_me.data)
+                    next = request.args.get('next')
+                    if next is None or not next.startswith('/'):   
+                        next = url_for('user')
+                        return redirect(next)
+                else:
+                    return render_template('notify.html', content='You are not a teacher, please log in as student',  buttonText='Back to homepage', link=url_for('index'))
+            else:
+                return render_template('notify.html', content='Account does not exist',  buttonText='Register here', link=url_for('register'))
+    else:
+        form = StudentLoginForm()
+        if form.validate_on_submit():
+            user = User.query.filter_by(email=form.email.data).first()
+            if user is not None and user.verify_password(form.password.data):
+                if user.is_teacher:
+                    return render_template('notify.html', content='You are not a student, please log in as teacher',  buttonText='Back to homepage', link=url_for('index'))
+                else:
+                    login_user(user, form.remember_me.data)
+                    next = request.args.get('next')
+                    if next is None or not next.startswith('/'):   
+                        next = url_for('user')
+                        return redirect(next)              
+            else:
+                return render_template('notify.html', content='Account does not exist',  buttonText='Register here', link=url_for('register'))
 
     return render_template('login.html', loginForm = form)
 
