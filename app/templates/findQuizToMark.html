@@ -20,10 +20,33 @@ Mark the quiz
 
 {% block content %}
 
+<h2 style = "padding-left: 10px;">
+    Hello, 
+    {% if current_user.is_authenticated %}
+    {% if current_user.title %}
+    {{ current_user.title }}
+    {% endif %}
+    {{ current_user.name}}
+    {% endif %} !
+</h2>
+
+<hr>
+
 <br><br>
 
 <div class = "quizID">
-    <h3 style="margin-left: 5px; margin-bottom: 20px;">Please insert the quiz number to the quiz you want to mark!</h3> <br>
+    <table style="background-color: #ede7d3; width:70%; margin-left: auto; margin-right: auto;">
+        <tr>
+            <td style="background-color: orange;">&emsp;&emsp;</td>
+            <td ><br><h3 style="font-weight: 800;">Welcome to mark the quiz!</h3><br>
+            <div id = "padding" style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
+                Please insert the quiz number to the quiz you want to mark!
+            </div>
+            <br>
+        </td>
+        </tr>
+    </table>
+    <br>
     <div class = "quiz" style = "width:60%; margin-left: auto; margin-right: auto;">
     {{ wtf.quick_form(form)}}
     </div>

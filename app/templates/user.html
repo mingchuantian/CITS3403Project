@@ -56,11 +56,20 @@ User Registration
 
     <div class="col-sm-4">
 
-        <br>
-        <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
+        <br><br>
+        <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}" style = "width:60%; padding-left: 50px;">
         <div>
 
         <br>
+
+        <h1>
+            {% if current_user.is_authenticated %}
+            {% if current_user.title %}
+            {{ current_user.title }}
+            {% endif %}
+            {{ current_user.name}}
+            {% endif %} 
+        </h1>
 
         {% if current_user.email %}
         <h4>Email: <a href = "mailto: {{ current_user.email }}"> {{ current_user.email }}</a></h4>
@@ -82,19 +91,14 @@ User Registration
 
     </div>
 
-    <h3 style = "padding-left: 100px;">
-        {% if current_user.is_authenticated %}
-        {% if current_user.title %}
-        {{ current_user.title }}
-        {% endif %}
-        {{ current_user.name}}
-        {% endif %} 
-    </h3>
+    <br>
 
-    <div style = "padding-left: 10px;"> 
-    <a class="btn btn-default" href = "{{ url_for('editProfile') }}"> Edit Profile </a>
-    <a class="btn btn-default" href = "{{ url_for('changeAvatar') }}"> Change Avatar </a>
+    <div> 
+    <a id = "b6" href = "{{ url_for('editProfile') }}" class="btn btn-block"> Edit Profile </a>
+    <a id = "b6" href = "{{ url_for('changeAvatar') }}" class="btn btn-block"> Change Avatar </a>
     </div>
+
+    <br><br>
 
 
     </div>
@@ -116,6 +120,8 @@ User Registration
             <form action="Edit_quiz_ID">
                 <button action="button" type="submit" class="btn btn-lg btn-block" id = "b2" >Edit Quiz</button>
             </form>
+
+            <br><br>
             
         </div>
 
@@ -148,7 +154,7 @@ User Registration
 
             <br><br><br>
 
-            <button type = "button" onclick = "getAPI(quizID = document.getElementsByClassName('box'))" class="btn btn-lg btn-block" id = "b5"> Click to get info </button> <br><br>
+            <button type = "button" onclick = "getAPI(document.getElementsByClassName('box').value)" class="btn btn-lg btn-block" id = "b5"> Click to get info </button> <br><br>
 
         </div>
     

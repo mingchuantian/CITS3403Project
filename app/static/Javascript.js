@@ -55,9 +55,9 @@ function myFunc (xml) {
 
 async function getAPI(quizID){
 
-    console.log(quizID.value)
-    const url = "/API/" 
-    url.concat(toString(quizID))
+    console.log(quizID)
+    const url = "/API/";
+    url.concat(String(quizID))
     console.log(url)
 
     fetch(url)
