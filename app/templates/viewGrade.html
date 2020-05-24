@@ -14,11 +14,31 @@ View the grade
 {% block body %}
 {% block content %}
 
+<h2 style = "padding-left: 10px;">
+    Hello, 
+    {% if current_user.is_authenticated %}
+    {% if current_user.title %}
+    {{ current_user.title }}
+    {% endif %}
+    {{ current_user.name}}
+    {% endif %} !
+</h2>
+
+<hr>
+
 <div class = "grade"> 
 
     <br>
 
-    <h1> Here's your grade of each answer.</h1>
+    <table style="background-color: #ede7d3;margin: 10px;">
+        <tr>
+            <td style="background-color: orange;">&emsp;&emsp;</td>
+            <td id = "padding"><h3 style="font-weight: 800;"><h1> Here's your grade of each answer.</h1></h3><br>
+        </td>
+        </tr>
+    </table>
+
+    
 
     <br>
 

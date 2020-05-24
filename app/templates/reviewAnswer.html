@@ -13,12 +13,35 @@ Quiz marking page
 {% block body %}
 {% block content %}
 
+<h2>Hello, 
+    {% if current_user.is_authenticated %}
+    {% if current_user.title %}
+    {{ current_user.title }}
+    {% endif %}
+    {{ current_user.name}}
+    {% endif %} !
+</h2>
+
+<hr>
+
 <div class = "Mark_answer">
 
     <br>
 
-    <h3 style = "font-weight: 600;">The Question is : {{ Question.query.filter_by(id=questionID).first().Question }}</h3>
-    <h3 style = "font-weight: 600;">The answer is : {{ answer }}</h3>
+    <table style="background-color: #ede7d3; margin-left: auto; margin-right: auto; width : 70%;" >
+        <tr>
+            <td style="background-color: orange;">&emsp;&emsp;</td>
+            <td id = "padding" style = "width:95%">
+            <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
+                <h3 style = "font-weight: 600;">The Question is : {{ Question.query.filter_by(id=questionID).first().Question }}</h3>
+                <h3 style = "font-weight: 600;">The answer is : {{ answer }}</h3>
+            </div>
+            <br>
+        </td>
+        </tr>
+    </table>
+
+    
 
     <br>
     
