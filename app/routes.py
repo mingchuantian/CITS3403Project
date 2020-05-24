@@ -117,7 +117,7 @@ def startQuiz(QuizsetID, current_question):
     form = QuizAnswerForm()
 
     if form.validate_on_submit():
-        answer = Answer(Answer=form.answer.data, question_id=prev_num+current_question, quizset_id=QuizsetID, student_id=current_user.id)
+        answer = Answer(Answer=form.answer.data, question_id=prev_num+current_question, quizset_id=QuizsetID, student_id=current_user.id, marked = 0)
         db.session.add(answer)
         db.session.commit()
         return redirect(url_for('answerSaved', current_question=current_question, QuizsetID=QuizsetID))
@@ -248,20 +248,29 @@ def reviewAnswer(quizsetID,current_answer,answer_num):
     form = GradingForm()
     current_answer = int(current_answer)
     answer_num = int(answer_num)
+
     if quizsetID is None:
-        return 'the quiz does not exists'
+        return render_template('notify.html', content='the quiz does not exists',  buttonText='Back to profile page', link=url_for('user'))
     if current_answer is answer_num:
-        return 'you have graded all answers'
+        return render_template('notify.html', content='you have graded all answers',  buttonText='Back to profile page', link=url_for('user'))
     else: 
         answer_dict = Answer.query.filter_by(quizset_id=quizsetID).all()
         answer = str(answer_dict[int(current_answer)])
         answer = answer.split(",")
-        if form.validate_on_submit():
-            grade = Grade(mark=form.mark.data, comment=form.comment.data, answer_id=answer[1], answerer_id=int(answer[0]))
-            db.session.add(grade)
-            db.session.commit()
+        # check whether this answer has been marked
+        #if it has been marked
+        this_answer = Answer.query.filter_by(id=current_answer+1).first()
+        if this_answer.is_marked():
             return redirect(url_for('nextAnswer', quizsetID=quizsetID, current_answer=current_answer, answer_num=answer_num))
-        return render_template('reviewAnswer.html', answer=answer[2], form=form)
+        else:
+            if form.validate_on_submit():
+                now_answer = Answer.query.filter_by(id=current_answer+1).first()
+                now_answer.mark()
+                grade = Grade(mark=form.mark.data, comment=form.comment.data, answer_id=answer[1], answerer_id=int(answer[0]))
+                db.session.add(grade)
+                db.session.commit()
+                return redirect(url_for('nextAnswer', quizsetID=quizsetID, current_answer=current_answer, answer_num=answer_num))
+            return render_template('reviewAnswer.html', Question=Question, answer=answer[2], questionID = answer[3], form=form)
 
 
 #Helper function that helps teacher navigate thru questions
@@ -364,11 +373,17 @@ def changeAvatar():
     return render_template('changeAvatar.html', changeAvatarForm = form, user=current_user)
 
 
-#API that returns the number of students who have taken the quiz
-@app.route('/API', methods = ['GET', 'POST'])
+#API that returns the first student who submitted the quiz
+@app.route('/API/<quizID>', methods = ['GET', 'POST'])
 def API():
-    resp = {"name": [1,2,3,4,5]}
-    return jsonify(resp)
+
+    quizsetId = QuizSet.query.filter_by(quiz_id=quizID).first().id
+
+    first_studentID = Answer.query.filter_by(quizset_id = quizsetId).first().student_id
+    first_student = User.query.filter_by(id=first_studentID).first().name
+
+    #resp = {"name": [1,2,3,4,5]}
+    return jsonify(first_student)
 
 
 #Helper function that calculates the total mark of each quiz

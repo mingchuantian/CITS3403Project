@@ -53,28 +53,26 @@ function myFunc (xml) {
 }
 
 
-async function getAPI(){
+async function getAPI(quizID){
 
-    const url = "/API"  
+    console.log(quizID.value)
+    const url = "/API/" 
+    url.concat(toString(quizID))
+    console.log(url)
 
     fetch(url)
         .then((resp) => resp.json())
         .then(
             function(data){
                 console.log(data)
-                console.log(data.name)
 
-                let names = data.name;
+                const container = document.getElementById("myJSON")
+                var t2 = document.createElement("p")
+                var t2content = document.createTextNode(data)
+                t2.appendChild(t2content)
+                container.appendChild(t2)
 
-                return names.map(
-                    function(names){
-                        const container = document.getElementById("myJSON")
-                        var t2 = document.createElement("p")
-                        var t2content = document.createTextNode(data.name)
-                        t2.appendChild(t2content)
-                         container.appendChild(t2)
-                    }
-                )
+
             }
             
         )

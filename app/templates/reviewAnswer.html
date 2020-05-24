@@ -17,6 +17,7 @@ Quiz marking page
 
     <br>
 
+    <h3 style = "font-weight: 600;">The Question is : {{ Question.query.filter_by(id=questionID).first().Question }}</h3>
     <h3 style = "font-weight: 600;">The answer is : {{ answer }}</h3>
 
     <br>

@@ -44,7 +44,7 @@ class User(UserMixin, db.Model):
         self.email = new_email
         self.avatar_hash = self.gravatar_hash()
 
-        #db.session.add(self)
+        db.session.add(self)
         #return True
     
 
@@ -98,15 +98,23 @@ class Answer(db.Model):
     __tablename__ = 'answers'
     id = db.Column(db.Integer, primary_key=True)
     Answer = db.Column(db.Text)
+    marked = db.Column(db.Boolean)
     quizset_id = db.Column(db.Integer, db.ForeignKey('quizsets.id'))
     student_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     question_id = db.Column(db.Integer, db.ForeignKey('questions.id'))
     #add relationship between Answer and Grade
     graded = db.relationship('Grade', backref='answer', lazy='dynamic')
 
+    def mark(self):
+        self.marked = True
+        db.session.add(self)
 
+    def is_marked(self):
+        return self.marked
+    
     def __repr__(self):
-        return str(self.student_id) + ',' + str(self.id) + ',' + str(self.Answer) + ',' + str(self.quizset_id)
+        #return str(self.Answer)
+        return str(self.student_id) + ',' + str(self.id) + ',' + str(self.Answer) + ',' + str(self.question_id) +  ','+ str(self.quizset_id)
 
 class Grade(db.Model):
     __tablename__='grades'
