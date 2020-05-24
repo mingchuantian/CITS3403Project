@@ -40,7 +40,7 @@ Answer Quiz
         <tr>
             <td style="background-color: orange;">&emsp;&emsp;</td>
             <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Welcome to answer the quiz page!</h3><br>
-            <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
+            <div style="font-weight: 500; font-family: Georgia, 'Times New Roman', Times, serif;">    
             Each time when you finish a qustion answer, please click the "Save" button to save your question and move to the next qustion. All the answers will save to the database. Please make sure you insert the correct answer into the answer form and click the button "save button", if you do not click it to save, you might loose all your answers!
             <br><br>
             Please try to finish all the question in time and finish it by your own work! The time limit for this quiz is : {{ time_limit }} minutes.
@@ -114,7 +114,7 @@ Answer Quiz
 
     <p style="font-weight: 600; font-size: 30px;">Your teacher is: {{ teacher_name }}</p>
     {% for i in range(current_question, question_num + 1) %}
-    <p style="font-weight: 450; font-size: larger; margin-top: 20px;">Your quesiton is: {{ Question.query.filter_by(quizset_id=QuizsetID, id= i + prev_num).first().Question }}</p>
+    <p style="font-weight: 500; font-size: larger; margin-top: 20px;">Your quesiton is: {{ Question.query.filter_by(quizset_id=QuizsetID, id= i + prev_num).first().Question }}</p>
     <div class = "quiz">
         {{ wtf.quick_form(form)}}
         </div> 
