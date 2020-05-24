@@ -115,3 +115,52 @@ function loadPage(){
     console.log(target);
     document.getElementById('iframePosition').src = target;
 }
+
+
+function timeLimit(time_limit){
+    var maxtime;
+    if(window.name==''){ 
+    maxtime = time_limit * 60;
+    }else{
+    maxtime = window.name;
+    }
+    
+    function CountDown(){
+    if(maxtime>=0){
+    if(Math.floor(maxtime/(3600))==0){
+        hours = "0"+0;
+    }else{
+        hours = Math.floor(maxtime/(3600));
+    }
+    if(Math.floor(maxtime/120)==60||Math.floor(maxtime/120)==0){
+        minutes = "0"+0;
+    }else{
+        minutes = Math.floor(maxtime/120);
+    }
+    if(Math.floor(maxtime%60)==0||Math.floor(maxtime%60)==60){
+        seconds = "0"+0;
+    }else{
+        seconds = Math.floor(maxtime%60);
+    }
+    msg = "  Time left: "+ hours +" hours : " + minutes +" minutes : "+ seconds +" seconds ";
+    document.getElementById("timer").innerHTML = msg;
+    --maxtime;
+    window.name = maxtime; 
+    }
+    else{
+    clearInterval(timer);
+    alert("Time is up!");
+    function sleep(numberMillis) {
+            var start = new Date().getTime();
+            while (true) {
+                if (new Date().getTime() - start > numberMillis) {
+                    break;
+                }
+            }
+        }
+        sleep(1)
+    document.getElementsByTagName('button')[2].click();
+    }
+    }
+    timer = setInterval("CountDown()",1000);
+}

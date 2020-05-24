@@ -32,6 +32,7 @@ class QuizStartForm(FlaskForm):
     #need to restrict the number of questions
     #question_num = StringField("Number of questions", validators = [DataRequired()])
     question_num = SelectField("Number of questions", choices=[('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'),('8','8'),('9','9'),('10','10')])
+    time_limit = StringField("Time Limit (minutes)",  validators = [DataRequired()])
     submit = SubmitField("Continue")
 
 #For teachers adding questions to the new quiz

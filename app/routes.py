@@ -96,17 +96,18 @@ def Input_quiz_ID():
         if QuizSet.query.filter_by(quiz_id=form.QuizID.data).first() is None:
             return render_template('notify.html', content='You entered a wrong quizset ID!',  buttonText='Back to profile page', link=url_for('user')) 
         QuizsetID = QuizSet.query.filter_by(quiz_id=form.QuizID.data).first().id
+        time_limit = str(QuizSet.query.filter_by(quiz_id=form.QuizID.data).first().time_limit)
         if QuizsetID is not None:     
-            return redirect(url_for('startQuiz', QuizsetID = QuizsetID, current_question=1))
+            return redirect(url_for('startQuiz', QuizsetID = QuizsetID, current_question=1, time_limit=time_limit))
         else:
             return render_template('notify.html', content='The quiz does not exist!',  buttonText='Back to profile page', link=url_for('user'))
     return render_template('Input_quiz_ID.html', loginQuizForm = form, user=current_user) 
 
 # ----  Student quiz page -----
 
-@app.route('/startQuiz/<QuizsetID>/<current_question>', methods = ['GET', 'POST'])
+@app.route('/startQuiz/<QuizsetID>/<current_question>/<time_limit>', methods = ['GET', 'POST'])
 @login_required
-def startQuiz(QuizsetID, current_question):
+def startQuiz(QuizsetID, current_question, time_limit):
     current_question = int(current_question)
     question_num = QuizSet.query.filter_by(id=QuizsetID).first().question_num
     teacher_id = QuizSet.query.filter_by(id=QuizsetID).first().author_id
@@ -122,7 +123,7 @@ def startQuiz(QuizsetID, current_question):
         db.session.commit()
         return redirect(url_for('answerSaved', current_question=current_question, QuizsetID=QuizsetID))
 
-    return render_template('startQuiz.html', prev_num=prev_num, QuizsetID=QuizsetID, current_question=current_question, Question=Question, teacher_name=teacher_name, question_num=question_num, form=form)
+    return render_template('startQuiz.html', prev_num=prev_num, QuizsetID=QuizsetID, current_question=current_question, Question=Question, teacher_name=teacher_name, question_num=question_num, form=form, time_limit=time_limit)
 
 # Helper function that helps calculate finished question numbers for students
 def Prev_Questions_num(QuizsetID):
@@ -205,7 +206,8 @@ def startEditQuiz():
         else:
             num_question=form.question_num.data
             id_quiz = form.quiz_id.data
-            quizset = QuizSet(title=form.title.data, quiz_id=id_quiz, question_num=num_question, author_id=current_user.id)
+            time = form.time_limit.data
+            quizset = QuizSet(title=form.title.data, quiz_id=id_quiz, question_num=num_question, time_limit = time, author_id=current_user.id)
             db.session.add(quizset)
             db.session.commit()
             quizset_id = QuizSet.query.filter_by(quiz_id=id_quiz).first().id
@@ -375,7 +377,7 @@ def changeAvatar():
 
 #API that returns the first student who submitted the quiz
 @app.route('/API/<quizID>', methods = ['GET', 'POST'])
-def API():
+def API(quizID):
 
     quizsetId = QuizSet.query.filter_by(quiz_id=quizID).first().id
 

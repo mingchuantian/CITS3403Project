@@ -86,6 +86,7 @@ class QuizSet(db.Model):
     title = db.Column(db.String(64))
     quiz_id = db.Column(db.String, unique=True)
     question_num = db.Column(db.Integer)
+    time_limit = db.Column(db.Integer)
     questions = db.relationship('Question', backref='quizset', lazy='dynamic')
     answers = db.relationship('Answer', backref='answerman', lazy='dynamic')
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
