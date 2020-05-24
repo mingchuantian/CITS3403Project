@@ -16,7 +16,20 @@ Create a new quiz
 {% block logo %}
 {{ super() }}
 {% endblock %}
+
 {% block content %}
+
+
+<h2>Hello, 
+    {% if current_user.is_authenticated %}
+    {% if current_user.title %}
+    {{ current_user.title }}
+    {% endif %}
+    {{ current_user.name}}
+    {% endif %} !
+</h2>
+
+<hr>
 
 <div class = "Craete_quiz"> 
 
@@ -25,10 +38,9 @@ Create a new quiz
     <table style="background-color: #ede7d3;">
         <tr>
             <td style="background-color: orange;">&emsp;&emsp;</td>
-            <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Welcome to create a new quiz!</h3><br>
+            <td id = "padding"><h3 style="font-weight: 800;">Welcome to create a new quiz!</h3><br>
             <div style="font-weight: 450; font-family: Georgia, 'Times New Roman', Times, serif;">    
             Each time when you finish a qustion edit, please click the "Save" button to save your question and move to the next qustion. All the questions will save to the database. Please make sure you insert the correct quiz id and quiz name!
-            
             </div>
             <br>
         </td>
