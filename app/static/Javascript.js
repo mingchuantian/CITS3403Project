@@ -115,3 +115,8 @@ function loadPage(){
     console.log(target);
     document.getElementById('iframePosition').src = target;
 }
+
+function timer_reset(){
+    window.name = '';
+    clearInterval(timer);
+}
