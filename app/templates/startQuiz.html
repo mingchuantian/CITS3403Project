@@ -127,11 +127,11 @@ Answer Quiz
     <br>
     <div style = "display: inline;">
 
-        <span><button class="btn btn-primary btn-lg clearfix" onclick="submit_quiz_answer()" style="margin-top: 10px; float: right;">check all questions </button> </span>
+        <span><button class="btn btn-primary btn-lg clearfix" onclick="submit_quiz_answer();" style="margin-top: 10px; float: right;">check all questions </button> </span>
 
         <span>
             <form action= "{{ url_for('finishQuiz') }}" >
-                <button id = "finishthis" action="button" type="submit" class="btn btn-primary btn-lg" id="submit" style="margin-top: 10px; margin-right: 20px;float: right;">&ensp;&ensp;Finish Quiz&ensp;&ensp;</button>
+                <button id = "finishthis" action="button" type="submit" class="btn btn-primary btn-lg" id="submit" style="margin-top: 10px; margin-right: 20px;float: right;" onclick="timer_reset();">&ensp;&ensp;Finish Quiz&ensp;&ensp;</button>
             </form>
         </span>
 
