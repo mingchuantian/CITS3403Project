@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-
+<!-- the user main page (for student and teacher) -->
 {% block head %}
 {{ super() }}
 
@@ -153,7 +153,7 @@ User Registration
         <div class="col-sm-4">
 
             <br><br><br>
-
+            <!-- to get the API -->
             <button type = "button" onclick = "getAPI(document.getElementsByClassName('box').value)" class="btn btn-lg btn-block" id = "b5"> Click to get info </button> <br><br>
 
         </div>

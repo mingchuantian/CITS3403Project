@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-
+<!-- page to create a new quiz -->
 {% block head %}
 {{ super() }}
 
@@ -55,6 +55,7 @@ Create a new quiz
         </div> 
     {% endfor %}
 
+    <!-- to check the new quiz creating process finished or not-->
     <button class="btn btn-primary btn-lg" onclick="submit_new_quiz()" style = "float:right;">click to finish creating</button>
 
     <div class="clearfix"></div>

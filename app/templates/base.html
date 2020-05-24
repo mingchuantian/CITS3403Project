@@ -90,9 +90,7 @@
         {% block body %}
 
 		{% block logo %}
-		<!--
-		<img class="logo" alt = "uwaLogo" src = "{{ url_for('static', filename='logo1.jpg', _external=True) }}" style = "display:block; margin-left:auto; margin-right:auto; width:40%;">
-		-->
+
 		{% endblock %}
 			
 		<article>
@@ -110,7 +108,10 @@
 
 					<hr>
 
+					<!-- the time at the button of the page -->
 					<p> <b>Current time: </b><span id="cg" class="p_not_change_line"> 2016/12/21 am 12:00:00</span></p>
+
+					<!-- the action at the end of the button in each page -->
 					<div class="bar bar1"></div>
 					<div class="bar bar2"></div>
 					<div class="bar bar3"></div>
@@ -157,6 +158,7 @@
 
 		</div>
 
+		<!-- button to back to the top of current page -->
 		<button onclick = "toTopFunc()" class = "myBtn" title = "Go back to top"> ^ </button>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

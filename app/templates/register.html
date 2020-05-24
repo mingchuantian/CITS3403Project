@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-
+<!-- page to create a new account-->
 {% block head %}
 {{ super() }}
 {% endblock %}
@@ -39,6 +39,7 @@ User Registration
 {{ wtf.quick_form(registerForm)}}
 </div>
 <hr style="margin-top: -50px;">
+<!-- log in here if already a user-->
 <div style="margin-left: 5px;">
     <p>Already a user? Click here to log in!</p>
     <form action="/">
