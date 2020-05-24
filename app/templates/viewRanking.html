@@ -30,16 +30,22 @@ Start Quiz Edit
 
     <br>
     {% for key in unique_quizsets %}
+    {% if QuizSet.query.filter_by(id=key).first().title %}
     <h1>The quiz you have taken is : <span class = "common">"{{ QuizSet.query.filter_by(id=key).first().title }}"</span></h1>
+    {% endif %}
     <br>
+    {% if QuizSet.query.filter_by(id=key).first() %}
     <h3>Quiz ID: <span class = "common">{{ QuizSet.query.filter_by(id=key).first().quiz_id }}</span></h3>
+    {% endif %}
+    {% if QuizSet.query.filter_by(id=key).first().author_id %}
     <h3>Teacher: <span class = "common">{{ User.query.filter_by(id=QuizSet.query.filter_by(id=key).first().author_id).first().name }}</span></h3>
-
+    {% endif %}
 
     <!--get a list of marks under current student, current quizset-->
     {% for answers in Answer.query.filter_by(quizset_id=key, student_id=current_user.id).all() %}
+    {% if Grade.query.filter_by(answer_id = str(answers).split(',')[1]).first().mark %}
     <h3 hidden><span class = "common">{{ all_marks.append(Grade.query.filter_by(answer_id = str(answers).split(',')[1]).first().mark) }}</span></h3>
-
+    {% endif %}
     {% endfor %}
 
     <!--get a list of student ids under current quizset-->
@@ -54,13 +60,13 @@ Start Quiz Edit
 
     <h3>Your ranking is : <span class = "common">{{ calculate_ranking(all_students_id, key, calcualte_total_mark(all_marks)) }} / {{ len(unique_items(all_students_id)) }}</span> </h3>
 
-    {% else %}
-
-    <h1>There is no grade and ranking yet!</h1>
 
     {% endif %}
 
     {% endfor %}
+    {% if not all_marks %}
+    <h1>There is no grade and ranking yet!</h1>
+    {% endif %}
 
 </div>
 
