@@ -81,10 +81,10 @@ async function getAPI(quizID){
 
 /*  check the new quiz finished or not */
 function submit_new_quiz(){
-    if(document.getElementsByClassName("quiz").length > 0){
+    if(document.getElementsByClassName("quiz").length > 0){ //  if quiz creating not finished, alert
         alert('The quiz creating is not finished already, you can not submit it!');
     }else{
-        alert('you finished all the quiz question creating!');
+        alert('you finished all the quiz question creating!');  //  if finished already, alert and back to the teacher page
         window.open("/user","_self");
     }
 }
@@ -92,11 +92,11 @@ function submit_new_quiz(){
 
 /*  click it to check the student finished or not*/
 function submit_quiz_answer(){
-    if(document.getElementsByClassName("quiz").length > 0){
-        alert('You did not finish all questions, please do not submit it!');
+    if(document.getElementsByClassName("quiz").length > 0){ //  if still quiz there, not finished
+        alert('You did not finish all questions, please do not submit it!');    //  alert this
     }else{
-        alert('you finished all the quiz question, now submit it!');
-        document.getElementsByTagName('button')[1].click();
+        alert('you finished all the quiz question, now submit it!');    //  if finished, alert it
+        document.getElementById('finishthis').click();  //  submit it
     }
 }
 
@@ -116,7 +116,7 @@ function loadPage(){
     document.getElementById('iframePosition').src = target;
 }
 
-function timer_reset(){
+function timer_reset(){     //  reset the timer when the user click the "finish" button in the student quiz page
     window.name = '';
     clearInterval(timer);
 }

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-
+<!-- main page of our CITS3403 Quiz Management System-->
 {% block head %}
 
 {{ super() }}
@@ -70,7 +70,8 @@ Student Quiz
 </table>
 
 <br><br>
-
+<!-- if you are student, log in by click "Student Login", it is same for the teacher (click "Teacher Login" to log in)-->
+<!-- or click "register" to create a new account-->
 <form action="login/teacher">
     <button action="button" type="submit" class="block" > Teacher Login </button>
 </form>
