@@ -121,7 +121,7 @@ def startQuiz(QuizsetID, current_question, time_limit):
         answer = Answer(Answer=form.answer.data, question_id=prev_num+current_question, quizset_id=QuizsetID, student_id=current_user.id, marked = 0)
         db.session.add(answer)
         db.session.commit()
-        return redirect(url_for('answerSaved', current_question=current_question, QuizsetID=QuizsetID))
+        return redirect(url_for('answerSaved', current_question=current_question, QuizsetID=QuizsetID, time_limit = time_limit))
 
     return render_template('startQuiz.html', prev_num=prev_num, QuizsetID=QuizsetID, current_question=current_question, Question=Question, teacher_name=teacher_name, question_num=question_num, form=form, time_limit=time_limit)
 
@@ -133,11 +133,11 @@ def Prev_Questions_num(QuizsetID):
     return counts
 
 # Helper function that  helps manage page after student submitted answer
-@app.route('/answerSaved/<current_question>/<QuizsetID>', methods = ['GET', 'POST'])
+@app.route('/answerSaved/<current_question>/<QuizsetID>/<time_limit>', methods = ['GET', 'POST'])
 @login_required
-def answerSaved(current_question, QuizsetID):
+def answerSaved(current_question, QuizsetID, time_limit):
     current_question = int(current_question) + 1
-    return redirect(url_for('startQuiz', current_question=current_question, QuizsetID=QuizsetID))
+    return redirect(url_for('startQuiz', current_question=current_question, QuizsetID=QuizsetID, time_limit = time_limit))
 
 
 # ----  Finish quiz page -----

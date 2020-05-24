@@ -17,6 +17,7 @@ class UserModelTest(unittest.TestCase):
         db.drop_all()
         db.create_all()
         u = User(name='Ming', email='mingchuantian@gmail.com',  faculty="Science", title="Mr.", phone = "499382201", address="311 road")
+        u.avatar_hash = u.gravatar_hash()
         db.session.add(u)
         db.session.commit()
 
@@ -40,6 +41,13 @@ class UserModelTest(unittest.TestCase):
         self.assertTrue(u.title == 'Mr.')
         self.assertTrue(u.phone == 499382201)
         self.assertTrue(u.address == '311 road')
+    
+
+    def test_change_email(self):
+        u = User.query.get(1)
+        new_email = '1120509786@qq.com'
+        u.change_email(new_email)
+        self.assertTrue(u.email == new_email)
 
 
 class QuestionModelTest(unittest.TestCase):
@@ -102,7 +110,7 @@ class AnswerModelTest(unittest.TestCase):
         #make sure database is empty
         db.drop_all()
         db.create_all()
-        a = Answer(Answer='This is my answer')
+        a = Answer(Answer='This is my answer', marked = False)
         db.session.add(a)
         db.session.commit()
     
@@ -111,12 +119,17 @@ class AnswerModelTest(unittest.TestCase):
 
     def test_repr_(self):
         a = Answer.query.get(1)
-        self.assertTrue(str(a) == str(a.student_id) + ',' + str(a.id) + ',' + str(a.Answer) + ',' + str(a.quizset_id))
+        self.assertTrue(str(a) == str(a.student_id) + ',' + str(a.id) + ',' + str(a.Answer) + ',' + str(a.question_id) + ',' + str(a.quizset_id))
     
     def test_values(self):
         a = Answer.query.get(1)
         self.assertTrue(a.Answer == 'This is my answer')
 
+    def test_marked(self):
+        a =Answer.query.get(1)
+        self.assertTrue(a.marked == False)
+        a.mark()
+        self.assertTrue(a.marked == True)
 
 class GradeModelTest(unittest.TestCase):
 
@@ -141,11 +154,6 @@ class GradeModelTest(unittest.TestCase):
         g = Grade.query.get(1)
         self.assertTrue(g.mark == 100)
         self.assertTrue(g.comment == 'You did great')
-
-
-    
-
-
 
 
 if __name__=='__main__':
