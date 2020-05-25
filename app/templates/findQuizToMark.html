@@ -1,59 +1,48 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-
 <!-- insert quizID to jump to the quiz you want to mark -->
 {% block head %}
 {{ super() }}
-
 {% endblock %}
-
 {% block title %}
 Mark the quiz
 {% endblock %}
-
 {% block body %}
-
 {% block logo %}
 {{ super() }}
 {% endblock %}
-
-
 {% block content %}
-
 <h2 style = "padding-left: 10px;">
-    Hello, 
-    {% if current_user.is_authenticated %}
-    {% if current_user.title %}
-    {{ current_user.title }}
-    {% endif %}
-    {{ current_user.name}}
-    {% endif %} !
+   Hello, 
+   {% if current_user.is_authenticated %}
+   {% if current_user.title %}
+   {{ current_user.title }}
+   {% endif %}
+   {{ current_user.name}}
+   {% endif %} !
 </h2>
-
 <hr>
-
 <br><br>
-
 <div class = "quizID">
-    <table style="background-color: #ede7d3; width:70%; margin-left: auto; margin-right: auto;">
-        <tr>
-            <td style="background-color: orange;">&emsp;&emsp;</td>
-            <td ><br><h3 style="font-weight: 800;">Welcome to mark the quiz!</h3><br>
+   <table style="background-color: #ede7d3; width:70%; margin-left: auto; margin-right: auto;">
+      <tr>
+         <td style="background-color: orange;">&emsp;&emsp;</td>
+         <td >
+            <br>
+            <h3 style="font-weight: 800;">Welcome to mark the quiz!</h3>
+            <br>
             <div id = "padding" style="font-weight: 500; font-family: Georgia, 'Times New Roman', Times, serif;">    
-                Please insert the quiz number to the quiz you want to mark!
+               Please insert the quiz number to the quiz you want to mark!
             </div>
             <br>
-        </td>
-        </tr>
-    </table>
-    <br>
-    <div class = "quiz" style = "width:60%; margin-left: auto; margin-right: auto;">
-    {{ wtf.quick_form(form)}}
-    </div>
+         </td>
+      </tr>
+   </table>
+   <br>
+   <div class = "quiz" style = "width:60%; margin-left: auto; margin-right: auto;">
+      {{ wtf.quick_form(form)}}
+   </div>
 </div>
 {% endblock %}
 <br><br><br><br><br><br>
 {% endblock %}
-
-
-

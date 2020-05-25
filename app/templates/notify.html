@@ -1,39 +1,24 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-
 <!-- notify page (log out or enter a wrong quizID) -->
 {% block head %}
 {{ super() }}
-
 {% endblock %}
-
 {% block title %}
 Notify
 {% endblock %}
-
 {% block body %}
 {% block content %}
-
-
-
 <hr>
-
 <div class = "notify">
-
-    <br><br>
-
-    <div class = 'Notification' style="font-size: 30px; font-weight: 500;">
-        <div id = 'notif'>{{ content }}</div>
-    </div>
-            
-
-    <br><br>
-    
-    <form action= "{{ link }}" >
-        <button type="submit" class="btn btn-primary btn-lg">{{ buttonText }}</button>
-    </form>
-
+   <br><br>
+   <div class = 'Notification' style="font-size: 30px; font-weight: 500;">
+      <div id = 'notif'>{{ content }}</div>
+   </div>
+   <br><br>
+   <form action= "{{ link }}" >
+      <button type="submit" class="btn btn-primary btn-lg">{{ buttonText }}</button>
+   </form>
 </div>
-    
 {% endblock %}
 {% endblock %}

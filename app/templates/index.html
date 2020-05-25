@@ -1,89 +1,62 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-
 <!-- main page of our CITS3403 Quiz Management System-->
 {% block head %}
-
 {{ super() }}
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 {% endblock %}
-
-
 {% block title %}
-
 Student Quiz
-
 {% endblock %}
-
-
 {% block body %}
-
 {% block logo %}
 {{ super() }}
 {% endblock %}
-
 {% block content %}
 <br><br>
-
 <table style="background-color: #ede7d3; text-align: center; margin-left:auto; margin-right:auto; width:70%;">
-
-    <tr> 
-        <td style="background-color: orange;">&emsp;&emsp;</td>
-    </tr>
-    <tr>
-
-        <td>
-            <h2 style="font-weight: 800;"> Welcome to our student quiz </h2><br>
-
-            <div style="font-weight: 500; font-family: Georgia, 'Times New Roman', Times, serif;">    
-
-                <p>This student quiz is written by:</p>
-                
-			    <ul style = "list-style-type:none;">
-                    <li> Mingchuan Tian (22636589) </li>
-                    <li> Hanlin Zhang (22541459) </li>
-				    <li> Ruida He (22762872) </li>
-				    <li> Jiayu Wu (22797012) </li>
-                </ul>
-            
-            </div>
-        
-        </td>
-    </tr>
-
-    <tr> 
-        <td>
-
-            <p style = "padding-left: 15px; padding-right:15px;">
-                Please try to log in as a teacher or a student. 
-                If you don't have an account, just click the register buttom to get new account.
-            </p>
-
-            <br>
-
-        </td>
-    </tr>
-
+   <tr>
+      <td style="background-color: orange;">&emsp;&emsp;</td>
+   </tr>
+   <tr>
+      <td>
+         <h2 style="font-weight: 800;"> Welcome to our student quiz </h2>
+         <br>
+         <div style="font-weight: 500; font-family: Georgia, 'Times New Roman', Times, serif;">
+            <p>This student quiz is written by:</p>
+            <ul style = "list-style-type:none;">
+               <li> Mingchuan Tian (22636589) </li>
+               <li> Hanlin Zhang (22541459) </li>
+               <li> Ruida He (22762872) </li>
+               <li> Jiayu Wu (22797012) </li>
+            </ul>
+         </div>
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <p style = "padding-left: 15px; padding-right:15px;">
+            Please try to log in as a teacher or a student. 
+            If you don't have an account, just click the register buttom to get new account.
+         </p>
+         <br>
+      </td>
+   </tr>
 </table>
-
 <br><br>
 <!-- if you are student, log in by click "Student Login", it is same for the teacher (click "Teacher Login" to log in)-->
 <!-- or click "register" to create a new account-->
 <form action="login/teacher">
-    <button type="submit" class="block" > Teacher Login </button>
+   <button type="submit" class="block" > Teacher Login </button>
 </form>
 <br><br>
 <form action="login/student">
-    <button type="submit" class="block" > Student Login </button>
+   <button type="submit" class="block" > Student Login </button>
 </form>
 <br><br>
 <form action="register">
-    <button type="submit" class="block" > Register </button>
+   <button type="submit" class="block" > Register </button>
 </form>
-
-
 {% endblock %}
 <br><br><br><br><br>
 {% endblock %}

@@ -1,59 +1,45 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-
 <!-- input the quizID to jump to the quiz student needs to take-->
 {% block head %}
 {{ super() }}
-
 {% endblock %}
-
 {% block title %}
 Enter the quizID to start quiz
 {% endblock %}
-
-
 {% block body %}
-
 {% block logo %}
 {{ super() }}
 {% endblock %}
-
 {% block content %}
 <h2>Hello, 
-    {% if current_user.is_authenticated %}
-    {% if current_user.title %}
-    {{ current_user.title }}
-    {% endif %}
-    {{ current_user.name}}
-    {% endif %} !
+   {% if current_user.is_authenticated %}
+   {% if current_user.title %}
+   {{ current_user.title }}
+   {% endif %}
+   {{ current_user.name}}
+   {% endif %} !
 </h2>
-
 <hr>
-
-
 <div style = "width:80%; margin-left: auto; margin-right: auto;">
-
-    <table style="background-color: #ede7d3;margin: 10px;">
-        <tr>
-            <td style="background-color: orange;">&emsp;&emsp;</td>
-            <td id = "padding"><h3 style="font-weight: 800;">Welcome to the quiz page!</h3><br>
-            <div style="font-weight: 500; font-family: Georgia, 'Times New Roman', Times, serif;">    
-            Please insert the quiz id that the teacher give to you and click the "Start Quiz" button below to start your quiz. If you do not have a quiz id, please check your email or contact to your unit coordinator!
+   <table style="background-color: #ede7d3;margin: 10px;">
+      <tr>
+         <td style="background-color: orange;">&emsp;&emsp;</td>
+         <td id = "padding">
+            <h3 style="font-weight: 800;">Welcome to the quiz page!</h3>
             <br>
+            <div style="font-weight: 500; font-family: Georgia, 'Times New Roman', Times, serif;">    
+               Please insert the quiz id that the teacher give to you and click the "Start Quiz" button below to start your quiz. If you do not have a quiz id, please check your email or contact to your unit coordinator!
+               <br>
             </div>
             <br>
-        </td>
-        </tr>
-    </table>
-
-
+         </td>
+      </tr>
+   </table>
 </div>
-
 <div class = "loginQuizForm" style = "width:80%; margin-left: auto; margin-right: auto;">
-    {{ wtf.quick_form(loginQuizForm)}}
+   {{ wtf.quick_form(loginQuizForm)}}
 </div>
-
 <br><br><br><br><br>
 {% endblock %}
 {% endblock %}
-

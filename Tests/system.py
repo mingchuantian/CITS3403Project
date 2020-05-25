@@ -1,3 +1,5 @@
+# System tests written by : Mingchuan Tian (22636589)
+
 import unittest, os, time
 from app import app, db
 from app.models import User
@@ -170,3 +172,4 @@ class SystemTest(unittest.TestCase):
 if __name__=='__main__':
   unittest.main(verbosity=2)
     
+# System tests written by : Mingchuan Tian (22636589)

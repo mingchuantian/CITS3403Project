@@ -1,70 +1,51 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-
 <!-- page to create a new quiz -->
 {% block head %}
 {{ super() }}
-
 {% endblock %}
-
 {% block title %}
 Create a new quiz
 {% endblock %}
-
-
 {% block body %}
 {% block logo %}
 {{ super() }}
 {% endblock %}
-
 {% block content %}
-
-
 <h2>Hello, 
-    {% if current_user.is_authenticated %}
-    {% if current_user.title %}
-    {{ current_user.title }}
-    {% endif %}
-    {{ current_user.name}}
-    {% endif %} !
+   {% if current_user.is_authenticated %}
+   {% if current_user.title %}
+   {{ current_user.title }}
+   {% endif %}
+   {{ current_user.name}}
+   {% endif %} !
 </h2>
-
 <hr>
-
-<div class = "Craete_quiz"> 
-
-    <br>
-
-    <table style="background-color: #ede7d3;">
-        <tr>
-            <td style="background-color: orange;">&emsp;&emsp;</td>
-            <td id = "padding"><h3 style="font-weight: 800;">Welcome to create a new quiz!</h3><br>
+<div class = "Craete_quiz">
+   <br>
+   <table style="background-color: #ede7d3;">
+      <tr>
+         <td style="background-color: orange;">&emsp;&emsp;</td>
+         <td id = "padding">
+            <h3 style="font-weight: 800;">Welcome to create a new quiz!</h3>
+            <br>
             <div style="font-weight: 500; font-family: Georgia, 'Times New Roman', Times, serif;">    
-            Each time when you finish a qustion edit, please click the "Save" button to save your question and move to the next qustion. All the questions will save to the database. Please make sure you insert the correct quiz id and quiz name!
+               Each time when you finish a qustion edit, please click the "Save" button to save your question and move to the next qustion. All the questions will save to the database. Please make sure you insert the correct quiz id and quiz name!
             </div>
             <br>
-        </td>
-        </tr>
-    </table>
-
-    <br>
-
-    {% for i in range(current_question, question_num + 1) %}
-    <div class = "quiz">
-        {{ wtf.quick_form(quizEditForm)}}
-        </div> 
-    {% endfor %}
-
-    <!-- to check the new quiz creating process finished or not-->
-    <button id= "finishButton" class="btn btn-primary btn-lg" onclick="submit_new_quiz()" style = "float:right;">click to finish creating</button>
-
-    <div class="clearfix"></div>
-
+         </td>
+      </tr>
+   </table>
+   <br>
+   {% for i in range(current_question, question_num + 1) %}
+   <div class = "quiz">
+      {{ wtf.quick_form(quizEditForm)}}
+   </div>
+   {% endfor %}
+   <!-- to check the new quiz creating process finished or not-->
+   <button id= "finishButton" class="btn btn-primary btn-lg" onclick="submit_new_quiz()" style = "float:right;">click to finish creating</button>
+   <div class="clearfix"></div>
 </div>
-
-
 {% endblock %}
 <br><br><br><br><br>
 {% endblock %}
-
-

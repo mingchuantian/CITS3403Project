@@ -19,13 +19,10 @@ function loadDoc () {
 
 }
 
-
+// Function that retrieves API
 async function getAPI(){
 
-    //input = document.getElementById('APIinput').value
     var url = "/API"
-    //url += input
-    
 
     fetch(url)
         .then((resp) => resp.json())
@@ -38,12 +35,6 @@ async function getAPI(){
 
                 data.map(
                     function(data){
-
-                        // const container = document.getElementById("myJSON")
-                        // var t2 = document.createElement("p")
-                        // var t2content = document.createTextNode(data.questions)
-                        // t2.appendChild(t2content)
-                        // container.appendChild(t2)
 
                         t += "<tr> <td>" 
                                 + data.title + "</td> <td>" 
@@ -89,11 +80,12 @@ function back_teacher_page(){
     window.open("/user","_self");
 }
 
+// for students to go back last page
 function back_student_page(){
     window.open("/user","_self");
 }
 
-
+// to load the apge
 function loadPage(){
     var target = document.getElementById('url').value;
     console.log(target);

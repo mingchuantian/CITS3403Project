@@ -1,3 +1,5 @@
+# Unit tests written by : Mingchuan Tian (22636589)
+
 import unittest
 from app import app, db
 from app.models import User, Question, QuizSet, Answer, Grade
@@ -158,3 +160,6 @@ class GradeModelTest(unittest.TestCase):
 
 if __name__=='__main__':
   unittest.main(verbosity=2)
+
+
+  # Unit tests written by : Mingchuan Tian (22636589)

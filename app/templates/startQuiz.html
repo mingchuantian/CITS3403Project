@@ -1,152 +1,125 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-
 <!-- student quiz page -->
 {% block head %}
 {{ super() }}
-
 {% endblock %}
-
 {% block title %}
 Answer Quiz
 {% endblock %}
-
 {% block body %}
-
-
 {% block logo %}
 {{super()}}
 {% endblock %}
-
-
 {% block content %}
-
 <h2>Hello, 
-    {% if current_user.is_authenticated %}
-    {% if current_user.title %}
-    {{ current_user.title }}
-    {% endif %}
-    {{ current_user.name}}
-    {% endif %} !
+   {% if current_user.is_authenticated %}
+   {% if current_user.title %}
+   {{ current_user.title }}
+   {% endif %}
+   {{ current_user.name}}
+   {% endif %} !
 </h2>
-
 <hr>
-
 <div style = "width:80%; margin-left: auto; margin-right: auto;">
-
-    <br><br>
-
-    <table style="background-color: #ede7d3;">
-        <tr>
-            <td style="background-color: orange;">&emsp;&emsp;</td>
-            <td style="padding-left: 10px;"><h3 style="font-weight: 800;">Welcome to answer the quiz page!</h3><br>
+   <br><br>
+   <table style="background-color: #ede7d3;">
+      <tr>
+         <td style="background-color: orange;">&emsp;&emsp;</td>
+         <td style="padding-left: 10px;">
+            <h3 style="font-weight: 800;">Welcome to answer the quiz page!</h3>
+            <br>
             <div style="font-weight: 500; font-family: Georgia, 'Times New Roman', Times, serif;">    
-            Each time when you finish a qustion answer, please click the "Save" button to save your question and move to the next qustion. All the answers will save to the database. Please make sure you insert the correct answer into the answer form and click the button "save button", if you do not click it to save, you might loose all your answers!
-            <br><br>
-            Please try to finish all the question in time and finish it by your own work! The time limit for this quiz is : {{ time_limit }} minutes.
+               Each time when you finish a qustion answer, please click the "Save" button to save your question and move to the next qustion. All the answers will save to the database. Please make sure you insert the correct answer into the answer form and click the button "save button", if you do not click it to save, you might loose all your answers!
+               <br><br>
+               Please try to finish all the question in time and finish it by your own work! The time limit for this quiz is : {{ time_limit }} minutes.
             </div>
             <br>
-        </td>
-        </tr>
-    </table>
-
-    <!-- timer to count the exam time -->
-    <!-- the timer will be reset after student click the finsh button or finished the quiz -->
-    <SCRIPT LANGUAGE="JavaScript">
-        var maxtime;
-        if(window.name==''){ 
-        maxtime = {{time_limit}} * 60
-        }else{
-        maxtime = window.name;
-        }
-        
-        function CountDown(){
-        if(maxtime>0){
-        if(Math.floor(maxtime/(3600))==0){
-            hours = "0"+0;
-        }else{
-            hours = Math.floor(maxtime/(3600));
-        }
-        if(Math.floor(maxtime/120)==60||Math.floor(maxtime/120)==0){
-            minutes = "0"+0;
-        }else{
-            minutes = Math.floor(maxtime/60)-Math.floor(maxtime/(3600))*60;
-        }
-        if(Math.floor(maxtime%60)==0||Math.floor(maxtime%60)==60){
-            seconds = "0"+0;
-        }else{
-            seconds = Math.floor(maxtime%60);
-        }
-        msg = "  Time left: "+ hours +" hours : " + minutes +" minutes : "+ seconds +" seconds ";
-        document.getElementById("timer").innerHTML = msg;
-        --maxtime;
-        window.name = maxtime;
-         if(document.getElementsByClassName('quiz').length == 0){
-             alert("You finished the quiz !");
-             window.name = '';
-             clearInterval(timer);
-             document.getElementById('finishthis').click();
-             return;
-         }
-        }
-        else{
-        clearInterval(timer);
-        alert("Time is up!");
-        function sleep(numberMillis) {
-                var start = new Date().getTime();
-                while (true) {
-                    if (new Date().getTime() - start > numberMillis) {
-                        break;
-                    }
-                }
-            }
-            sleep(1)
-        document.getElementById('finishthis').click();
-        }
-        }
-
-        timer = setInterval("CountDown()",1000);
-        </SCRIPT>
-        <div id="timer" style="color:black;font-weight: 500;background-color: whitesmoke;font-size: 30px;text-align: center;">&emsp;</div>
-
-
-        <br><br>
-
-    <p style="font-weight: 600; font-size: 30px;">Your teacher is: {{ teacher_name }}</p>
-    {% for i in range(current_question, question_num + 1) %}
-    <p style="font-weight: 500; font-size: larger; margin-top: 20px;">Your quesiton is: {{ Question.query.filter_by(quizset_id=QuizsetID, id= i + prev_num).first().Question }}</p>
-    <div class = "quiz">
-        {{ wtf.quick_form(form)}}
-        </div> 
-    {% endfor %}
-
-    
-
-    <hr style="margin: 20px; margin-bottom: 5px; margin-bottom: 10px;">
-    <i style="margin-left: 40px; margin-top: 10px; font-size: 16px; color: #5D6D7E ;">Click Submit button to submit your answers or click check all to check all the answers finished or not.</i>
-    <br><br>
-
-    <br>
-    <div style = "display: inline;">
-
-        <!-- check quiz finished or not -->
-        <span><button class="btn btn-primary btn-lg clearfix" onclick="submit_quiz_answer();" style="margin-top: 10px; float: right;">check all questions </button> </span>
-        <!-- finished quiz button -->
-        <span>
-            <form action= "{{ url_for('finishQuiz') }}" >
-                <button id = "finishthis" action="button" type="submit" class="btn btn-primary btn-lg" style="margin-top: 10px; margin-right: 20px;float: right;" onclick="timer_reset();">&ensp;&ensp;Finish Quiz&ensp;&ensp;</button>
-            </form>
-        </span>
-
-        <div class="clearfix"></div>
-
-    </div>
-
+         </td>
+      </tr>
+   </table>
+   <!-- timer to count the exam time -->
+   <!-- the timer will be reset after student click the finsh button or finished the quiz -->
+   <SCRIPT LANGUAGE="JavaScript">
+      var maxtime;
+      if(window.name==''){ 
+      maxtime = {{time_limit}} * 60
+      }else{
+      maxtime = window.name;
+      }
+      
+      function CountDown(){
+      if(maxtime>0){
+      if(Math.floor(maxtime/(3600))==0){
+          hours = "0"+0;
+      }else{
+          hours = Math.floor(maxtime/(3600));
+      }
+      if(Math.floor(maxtime/120)==60||Math.floor(maxtime/120)==0){
+          minutes = "0"+0;
+      }else{
+          minutes = Math.floor(maxtime/60)-Math.floor(maxtime/(3600))*60;
+      }
+      if(Math.floor(maxtime%60)==0||Math.floor(maxtime%60)==60){
+          seconds = "0"+0;
+      }else{
+          seconds = Math.floor(maxtime%60);
+      }
+      msg = "  Time left: "+ hours +" hours : " + minutes +" minutes : "+ seconds +" seconds ";
+      document.getElementById("timer").innerHTML = msg;
+      --maxtime;
+      window.name = maxtime;
+       if(document.getElementsByClassName('quiz').length == 0){
+           alert("You finished the quiz !");
+           window.name = '';
+           clearInterval(timer);
+           document.getElementById('finishthis').click();
+           return;
+       }
+      }
+      else{
+      clearInterval(timer);
+      alert("Time is up!");
+      function sleep(numberMillis) {
+              var start = new Date().getTime();
+              while (true) {
+                  if (new Date().getTime() - start > numberMillis) {
+                      break;
+                  }
+              }
+          }
+          sleep(1)
+      document.getElementById('finishthis').click();
+      }
+      }
+      
+      timer = setInterval("CountDown()",1000);
+   </SCRIPT>
+   <div id="timer" style="color:black;font-weight: 500;background-color: whitesmoke;font-size: 30px;text-align: center;">&emsp;</div>
+   <br><br>
+   <p style="font-weight: 600; font-size: 30px;">Your teacher is: {{ teacher_name }}</p>
+   {% for i in range(current_question, question_num + 1) %}
+   <p style="font-weight: 500; font-size: larger; margin-top: 20px;">Your quesiton is: {{ Question.query.filter_by(quizset_id=QuizsetID, id= i + prev_num).first().Question }}</p>
+   <div class = "quiz">
+      {{ wtf.quick_form(form)}}
+   </div>
+   {% endfor %}
+   <hr style="margin: 20px; margin-bottom: 5px; margin-bottom: 10px;">
+   <i style="margin-left: 40px; margin-top: 10px; font-size: 16px; color: #5D6D7E ;">Click Submit button to submit your answers or click check all to check all the answers finished or not.</i>
+   <br><br>
+   <br>
+   <div style = "display: inline;">
+      <!-- check quiz finished or not -->
+      <span><button class="btn btn-primary btn-lg clearfix" onclick="submit_quiz_answer();" style="margin-top: 10px; float: right;">check all questions </button> </span>
+      <!-- finished quiz button -->
+      <span>
+         <form action= "{{ url_for('finishQuiz') }}" >
+            <button id = "finishthis" action="button" type="submit" class="btn btn-primary btn-lg" style="margin-top: 10px; margin-right: 20px;float: right;" onclick="timer_reset();">&ensp;&ensp;Finish Quiz&ensp;&ensp;</button>
+         </form>
+      </span>
+      <div class="clearfix"></div>
+   </div>
 </div>
-
-
 <br><br><br><br><br>
 {% endblock %}
-
 {% endblock %}
-

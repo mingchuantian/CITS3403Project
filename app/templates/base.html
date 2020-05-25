@@ -1,170 +1,138 @@
-
 <!doctype html>
 <html>
-	<head>
-		{% block head %}
-		<!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-		<!-- icon -->
-		<link rel="shortcut icon" href="{{url_for('static',filename='quiz_icon.png')}}" >
-
-		<!-- css docs -->
-		<link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
-
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-		<!-- Link to the javascript file -->
-		<script type="text/javascript" src="{{url_for('static', filename='Javascript.js')}}"></script>
-	
-		<title>{% block title %}{% endblock %}</title>
-
-	    {% endblock %}
-    </head>
-	
-	<body>
-
-		{% block navbar %}
-
-			<div class="header">
-				<div class = "logo-header">
-					<img src="{{url_for('static', filename='logo.png')}}" alt="uwa_logo">
-				</div>
-				<div class="title-header">
-					<h3>CITS3403 Quiz Management System </h3> 
-				</div>
-				<br style="clear:both;"/>
-			</div>
-			<div class="navbar navbar-default">
-				<div class="container-fluid">
-					<div class="navbar-header">
-					<a class="navbar-brand" href="{{ url_for('index') }}">	<i class="fa fa-home" style = "font-size: larger;"></i> </a>
-				</div>
-				<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-						{% if current_user.is_anonymous %}
-						<li><a  href="{{ url_for('index') }}">Home</a></li>
-						{% endif %}
-						{% if current_user.is_authenticated and current_user.is_teacher %}
-						<li><a  href="{{ url_for('user') }}">Teacher Homepage</a></li>
-						<li><a href="{{ url_for('startEditQuiz') }}">New Quiz</a></li>
-						<li><a  href="{{ url_for('Edit_quiz_ID') }}">Edit Quiz</a></li>
-						<li><a class="dropdown-item" href="{{ url_for('markQuiz') }}">Mark Quiz</a></li>
-						{% elif current_user.is_authenticated %}
-						<li><a  href="{{ url_for('user') }}">Student Homepage</a></li>
-						<li><a class="dropdown-item" href="{{ url_for('Input_quiz_ID') }}">Start Quiz</a></li>
-						<li><a class="dropdown-item" href="{{ url_for('viewGrade') }}">View Grades</a></li>
-						<li><a class="dropdown-item" href="{{ url_for('viewRanking') }}">View Ranking</a></li>
-						{% endif %}
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						{% if current_user.is_authenticated %}
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<img src="{{ current_user.gravatar(size=18) }}" alt="user_avatar">
-								Account <b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="{{ url_for('editProfile') }}">Edit Profile</a></li>
-								<li><a class="dropdown-item" href="{{ url_for('changeAvatar') }}">Change Avatar</a></li>
-
-								<li><a class="dropdown-item" href="{{ url_for('logout') }}">Log Out</a></li>
-							</ul> 
-						</li>
-						{% else %}
-						<li><a href="{{ url_for('index') }}">Log In</a></li>
-						{% endif %}
-					</ul>
-				</div>
-			</div>
-		</div>
-
-
-		{% endblock %}
-
-        {% block body %}
-
-		{% block logo %}
-
-		{% endblock %}
-			
-		<article>
-			{% block content %}
-            
-			{% endblock %}
-		</article>
-		{% endblock %}
-		
-		<br>
-
-			<div style="background-color: white; position: fixed; bottom:0; width:100%; border-radius: 10px;">
-				
-				<div style = "text-align:center; ">
-
-					<hr>
-
-					<!-- the time at the button of the page -->
-					<p> <b>Current time: </b><span id="cg" class="p_not_change_line"> 2016/12/21 am 12:00:00</span></p>
-
-					<!-- the action at the end of the button in each page -->
-					<div class="bar bar1"></div>
-					<div class="bar bar2"></div>
-					<div class="bar bar3"></div>
-					<div class="bar bar4"></div>
-					<div class="bar bar5"></div>
-					<div class="bar bar6"></div>
-					<div class="bar bar7"></div>
-					<div class="bar bar8"></div>
-					<div class="bar bar9"></div>
-					<div class="bar bar10"></div>
-					<div class="bar bar11"></div>
-					<div class="bar bar12"></div>
-					<div class="bar bar13"></div>
-					<div class="bar bar14"></div>
-					<div class="bar bar15"></div>
-					<div class="bar bar16"></div>
-					<div class="bar bar1"></div>
-					<div class="bar bar2"></div>
-					<div class="bar bar3"></div>
-					<div class="bar bar4"></div>
-					<div class="bar bar5"></div>
-					<div class="bar bar6"></div>
-					<div class="bar bar7"></div>
-					<div class="bar bar8"></div>
-					<div class="bar bar9"></div>
-					<div class="bar bar10"></div>
-					<div class="bar bar11"></div>
-					<div class="bar bar12"></div>
-					<div class="bar bar13"></div>
-					<div class="bar bar14"></div>
-					<div class="bar bar15"></div>
-					<div class="bar bar16"></div>
-					<div class="bar bar1"></div>
-					<div class="bar bar2"></div>
-					<div class="bar bar3"></div>
-					<div class="bar bar4"></div>
-
-				</div>
-
-			<!--cg is the id of span,change Date time to the String type,each 1000 ms will fresh once, setInterval() call the function, until close the web-->
-			<script>
-				setInterval("cg.innerHTML=new Date().toLocaleString('en-us')",1000);
-			</script>
-
-		</div>
-
-		<!-- button to back to the top of current page -->
-		<button onclick = "toTopFunc()" class = "myBtn" title = "Go back to top"> ^ </button>
-
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		
-		<!-- Latest compiled and minified Javascript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	</body>
+   <head>
+      {% block head %}
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+      <!-- icon -->
+      <link rel="shortcut icon" href="{{url_for('static',filename='quiz_icon.png')}}" >
+      <!-- css docs -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css', _external=True) }}">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!-- Link to the javascript file -->
+      <script type="text/javascript" src="{{url_for('static', filename='Javascript.js')}}"></script>
+      <title>{% block title %}{% endblock %}</title>
+      {% endblock %}
+   </head>
+   <body>
+      {% block navbar %}
+      <div class="header">
+         <div class = "logo-header">
+            <img src="{{url_for('static', filename='logo.png')}}" alt="uwa_logo">
+         </div>
+         <div class="title-header">
+            <h3>CITS3403 Quiz Management System </h3>
+         </div>
+         <br style="clear:both;"/>
+      </div>
+      <div class="navbar navbar-default">
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <a class="navbar-brand" href="{{ url_for('index') }}">	<i class="fa fa-home" style = "font-size: larger;"></i> </a>
+            </div>
+            <div class="navbar-collapse collapse">
+               <ul class="nav navbar-nav">
+                  {% if current_user.is_anonymous %}
+                  <li><a  href="{{ url_for('index') }}">Home</a></li>
+                  {% endif %}
+                  {% if current_user.is_authenticated and current_user.is_teacher %}
+                  <li><a  href="{{ url_for('user') }}">Teacher Homepage</a></li>
+                  <li><a href="{{ url_for('startEditQuiz') }}">New Quiz</a></li>
+                  <li><a  href="{{ url_for('Edit_quiz_ID') }}">Edit Quiz</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('markQuiz') }}">Mark Quiz</a></li>
+                  {% elif current_user.is_authenticated %}
+                  <li><a  href="{{ url_for('user') }}">Student Homepage</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('Input_quiz_ID') }}">Start Quiz</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('viewGrade') }}">View Grades</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('viewRanking') }}">View Ranking</a></li>
+                  {% endif %}
+               </ul>
+               <ul class="nav navbar-nav navbar-right">
+                  {% if current_user.is_authenticated %}
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     <img src="{{ current_user.gravatar(size=18) }}" alt="user_avatar">
+                     Account <b class="caret"></b>
+                     </a>
+                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('editProfile') }}">Edit Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('changeAvatar') }}">Change Avatar</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('logout') }}">Log Out</a></li>
+                     </ul>
+                  </li>
+                  {% else %}
+                  <li><a href="{{ url_for('index') }}">Log In</a></li>
+                  {% endif %}
+               </ul>
+            </div>
+         </div>
+      </div>
+      {% endblock %}
+      {% block body %}
+      {% block logo %}
+      {% endblock %}
+      <article>
+         {% block content %}
+         {% endblock %}
+      </article>
+      {% endblock %}
+      <br>
+      <div style="background-color: white; position: fixed; bottom:0; width:100%; border-radius: 10px;">
+         <div style = "text-align:center; ">
+            <hr>
+            <!-- the time at the button of the page -->
+            <p> <b>Current time: </b><span id="cg" class="p_not_change_line"> 2016/12/21 am 12:00:00</span></p>
+            <!-- the action at the end of the button in each page -->
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar4"></div>
+            <div class="bar bar5"></div>
+            <div class="bar bar6"></div>
+            <div class="bar bar7"></div>
+            <div class="bar bar8"></div>
+            <div class="bar bar9"></div>
+            <div class="bar bar10"></div>
+            <div class="bar bar11"></div>
+            <div class="bar bar12"></div>
+            <div class="bar bar13"></div>
+            <div class="bar bar14"></div>
+            <div class="bar bar15"></div>
+            <div class="bar bar16"></div>
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar4"></div>
+            <div class="bar bar5"></div>
+            <div class="bar bar6"></div>
+            <div class="bar bar7"></div>
+            <div class="bar bar8"></div>
+            <div class="bar bar9"></div>
+            <div class="bar bar10"></div>
+            <div class="bar bar11"></div>
+            <div class="bar bar12"></div>
+            <div class="bar bar13"></div>
+            <div class="bar bar14"></div>
+            <div class="bar bar15"></div>
+            <div class="bar bar16"></div>
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar4"></div>
+         </div>
+         <!--cg is the id of span,change Date time to the String type,each 1000 ms will fresh once, setInterval() call the function, until close the web-->
+         <script>
+            setInterval("cg.innerHTML=new Date().toLocaleString('en-us')",1000);
+         </script>
+      </div>
+      <!-- button to back to the top of current page -->
+      <button onclick = "toTopFunc()" class = "myBtn" title = "Go back to top"> ^ </button>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <!-- Latest compiled and minified Javascript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   </body>
 </html>

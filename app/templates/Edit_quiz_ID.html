@@ -1,63 +1,47 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-
 <!-- insert the quizID to find the quiz teacher want to change -->
 {% block head %}
 {{ super() }}
-
 {% endblock %}
-
 {% block title %}
 Input quiz ID
 {% endblock %}
-
-
 {% block body %}
-
-
-
 {% block logo %}
 {{ super() }}
 {% endblock %}
-
 {% block content %}
 <h2 style = "padding-left: 10px;">
-    Hello, 
-    {% if current_user.is_authenticated %}
-    {% if current_user.title %}
-    {{ current_user.title }}
-    {% endif %}
-    {{ current_user.name}}
-    {% endif %} !
+   Hello, 
+   {% if current_user.is_authenticated %}
+   {% if current_user.title %}
+   {{ current_user.title }}
+   {% endif %}
+   {{ current_user.name}}
+   {% endif %} !
 </h2>
-
 <hr>
-
 <div class="body_tick" id = "Edit_quizID">
-
-    <br>
-
-    <table style="background-color: #ede7d3;margin: 5px;">
-        <tr>
-            <td style="background-color: orange;">&emsp;&emsp;</td>
-            <td id = "padding"><h3 style="font-weight: 800;">Welcome to the quiz editing page!</h3><br>
+   <br>
+   <table style="background-color: #ede7d3;margin: 5px;">
+      <tr>
+         <td style="background-color: orange;">&emsp;&emsp;</td>
+         <td id = "padding">
+            <h3 style="font-weight: 800;">Welcome to the quiz editing page!</h3>
+            <br>
             <div style="font-weight: 500; font-family: Georgia, 'Times New Roman', Times, serif;">    
-            Please insert the QuizID then click the button "Start Editing Quiz" to edit the  quiz. Plese make sure you insert the correct QuizID!
-            <br><br>
+               Please insert the QuizID then click the button "Start Editing Quiz" to edit the  quiz. Plese make sure you insert the correct QuizID!
+               <br><br>
             </div>
             <br>
-        </td>
-        </tr>
-    </table>
-    <br>
-
-    <div style = "width:50%; margin-left: auto; margin-right: auto; text-align: center;">
-        {{ wtf.quick_form(form)}}
-    </div>
-
+         </td>
+      </tr>
+   </table>
+   <br>
+   <div style = "width:50%; margin-left: auto; margin-right: auto; text-align: center;">
+      {{ wtf.quick_form(form)}}
+   </div>
 </div>
-
-
-
 {% endblock %}
 {% endblock %}

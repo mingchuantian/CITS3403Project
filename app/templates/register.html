@@ -1,52 +1,44 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-
 <!-- page to create a new account-->
 {% block head %}
 {{ super() }}
 {% endblock %}
-
-
 {% block title %}
 User Registration
 {% endblock %}
-
 {% block body %}
-
-
-
 {% block logo %}
 {{ super() }}
 {% endblock %}
-
 {% block content %}
 <table style="background-color: #ede7d3;margin: 10px;">
-    <tr>
-        <td style="background-color: orange;">&emsp;&emsp;</td>
-        <td id = "padding"><h3 style="font-weight: 800;">Create a new account</h3><br>
-        <div style="font-weight: 500; font-family: Georgia, 'Times New Roman', Times, serif;">    
-        Please use your name, email and password to create your account! If you are a stuff, you need to tick the "Register as teacher" below, otherwise you do not need to do that! 
-        If you alreay have an account yet, plese click the button "Log in" at the left top side corner to log in to the quiz page!
-        <br><br>
-        For the name, email and password, please use your name, email and password. Remember, it is not able to find your password back currently if you forget it, so please remember it carefully! 
-        </div>
-        <br>
-    </td>
-    </tr>
+   <tr>
+      <td style="background-color: orange;">&emsp;&emsp;</td>
+      <td id = "padding">
+         <h3 style="font-weight: 800;">Create a new account</h3>
+         <br>
+         <div style="font-weight: 500; font-family: Georgia, 'Times New Roman', Times, serif;">    
+            Please use your name, email and password to create your account! If you are a stuff, you need to tick the "Register as teacher" below, otherwise you do not need to do that! 
+            If you alreay have an account yet, plese click the button "Log in" at the left top side corner to log in to the quiz page!
+            <br><br>
+            For the name, email and password, please use your name, email and password. Remember, it is not able to find your password back currently if you forget it, so please remember it carefully! 
+         </div>
+         <br>
+      </td>
+   </tr>
 </table>
-
 <div class = "register_form" style="margin-top: -65px;">
-{{ wtf.quick_form(registerForm)}}
+   {{ wtf.quick_form(registerForm)}}
 </div>
 <hr style="margin-top: -50px;">
 <!-- log in here if already a user-->
 <div style="margin-left: 5px;">
-    <p>Already a user? Click here to log in!</p>
-    <form action="/">
-        <button type="submit" class="btn btn-primary"> >>> Login here</button>
-    </form>
+   <p>Already a user? Click here to log in!</p>
+   <form action="/">
+      <button type="submit" class="btn btn-primary"> >>> Login here</button>
+   </form>
 </div>
 <br><br><br><br><br>
-
 {% endblock %}
 {% endblock %}

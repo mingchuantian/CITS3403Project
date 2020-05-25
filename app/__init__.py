@@ -1,3 +1,5 @@
+# this page written by: Mingchuan Tian (22636589)
+
 from flask import Flask
 from config import Config, TestConfig
 from flask_sqlalchemy import SQLAlchemy
@@ -30,4 +32,3 @@ login_manager.init_app(app)
 #all codes from routes and models are following
 from app import routes, models
 
-# this page written by: Mingchuan Tian (22636589)
