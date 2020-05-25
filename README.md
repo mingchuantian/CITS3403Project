@@ -17,11 +17,14 @@ source /venv/bin/activate
 export FLASK_RUN=run.py
 export FLASK_DEBUG=TRUE
 
+3. Run the flask:
+flask run
+
 ## Things need to install
 
-pip install flask_sqlalchemy
-pip install flask_migrate 
-pip install flask_wtf      
+all in the requirements.txt, use the command below,
+
+pip install -r requirements.txt
 
 ## DATABASE MANIPULATION
 
@@ -34,27 +37,23 @@ db.drop_all()
 - Create all tables (in flask shell):
 db.create_all()
 
-## Bug need to fix or some advices
+## how to use our project (student quiz management)?
 
-1.  when click the "home" button after log in, will return to the "log in" pagei
-(Fixed)
-2.  after click the "save" button, the question disappeas and move on to the next question(can not go to previous question or next question)
-3.  need to auto mark the quiz (when create the quiz, teacher can select auto mark or not, if "Yes", then need to insert the answer for each question then check the student answer with the correct answer.)
-4.  when create the exam, teacher can modify the mark of each question (when mark the exam, if the mark teacher insert is higher than the modify mark, warning)
-5.  after click the "log out" button, there is a small button inside of the html page, i am not sure what that is (click it will jump to a error page)
-(Fixed)
-6.  after login, can not jump to the student or teacher page
-7.  after create a new quiz, can not back to the teacher page or view the quiz
-8.  when insert a correct email with incorrect password, the html page will warning "the count is not exists", it should be "incorrect password or the count is not exists", then it should have a button to jump back to the login page
-9.  the quiz need a timer, when the time is up, then save all question and submit the answer. teacher can see the total time student use to finish the exam. Other hand, when teacher create the exam, it is better if he can modify the length of exam time(2 hours, 10 minutes so on).
-10. when mark the answer, it is better if teacher can see the question
-11. when mark the exam, if there has two student wait for mark, their answer will mix together. for example, when a and b all wait for mark, the test has 5 questions, then when teacher mark the question, he/she need to mark it as 10 questions, not seperate to two piece (5 and 5 for each). Then back to the student account, student a can see his mark is 10, but there only 5 questions and each questions he get 1 mark, it means a's and b's mark mixed together, then see b's mark, his is correct, 5 marks.
-12. if an user try to answer the qustion agian, why he can still do that? On the other hand, although he is able to do that, then he should has a limit to retake the exam and use the highest mark to be his final mark. when teacher try to mark his grade, it is pretty suprised that he need to mark 15 questions, but we only have 5 questions (mark of b is till error after do this). I totally try three times quiz for a(once) and b(twice), each time is 5 qustions.
+1. create the new count at regist to create both teacher(remember to tick the regist as teacher) and student account
 
-maybe can try to use something like array to store the answer in database, then each time retake the exam, the answer array for this student will be rewrite, then get the highest mark of his from his mark array?
+2. log in to teacher home page by clicking "teacher log in", insert email and password
 
-or create a database for each student to store their answer?
+3. create a new quiz by clicking the "create new quiz", insert the name of quiz, quizID, time limit. Remember, we can do both multiple choice and essay questions, just write down your question and click "save"
 
-just some surmise, not pretty sure
+4. after finished, clicking the "finish" button to back to the teacher home page. If you want to edit the quiz, clicking "edit quiz" and insert the quizID to do that
 
-13. when i finish all qustion then click the first "save" button to save my answer, the answer for other question will disappear.
+5. now switch to student account by log out teacher account and log in with student account by clicking "student log in"
+
+6. then you can start the quiz by insert your quizID (teacher will give it to students before the quiz start)
+
+7. after finished the quiz, switch to the teacher account to click the "mark quiz", teacher can give the comments and grade for each answers.
+
+8. after teacher mark the grade, now the students can see their grade and ranking in class by clicking "view grade" and "view ranking" on their student home page.
+
+9. it is also able to change the user profile and their log in email by clicking "edit profile" and "change avatar"
+
