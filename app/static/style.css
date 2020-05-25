@@ -278,6 +278,14 @@
 #b6 {
     width:70%;
 }
+
+#APIinput{
+    width : 100%;
+    height : 50px;
+    font-size: 20px;
+    border-radius: 15px;
+}
+
 .box {
     width : 100%;
     height : 50px;

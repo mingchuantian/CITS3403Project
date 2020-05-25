@@ -146,7 +146,8 @@ User Registration
 
             <br><br><br>
 
-            <input class = "box" type="text" name="searching"  placeholder = "Try to input a quiz ID" ><br>
+            <input type="text" id="APIinput"  name="searching"  placeholder = "Try to input a quiz ID" >
+            <br>
 
         </div>
 
@@ -154,11 +155,11 @@ User Registration
 
             <br><br><br>
             <!-- to get the API -->
-            <button type = "button" onclick = "getAPI(document.getElementsByClassName('box').value)" class="btn btn-lg btn-block" id = "b5"> Click to get info </button> <br><br>
+            <button type = "button" onclick = "getAPI()" class="btn btn-lg btn-block" id = "b5"> Click to get info </button> <br><br>
 
         </div>
     
-        <p id = "myJSON"></p>
+        <div id = "myJSON"></div>
 
     </div>
 

@@ -375,17 +375,68 @@ def changeAvatar():
     return render_template('changeAvatar.html', changeAvatarForm = form, user=current_user)
 
 
-#API that returns the first student who submitted the quiz
-@app.route('/API/<quizID>', methods = ['GET', 'POST'])
-def API(quizID):
 
-    quizsetId = QuizSet.query.filter_by(quiz_id=quizID).first().id
+#API that shows all the students who submitted the quiz
+# Student name : # of questions submitted : # of questions marked : # total mark : #rank
 
-    first_studentID = Answer.query.filter_by(quizset_id = quizsetId).first().student_id
-    first_student = User.query.filter_by(id=first_studentID).first().name
+@app.route('/API', methods = ['GET', 'POST'])
+def API():
 
-    #resp = {"name": [1,2,3,4,5]}
-    return jsonify(first_student)
+    #a dict of dict storing all the quiz information
+    all_quizes_info = []
+    #get a list of quizset IDs that this teacher created
+    quizset_id_created = QuizSet.query.filter_by(author_id=current_user.id).all()
+    i = 1
+    # for each quizset id created by this teacher
+    for quizset_id in quizset_id_created:
+        #current quizset id that the teacher created
+        quizset_id = str(quizset_id)
+        quizset_id = int(quizset_id)
+
+        title = QuizSet.query.filter_by(id=quizset_id).first().title
+        question_num = QuizSet.query.filter_by(id=quizset_id).first().question_num
+        each_quiz = {'title': title, 'Question_Number': question_num}
+
+        #quizset details append here
+
+        #get all questions under current quizset
+        all_questions = []
+        questionlist = QuizSet.query.filter_by(id=quizset_id).first().questions.all()
+
+        for question in questionlist:
+            question = str(question)
+            all_questions.append(question)
+
+        each_quiz['questions'] = all_questions
+
+
+        answerlist =  QuizSet.query.filter_by(id=quizset_id).first().answers.all()
+        #record student ids for current quizset
+        all_students = []
+        for answer in answerlist:
+            answer = str(answer)
+            answer = answer.split(',')
+            this_student = answer[0]
+            all_students.append(this_student)
+            
+        
+        all_students = unique_items(all_students)
+        all_students_name =[]
+        #find each student's information
+        for each_student in all_students:
+            each_student = int(each_student)
+            each_name = User.query.filter_by(id=each_student).first().name
+            all_students_name.append(each_name)
+        each_quiz['numStudents'] = len(all_students)
+        each_quiz['student_names'] = all_students_name
+
+        #all_quizes_info[i] = each_quiz    
+        #i += 1 
+        all_quizes_info.append(each_quiz)
+    
+    return jsonify(all_quizes_info)
+
+
 
 
 #Helper function that calculates the total mark of each quiz

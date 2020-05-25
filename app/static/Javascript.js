@@ -19,58 +19,34 @@ function loadDoc () {
 
 }
 
-function myFunc (xml) {
 
+async function getAPI(){
 
-    let xmlDoc = xml.responseText;
-
-    let t1 = "<tr> <th> Student Name </th> <th> Quiz_taken Times </th> </tr>";
+    //input = document.getElementById('APIinput').value
+    var url = "/API"
+    //url += input
     
-
-    let x0 = JSON.parse(xmlDoc);
-
-    console.log(x0);  
-    console.log(x0.name);        
-
-    //t1 = "<p>" + x0.ID + "</p>"
-
-    /*
-    x0.map(
-
-        function (x0) {
-            t1 += "<tr> <td>" 
-                + x.name + "</td> <td>" 
-                + x.Quiz_taken + "</td> </tr>";
-        }
-    )
-    */
-   const container = document.getElementById("myJSON")
-   var t2 = document.createElement("p")
-   var t2content = document.createTextNode(x0)
-   t2.appendChild(t2content)
-    container.appendChild(t2)
-
-}
-
-
-async function getAPI(quizID){
-
-    console.log(quizID)
-    const url = "/API/";
-    url.concat(String(quizID))
-    console.log(url)
 
     fetch(url)
         .then((resp) => resp.json())
         .then(
             function(data){
-                console.log(data)
 
-                const container = document.getElementById("myJSON")
-                var t2 = document.createElement("p")
-                var t2content = document.createTextNode(data)
-                t2.appendChild(t2content)
-                container.appendChild(t2)
+                console.log(data)
+                
+
+
+                return data.map(
+                    function(data){
+
+                        const container = document.getElementById("myJSON")
+                        var t2 = document.createElement("p")
+                        var t2content = document.createTextNode(data.questions)
+                        t2.appendChild(t2content)
+                        container.appendChild(t2)
+                    }
+                )
+                
 
 
             }
@@ -81,10 +57,10 @@ async function getAPI(quizID){
 
 /*  check the new quiz finished or not */
 function submit_new_quiz(){
-    if(document.getElementsByClassName("quiz").length > 0){ //  if quiz creating not finished, alert
+    if(document.getElementsByClassName("quiz").length > 0){
         alert('The quiz creating is not finished already, you can not submit it!');
     }else{
-        alert('you finished all the quiz question creating!');  //  if finished already, alert and back to the teacher page
+        alert('you finished all the quiz question creating!');
         window.open("/user","_self");
     }
 }
@@ -92,11 +68,11 @@ function submit_new_quiz(){
 
 /*  click it to check the student finished or not*/
 function submit_quiz_answer(){
-    if(document.getElementsByClassName("quiz").length > 0){ //  if still quiz there, not finished
-        alert('You did not finish all questions, please do not submit it!');    //  alert this
+    if(document.getElementsByClassName("quiz").length > 0){
+        alert('You did not finish all questions, please do not submit it!');
     }else{
-        alert('you finished all the quiz question, now submit it!');    //  if finished, alert it
-        document.getElementById('finishthis').click();  //  submit it
+        alert('you finished all the quiz question, now submit it!');
+        document.getElementsByTagName('button')[1].click();
     }
 }
 
@@ -116,7 +92,3 @@ function loadPage(){
     document.getElementById('iframePosition').src = target;
 }
 
-function timer_reset(){     //  reset the timer when the user click the "finish" button in the student quiz page
-    window.name = '';
-    clearInterval(timer);
-}

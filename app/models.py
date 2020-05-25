@@ -78,7 +78,7 @@ class Question(db.Model):
     answers = db.relationship('Answer', backref='answerperson', lazy='dynamic')
 
     def __repr__(self):
-        return '<Question>' + str(self.Question)
+        return str(self.Question)
 
 class QuizSet(db.Model):
     __tablename__ = 'quizsets'
@@ -93,7 +93,7 @@ class QuizSet(db.Model):
 
 
     def __repr__(self):
-        return '<Quizset>' + str(self.id)
+        return str(self.id)
 
 class Answer(db.Model):
     __tablename__ = 'answers'
