@@ -1,25 +1,20 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-
 <!-- insert quizID to create a new quiz -->
 {% block head %}
 {{ super() }}
-
 {% endblock %}
-
 {% block title %}
 Enter quizID to create a new quiz
 {% endblock %}
-
 {% block body %}
 {% block content %}
-    <br><br>
-    <div class = "quiz">
-    <div id ="quizPage">
-        {{ wtf.quick_form(quizStartForm)}}
-    </div>
-    </div>
+<br><br>
+<div class = "quiz">
+   <div id ="quizPage">
+      {{ wtf.quick_form(quizStartForm)}}
+   </div>
+</div>
 {% endblock %}
 <br><br><br><br><br><br>
 {% endblock %}
-

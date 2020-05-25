@@ -1,208 +1,143 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-
 <!-- the user main page (for student and teacher) -->
 {% block head %}
 {{ super() }}
-
 <script>
-    
-    setTimeout(fade_out, 4000);
-
-    function fade_out() {
-        $("#mydiv").fadeOut().empty();
-    }
-
+   setTimeout(fade_out, 4000);
+   
+   function fade_out() {
+       $("#mydiv").fadeOut().empty();
+   }
+   
 </script>
-
 {% endblock %}
-
 {% block title %}
 User Registration
 {% endblock %}
-
-
 {% block body %}
-
 {% block logo %}
 {{ super() }}
 {% endblock %}
-
 {% block content %}
-
 <div style="margin-left: 5px;" id = "mydiv">
-    <table>
-        <tr>
-            <td>  <input type="checkbox" checked style="display: none;">
-                <svg width="20" height="20">
-                    <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
-                    <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
-                </svg>
-            </td>
-            <td><br><p style="color: red; font-size: larger;">
-                {% if current_user.is_teacher %}
-                <b>&ensp;&ensp;You are logged in as a teacher, welcome!</b>
-                {% else %}
-                <b>&ensp;&ensp;You are logged in as a student, welcome!</b>
-                {% endif %}
-            </p></td>
-        </tr>
-    </table>
+   <table>
+      <tr>
+         <td>
+            <input type="checkbox" checked style="display: none;">
+            <svg width="20" height="20">
+               <circle fill="none" stroke="#68E534" stroke-width="2" cx="10" cy="10" r="9" class="circle" stroke-linecap="round" transform="rotate(-90 10 10) "/>
+               <polyline fill="none" stroke="#68E534" stroke-width="2" points="5, 10.5262935 8.96556718, 14 16, 8" stroke-linecap="round" stroke-linejoin="round" class="tick" />
+            </svg>
+         </td>
+         <td>
+            <br>
+            <p style="color: red; font-size: larger;">
+               {% if current_user.is_teacher %}
+               <b>&ensp;&ensp;You are logged in as a teacher, welcome!</b>
+               {% else %}
+               <b>&ensp;&ensp;You are logged in as a student, welcome!</b>
+               {% endif %}
+            </p>
+         </td>
+      </tr>
+   </table>
 </div>
-
 <div class = "container-fluid">
-
-    <div class="row">
-
-    <div class="col-sm-4">
-
-        <br><br>
-        <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}" style = "width:60%; padding-left: 50px;" alt="profile_photo">
-        <div>
-
-        <br>
-
-        <h1>
-            {% if current_user.is_authenticated %}
-            {% if current_user.title %}
-            {{ current_user.title }}
+   <div class="row">
+      <div class="col-sm-4">
+         <br><br>
+         <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}" style = "width:60%; padding-left: 50px;" alt="profile_photo">
+         <div>
+            <br>
+            <h1>
+               {% if current_user.is_authenticated %}
+               {% if current_user.title %}
+               {{ current_user.title }}
+               {% endif %}
+               {{ current_user.name}}
+               {% endif %} 
+            </h1>
+            {% if current_user.email %}
+            <h4>Email: <a href = "mailto: {{ current_user.email }}"> {{ current_user.email }}</a></h4>
             {% endif %}
-            {{ current_user.name}}
-            {% endif %} 
-        </h1>
-
-        {% if current_user.email %}
-        <h4>Email: <a href = "mailto:{{current_user.email}}"> {{ current_user.email }}</a></h4>
-        {% endif %}
-
-        {% if current_user.address %}
-        <h4>Address: {{ current_user.address }} </h4>
-        {% endif %}
-
-        {% if current_user.phone %}
-        <h4>Phone: {{ current_user.phone }} </h4>
-        {% endif %}
-
-        {% if current_user.faculty %}
-        <h4>Faculty: {{ current_user.faculty }} </h4>
-        {% endif %}
-
-        <h4 id = "Logged_in_successful">The University of Western Australia</h4>
-
-    </div>
-
-    <br>
-
-    <div> 
-    <a id = "b6" href = "{{ url_for('editProfile') }}" class="btn btn-block"> Edit Profile </a>
-    <a id = "b7" href = "{{ url_for('changeAvatar') }}" class="btn btn-block"> Change Avatar </a>
-    </div>
-
-    <br><br>
-
-
-    </div>
-
-    {% if current_user.is_teacher %}
-
-    <div class="col-sm-8">
-
-        <br><br><br>
-
-        <div class="col-sm-6">
-    
+            {% if current_user.address %}
+            <h4>Address: {{ current_user.address }} </h4>
+            {% endif %}
+            {% if current_user.phone %}
+            <h4>Phone: {{ current_user.phone }} </h4>
+            {% endif %}
+            {% if current_user.faculty %}
+            <h4>Faculty: {{ current_user.faculty }} </h4>
+            {% endif %}
+            <h4 id = "Logged in successful">The University of Western Australia</h4>
+         </div>
+         <br>
+         <div> 
+            <a id = "b6" href = "{{ url_for('editProfile') }}" class="btn btn-block"> Edit Profile </a>
+            <a id = "b6" href = "{{ url_for('changeAvatar') }}" class="btn btn-block"> Change Avatar </a>
+         </div>
+         <br><br>
+      </div>
+      {% if current_user.is_teacher %}
+      <div class="col-sm-8">
+         <br><br><br>
+         <div class="col-sm-6">
             <form action="startEditQuiz">
-                <button type="submit" class="btn btn-lg btn-block" id = "b1" >New Quiz</button>
+               <button type="submit" class="btn btn-lg btn-block" id = "b1" >New Quiz</button>
             </form>
-
             <br><br>
-      
             <form action="Edit_quiz_ID">
-                <button type="submit" class="btn btn-lg btn-block" id = "b2" >Edit Quiz</button>
+               <button type="submit" class="btn btn-lg btn-block" id = "b2" >Edit Quiz</button>
             </form>
-
             <br><br>
-            
-        </div>
-
-        <div class="col-sm-6">
-
+         </div>
+         <div class="col-sm-6">
             <form action="markQuiz">
-                <button type="submit" class="btn btn-lg btn-block" id = "b3" >Mark Quiz</button>
+               <button type="submit" class="btn btn-lg btn-block" id = "b3" >Mark Quiz</button>
             </form>
-
             <br><br>
-        
             <form action="logout">
-                <button type="submit" class="btn btn-lg btn-block" id = "b4" > Log out</button>
+               <button type="submit" class="btn btn-lg btn-block" id = "b4" > Log out</button>
             </form>
-
-        </div>
-
-        <div class="col-sm-12">
-
+         </div>
+         <div class="col-sm-12">
             <!-- to get the API -->
             <button type = "button" onclick = "getAPI()" class="btn btn-lg btn-block" id = "b5"> Click to get quiz info </button> <br><br>
-
             <table id = "myJSON"></table>
-
-        </div>
-    
-        
-
-    </div>
-
-    </div>
-
+         </div>
+      </div>
+   </div>
 </div>
 <br><br>
-
 {% else %}
 <div class="col-sm-8">
-
-    <br><br><br><br>
-<div style="margin-top: 30px;">
-
-    <div class="col-sm-6">
-
-        <form action="Input_quiz_ID">
+   <br><br><br><br>
+   <div style="margin-top: 30px;">
+      <div class="col-sm-6">
+         <form action="Input_quiz_ID">
             <button type="submit" class="btn btn-primary btn-lg btn-block" id = "b1" >Start quiz&ensp;</button>
-        </form>
-
-        <br><br>
-
-        <form action="viewGrade">
+         </form>
+         <br><br>
+         <form action="viewGrade">
             <button type="submit" class="btn btn-primary btn-lg btn-block" id = "b2" >View grades&ensp;</button>
-        </form>
-
-        <br><br>
-
-    </div>
-
-    <div class="col-sm-6">
-
-        <form action="viewRanking">
+         </form>
+         <br><br>
+      </div>
+      <div class="col-sm-6">
+         <form action="viewRanking">
             <button type="submit" class="btn btn-primary btn-lg btn-block" id = "b3" >View ranking</button>
-        </form>
-
-        <br><br>
-    
-        <form action="logout">
-        <button type="submit" class="btn btn-primary btn-lg btn-block" id = "b4" > Log out&ensp;</button>
-        </form>
-
-    </div>
-
-        
-</div>
-
+         </form>
+         <br><br>
+         <form action="logout">
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id = "b4" > Log out&ensp;</button>
+         </form>
+      </div>
+   </div>
 </div>
 </div>
 </div>
-
 {% endif %}
-
 {% endblock %}
 <br><br><br><br><br>
 {% endblock %}
-

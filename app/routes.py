@@ -1,3 +1,5 @@
+# routes/backend functionalities written by: Mingchuan Tian (22636589)
+
 from app import app, db
 from flask import render_template, flash, redirect, request, url_for, jsonify
 from app.forms import TeacherLoginForm, StudentLoginForm, RegisterForm, QuizEditForm, QuizLoginForm, QuizStartForm, QuizAnswerForm, QuizReviewForm, changeQuestionForm, QuizMarkForm, GradingForm, EditProfileForm, ChangeAvatarForm
@@ -5,8 +7,8 @@ from flask_login import login_user, login_required, logout_user, current_user
 from app.models import User, Question, QuizSet, Answer, Grade
 
 
-# ----  Index page -----
-
+# -------  Index page --------------
+# returns the main index page
 @app.route('/', methods = ['GET', 'POST'])
 def index():
     return render_template('index.html')
@@ -22,7 +24,6 @@ def register():
         email = User.query.filter_by(email=form.email.data).first()
         if email is None:
             user = User(name=form.name.data, email=form.email.data, is_teacher=form.teacher.data)
-            #password=form.password.data,
             user.set_password(form.password.data)
             db.session.add(user)
             db.session.commit()
@@ -34,20 +35,16 @@ def register():
 
 
 # ----  User profile page -----
+#returns the page for user's profile
 
 @app.route('/user', methods = ['GET', 'POST'])
 @login_required
 def user():
     return render_template('user.html',user=current_user)
 
-# ----  Notification page -----
-
-#@app.route('/notification/<content>/<buttonText>/<link>')
-#def notification(content, buttonText, link):
-#    return render_template('notify.html', content=content, buttonText=buttonText, link=link)
 
 # ----  Login page -----
-
+# For both teacher and student login
 @app.route('/login/<identity>', methods = ['GET', 'POST'])
 def login(identity):
     if identity == 'teacher':
@@ -86,7 +83,6 @@ def login(identity):
 
 
 # ----  Student page for inputting a quiz ID -----
-
 @app.route('/Input_quiz_ID', methods = ['GET', 'POST'])
 @login_required
 def Input_quiz_ID():
@@ -112,7 +108,6 @@ def startQuiz(QuizsetID, current_question, time_limit):
     question_num = QuizSet.query.filter_by(id=QuizsetID).first().question_num
     teacher_id = QuizSet.query.filter_by(id=QuizsetID).first().author_id
     teacher_name = User.query.filter_by(id=teacher_id).first().name
-
     #calculate previous questions number
     prev_num = Prev_Questions_num(QuizsetID)
     form = QuizAnswerForm()
@@ -141,14 +136,14 @@ def answerSaved(current_question, QuizsetID, time_limit):
 
 
 # ----  Finish quiz page -----
-
+# notify student who have just finished the quiz
 @app.route('/finishQuiz')
 @login_required
 def finishQuiz():
     return render_template('notify.html', content='You have finished your quiz', buttonText='Back to profile page', link=url_for('user'))
 
 
-
+#------- Page for teachers to enter quiz ID so that they can edit the quiz
 @app.route('/Edit_quiz_ID', methods = ['GET', 'POST'])
 @login_required
 def Edit_quiz_ID():
@@ -163,11 +158,11 @@ def Edit_quiz_ID():
             question_n = 0
             return redirect(url_for('reviewQuiz', quizsetID=quizsetID, current_question_id=current_question_id, question_n=question_n))
         else: 
-            return 'the quiz does not exists'
+            return render_template('notify.html', content='the quiz does not exists', buttonText='Back to profile page', link=url_for('user'))
     return render_template('Edit_quiz_ID.html', form=form, user=current_user)
 
-# ----  Page for teachers to find the quiz to mark -----
 
+# ----  Page for teachers to find the quiz to mark -----
 @app.route('/markQuiz', methods = ['GET', 'POST'])
 @login_required
 def markQuiz():
@@ -184,8 +179,8 @@ def markQuiz():
     return render_template('findQuizToMark.html', form=form)
 
 
-# ----  Logout page -----
 
+# ----  Logout page -----
 @app.route('/logout')
 @login_required
 def logout():
@@ -194,13 +189,11 @@ def logout():
 
 
 # ---- Page for teachers to start adding a quiz -----
-
 @app.route('/startEditQuiz', methods = ['GET', 'POST'])
 @login_required
 def startEditQuiz():
     form = QuizStartForm()
     if form.validate_on_submit():
-        #if the Quiz Id entered already exists
         if QuizSet.query.filter_by(quiz_id=form.quiz_id.data).first() is not None:
             return render_template('notify.html', content='The quiz id already exists',  buttonText='Back', link=url_for('startEditQuiz'))
         else:
@@ -216,16 +209,13 @@ def startEditQuiz():
 
 
 # ----  Page for teachers to add quiz questions  -----
-
 @app.route('/editQuiz/<QuizsetID>/<num_question>/<current_question>',  methods = ['GET', 'POST'])
 @login_required
-#there's problem with it
 def editQuiz(QuizsetID, num_question, current_question):
     form = QuizEditForm()
     question_num = int(num_question)
     current_question = int(current_question)
     if form.validate_on_submit():
-        #quizId = QuizSet.query.filter_by(quiz_id=qid).first().id
         question = Question(Question=form.question.data, quizset_id=QuizsetID)
         db.session.add(question)
         db.session.commit()
@@ -242,7 +232,6 @@ def questionSaved(current_question, QuizsetID, num_question):
 
 
 # ----  Page for teachers to grade quiz questions  -----
-
 @app.route('/reviewAnswer/<quizsetID>/<current_answer>/<answer_num>', methods = ['GET', 'POST'])
 @login_required
 def reviewAnswer(quizsetID,current_answer,answer_num):
@@ -285,7 +274,6 @@ def nextAnswer(quizsetID, current_answer, answer_num):
 
 
 # ----  Page for teachers to edit/modify quiz questions  -----
-
 @app.route('/reviewQuiz/<quizsetID>/<current_question_id>/<question_n>', methods = ['Get', 'POST'])
 @login_required
 def reviewQuiz(quizsetID,current_question_id, question_n):
@@ -306,7 +294,6 @@ def reviewQuiz(quizsetID,current_question_id, question_n):
 
 
 #Helper function that helps teacher navigate thru questions
-
 @app.route('/nextQuestion/<current_question_id>/<quizsetID>/<question_n>', methods = ['Get', 'POST'])
 @login_required
 def nextQuestion(current_question_id, quizsetID, question_n):
@@ -316,7 +303,6 @@ def nextQuestion(current_question_id, quizsetID, question_n):
 
 
 # ----  Student View Grade page  -----
-
 @app.route('/viewGrade',  methods = ['GET', 'POST'])
 @login_required
 def viewGrade():
@@ -325,7 +311,6 @@ def viewGrade():
     return render_template('viewGrade.html', grade_dict=grade_dict, str=str, Answer=Answer)
 
 # ----  Student View Ranking page   -----
-
 @app.route('/viewRanking',  methods = ['GET', 'POST'])
 @login_required
 def viewRanking():
@@ -346,6 +331,7 @@ def viewRanking():
     return render_template('viewRanking.html', unique_quizsets=unique_quizsets, QuizSet=QuizSet, User=User, Answer=Answer, Grade=Grade, str=str, all_marks=all_marks, calcualte_total_mark=calcualte_total_mark, calculate_ranking=calculate_ranking, all_students_id=all_students_id, len=len, unique_items=unique_items)
 
 
+#------ Page for both teacher and student to edit their profile-----------
 @app.route('/editProfile',  methods = ['GET', 'POST'])
 @login_required
 def editProfile():
@@ -362,6 +348,7 @@ def editProfile():
  
     return render_template('editProfile.html', EditProfileForm=form)
 
+#------ Page for both teacher and student to change their avatar
 @app.route('/changeAvatar',  methods = ['GET', 'POST'])
 @login_required
 def changeAvatar():
@@ -376,8 +363,23 @@ def changeAvatar():
 
 
 
-#API that shows all the students who submitted the quiz
-# Student name : # of questions submitted : # of questions marked : # total mark : #rank
+#API that shows all the quiz information of the current logged in teacher
+# should return a JSON API looks like this: 
+# 
+#  {
+#    "Question_Number": 3, 
+#    "numStudents": 1, 
+#    "questions": [
+#      "What's up", 
+#      "How have you been", 
+#      "How's going"
+#    ], 
+#    "student_names": [
+#      "mingchuantian"
+#    ], 
+#    "title": "quiz1"
+#  }
+#]
 
 @app.route('/API', methods = ['GET', 'POST'])
 def API():
@@ -392,13 +394,11 @@ def API():
         #current quizset id that the teacher created
         quizset_id = str(quizset_id)
         quizset_id = int(quizset_id)
-
         title = QuizSet.query.filter_by(id=quizset_id).first().title
         question_num = QuizSet.query.filter_by(id=quizset_id).first().question_num
         each_quiz = {'title': title, 'Question_Number': question_num}
 
         #quizset details append here
-
         #get all questions under current quizset
         all_questions = []
         questionlist = QuizSet.query.filter_by(id=quizset_id).first().questions.all()
@@ -408,8 +408,6 @@ def API():
             all_questions.append(question)
 
         each_quiz['questions'] = all_questions
-
-
         answerlist =  QuizSet.query.filter_by(id=quizset_id).first().answers.all()
         #record student ids for current quizset
         all_students = []
@@ -419,7 +417,6 @@ def API():
             this_student = answer[0]
             all_students.append(this_student)
             
-        
         all_students = unique_items(all_students)
         all_students_name =[]
         #find each student's information
@@ -430,8 +427,6 @@ def API():
         each_quiz['numStudents'] = len(all_students)
         each_quiz['student_names'] = all_students_name
 
-        #all_quizes_info[i] = each_quiz    
-        #i += 1 
         all_quizes_info.append(each_quiz)
     
     return jsonify(all_quizes_info)
@@ -471,6 +466,4 @@ def unique_items(all_items):
 
 
 
-
-
-#bug: teacher will unevidably regrade questions. Thus students receive double marks which result in faulty ranking
+# routes/backend functionalities written by: Mingchuan Tian (22636589)

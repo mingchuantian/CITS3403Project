@@ -67,7 +67,7 @@ class QuestionModelTest(unittest.TestCase):
 
     def test_repr_(self):
         q = Question.query.get(1)
-        self.assertTrue(str(q) == ('<Question>'+q.Question))
+        self.assertTrue(str(q) == (q.Question))
 
     def test_values(self):
         q = Question.query.get(1)
@@ -93,7 +93,7 @@ class QuizSetModelTest(unittest.TestCase):
 
     def test_repr_(self):
         qs = QuizSet.query.get(1)
-        self.assertTrue(str(qs) == ('<Quizset>'+str(qs.id)))
+        self.assertTrue(str(qs) == (str(qs.id)))
     
 
     def test_values(self):
@@ -119,7 +119,7 @@ class AnswerModelTest(unittest.TestCase):
 
     def test_repr_(self):
         a = Answer.query.get(1)
-        self.assertTrue(str(a) == str(a.student_id) + ',' + str(a.id) + ',' + str(a.Answer) + ',' + str(a.question_id) + ',' + str(a.quizset_id))
+        self.assertTrue(str(a) == str(a.student_id) + ',' + str(a.id) + ',' + str(a.Answer) +  ',' + str(a.quizset_id))
     
     def test_values(self):
         a = Answer.query.get(1)
