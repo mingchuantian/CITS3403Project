@@ -19,7 +19,7 @@ Change Avatar
     <br><br>
 
     <h4>Your current avartar</h4>
-    <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}"> <br><br>
+    <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}" alt="user avatar"> <br><br>
     <p>Change your avatar by changing your email</p> <br>
     <div class = "change_avatar" style = "width:60%; margin-left: auto; margin-right: auto;">
         {{ wtf.quick_form(changeAvatarForm)}}
