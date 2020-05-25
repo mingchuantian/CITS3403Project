@@ -81,7 +81,6 @@ function submit_quiz_answer(){
         alert('You did not finish all questions, please do not submit it!');
     }else{
         alert('you finished all the quiz question, now submit it!');
-        document.getElementsByTagName('button')[1].click();
     }
 }
 

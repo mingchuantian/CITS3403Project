@@ -269,7 +269,7 @@
 .img-rounded profile-thumbnail{
     padding-left: 100px;
 }
-#b5, #b6 {
+#b5, #b6, #b7 {
     background-color: #138D75;
     border-radius: 20px;
     font-weight: 380;
@@ -280,7 +280,7 @@
     font-size: 25px;
     font-weight: 380;
 }
-#b6 {
+#b6, #b7 {
     width:70%;
 }
 

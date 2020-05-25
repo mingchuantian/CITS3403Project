@@ -72,7 +72,7 @@ User Registration
         </h1>
 
         {% if current_user.email %}
-        <h4>Email: <a href = "mailto: {{ current_user.email }}"> {{ current_user.email }}</a></h4>
+        <h4>Email: <a href = "mailto:{{current_user.email}}"> {{ current_user.email }}</a></h4>
         {% endif %}
 
         {% if current_user.address %}
@@ -87,7 +87,7 @@ User Registration
         <h4>Faculty: {{ current_user.faculty }} </h4>
         {% endif %}
 
-        <h4 id = "Logged in successful">The University of Western Australia</h4>
+        <h4 id = "Logged_in_successful">The University of Western Australia</h4>
 
     </div>
 
@@ -95,7 +95,7 @@ User Registration
 
     <div> 
     <a id = "b6" href = "{{ url_for('editProfile') }}" class="btn btn-block"> Edit Profile </a>
-    <a id = "b6" href = "{{ url_for('changeAvatar') }}" class="btn btn-block"> Change Avatar </a>
+    <a id = "b7" href = "{{ url_for('changeAvatar') }}" class="btn btn-block"> Change Avatar </a>
     </div>
 
     <br><br>
