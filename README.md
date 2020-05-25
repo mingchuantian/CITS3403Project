@@ -2,11 +2,22 @@
 
 -  22636589  Mingchuan Tian
 
+-  22541459  Hanlin Zhang 
+
 -  22762872  Ruida He 
 
--  22797012 Jiayu Wu
+-  22797012 Jiayu Wu (very insufficient contribution)
 
--  22541459  Hanlin Zhang
+
+## Project description
+
+The system is called CITS3403 Quiz Management System, or QMS for short. 
+QMS is an interactive Quiz system that allows teachers to set up quizzes and create questions for their students.
+Students have to enter a quiz ID (created by teacher and given by teacher when the quiz starts) to enter the quiz. 
+Once students have finished the quiz, teachers can view, grade, and comment on the answers. 
+Teachers can also modify/change questions when needed. 
+Students will get feedback and ranking once their teacher has finished grading. 
+
 
 ## HOW TO RUN THIS APPLICATION
 
@@ -37,23 +48,45 @@ db.drop_all()
 - Create all tables (in flask shell):
 db.create_all()
 
-## how to use our project (student quiz management)?
+## How to use the APP ?
 
-1. create the new count at regist to create both teacher(remember to tick the regist as teacher) and student account
+# For teachers:
 
-2. log in to teacher home page by clicking "teacher log in", insert email and password
+1. Create an account by clicking "register" and fill up the form. 
 
-3. create a new quiz by clicking the "create new quiz", insert the name of quiz, quizID, time limit. Remember, we can do both multiple choice and essay questions, just write down your question and click "save"
+2. Log in via "Teacher Login", type in your username & password.
 
-4. after finished, clicking the "finish" button to back to the teacher home page. If you want to edit the quiz, clicking "edit quiz" and insert the quizID to do that
+3. Add a quiz by clicking on "New Quiz", then specify your quiz details and questions.
 
-5. now switch to student account by log out teacher account and log in with student account by clicking "student log in"
+4. Modify questions by clicking on "Edit Quiz". 
 
-6. then you can start the quiz by insert your quizID (teacher will give it to students before the quiz start)
+5. Check how many students have finished the quiz, click "check quiz progress"
 
-7. after finished the quiz, switch to the teacher account to click the "mark quiz", teacher can give the comments and grade for each answers.
+6. Once students have finished the quiz, click "Mark Quiz" to mark and give feedbacks.
 
-8. after teacher mark the grade, now the students can see their grade and ranking in class by clicking "view grade" and "view ranking" on their student home page.
+* You can also complete your profile and change avatar in your profile page. 
 
-9. it is also able to change the user profile and their log in email by clicking "edit profile" and "change avatar"
+# For students:
 
+1. Create an account by clicking "register" and fill up the form. 
+
+2. Log in via "Student Login", type in your username & password. 
+
+3. Get the quiz id from your teacher. Click "Start quiz" to start your quiz. 
+
+4. Once your teacher has finished grading, you can check your grade and ranking
+
+* You can also complete your profile and change avatar in your profile page. 
+
+## How to contribute to this project? (for developers)
+
+Everyone can contribute to the project. I've made it public after the project due date. 
+You can visit and clone the git repository via https://github.com/mingchuantian/CITS3403Project
+
+This APP is written in python, Javascript, HTML, and CSS, using flask web app structure. 
+The APP is designed inspired by the MVC structure (Model, View, Controller). 
+
+For now, there is one API that retrieves quiz progress information (How many students have finished the quiz) if you're logged in as teacher.
+Getting the API via http://localhost:5000/API (if you're running on localhost)
+
+If there's any further questions regarding project detail, please email me mingchuantian1@gmail.com.
