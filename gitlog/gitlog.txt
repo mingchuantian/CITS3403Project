@@ -1,0 +1,1524 @@
+commit baee9746a18655ddbe3616c6f470aad894e261bc
+Merge: b50edad e409d54
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sun May 24 12:47:43 2020 -0700
+
+    Merge branch 'master' of https://github.com/mingchuantian/CITS3403Project
+
+commit b50edad05fa8902e6d6357bca22aa7bf163a63de
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sun May 24 12:46:38 2020 -0700
+
+    Ranking bugs all cleared
+
+commit e409d54486086902af07d4f5e44d82d50e455729
+Merge: 6e23ad6 f92610a
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:29:23 2020 +0800
+
+    Merge pull request #76 from mingchuantian/danielzhang1998-patch-19
+    
+    Delete 截屏2020-04-30 19.02.29.png
+
+commit f92610a256eb8f160abbff1e70a947d8e0c84887
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:29:06 2020 +0800
+
+    Delete 截屏2020-04-30 19.02.29.png
+
+commit 6e23ad63bdcc1742b2818ffd86c29efde29bb77e
+Merge: 8e13522 85a5ab9
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:28:37 2020 +0800
+
+    Merge pull request #75 from mingchuantian/danielzhang1998-patch-18
+    
+    Delete 截屏2020-04-30 19.02.12.png
+
+commit 85a5ab904613636498c5a43341f68643ec57be7a
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:28:18 2020 +0800
+
+    Delete 截屏2020-04-30 19.02.12.png
+
+commit 8e13522cc8ea2089d858ef98a85dd2a953f68220
+Merge: 4de2e10 d35606a
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:27:33 2020 +0800
+
+    Merge pull request #74 from mingchuantian/danielzhang1998-patch-17
+    
+    Delete 截屏2020-04-30 19.01.51.png
+
+commit d35606a01c4ddca04bd284dc1e1f819e2692edce
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:27:14 2020 +0800
+
+    Delete 截屏2020-04-30 19.01.51.png
+
+commit 4de2e10e19df6ba8ddb6a3d0769c489f74f92143
+Merge: 76d033e 9af0d62
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:26:15 2020 +0800
+
+    Merge pull request #73 from mingchuantian/danielzhang1998-patch-16
+    
+    Delete quiz_icon.png
+
+commit 9af0d6268af3c2be9971dbf283075fd3cc7c7efa
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:25:58 2020 +0800
+
+    Delete quiz_icon.png
+
+commit 76d033ecf321cd19c3664ff41cca00a0e26a86b2
+Merge: 42760b8 555f3e1
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:25:28 2020 +0800
+
+    Merge pull request #72 from mingchuantian/danielzhang1998-patch-15
+    
+    Delete quiz_example.sketch
+
+commit 555f3e142f56c680aa7c8d74c1599e60f574937c
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:25:14 2020 +0800
+
+    Delete quiz_example.sketch
+
+commit 42760b899074d88f787818dc1453641755cc91f0
+Merge: 648ab14 d994f69
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:24:51 2020 +0800
+
+    Merge pull request #71 from mingchuantian/danielzhang1998-patch-14
+    
+    Delete quiz_example.pdf
+
+commit d994f69f34b8d44c6d9ef3a13b221ff242018006
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:24:34 2020 +0800
+
+    Delete quiz_example.pdf
+
+commit 648ab14b19a57e44792e0ab3c74e469476effa88
+Merge: 752a58a 8d923af
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:23:30 2020 +0800
+
+    Merge pull request #70 from mingchuantian/danielzhang1998-patch-13
+    
+    Delete logo.jpeg
+
+commit 8d923af0396c8fa1afc7698fd615c060ea8364df
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:23:14 2020 +0800
+
+    Delete logo.jpeg
+
+commit 752a58a368ae8e1f75f4fb91cd9a000ad6cf537f
+Merge: 24d5c9c 274ce13
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:22:46 2020 +0800
+
+    Merge pull request #69 from mingchuantian/danielzhang1998-patch-12
+    
+    Delete images.jpeg
+
+commit 274ce13eea8c732e802f51f2234406228cc0b2c6
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 03:22:31 2020 +0800
+
+    Delete images.jpeg
+
+commit 24d5c9cde1d7ad95f345537bc447b458f3e20aa0
+Merge: 7deba2e c51f91a
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:50:15 2020 +0800
+
+    Merge pull request #68 from mingchuantian/danielzhang1998-patch-11
+    
+    Delete tick.sketch
+
+commit c51f91a72fd09f828109d148842edc5749915ee2
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:49:59 2020 +0800
+
+    Delete tick.sketch
+
+commit 7deba2edc35b7dafe05291bd887b4c771cc0f4f0
+Merge: 7e4680c c412698
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:49:12 2020 +0800
+
+    Merge pull request #67 from mingchuantian/danielzhang1998-patch-10
+    
+    Delete tick.html
+
+commit c412698d90de92ca248a55c3754700a93d488690
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:48:55 2020 +0800
+
+    Delete tick.html
+
+commit 7e4680c61a142ead0e73d937744345d135eae911
+Merge: f3c41bc 2d0aaf1
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:48:26 2020 +0800
+
+    Merge pull request #66 from mingchuantian/danielzhang1998-patch-9
+    
+    Delete tick.css
+
+commit 2d0aaf1fbb938f286747919365fe751374bc906a
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:48:10 2020 +0800
+
+    Delete tick.css
+
+commit f3c41bc8bf01b62604fd1c028be1243611fbea56
+Merge: ef6837d 6e9b223
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:42:48 2020 +0800
+
+    Merge pull request #65 from mingchuantian/danielzhang1998-patch-8
+    
+    Delete test_timer.html
+
+commit 6e9b223f34f2142704cae596ff3eebd2046f3cd2
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:42:25 2020 +0800
+
+    Delete test_timer.html
+
+commit ef6837df7ff1eb0f78fccbf0b956dda882bf0962
+Merge: 6afeed5 811c82e
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:41:39 2020 +0800
+
+    Merge pull request #64 from mingchuantian/danielzhang1998-patch-7
+    
+    Delete quiz_js.js
+
+commit 811c82e9b7c02cf1adf0baa49674da620273c229
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:41:21 2020 +0800
+
+    Delete quiz_js.js
+
+commit 6afeed5c69ea9ae73630a260a5fb96f50239175e
+Merge: 7e0d8db e976cb1
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:40:09 2020 +0800
+
+    Merge pull request #63 from mingchuantian/danielzhang1998-patch-6
+    
+    Delete quiz_icon.png
+
+commit e976cb14e5d08b2656b8bc3b93d52fe6f9434984
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:39:45 2020 +0800
+
+    Delete quiz_icon.png
+
+commit 7e0d8dbb01d8d313a481ecfd65d0a118b87c4251
+Merge: 43c2c85 01d643d
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:39:18 2020 +0800
+
+    Merge pull request #62 from mingchuantian/danielzhang1998-patch-5
+    
+    Delete quiz_html.html
+
+commit 01d643da7f9aff5918ba7bcdd46d7f892df8b73c
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:39:02 2020 +0800
+
+    Delete quiz_html.html
+
+commit 43c2c85e602441c5784610458b9d8dc15725b616
+Merge: 2cb7077 feaedf8
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:38:05 2020 +0800
+
+    Merge pull request #61 from mingchuantian/danielzhang1998-patch-4
+    
+    Delete quiz_css.css
+
+commit feaedf8da51250686d41e174132a88f33625a65c
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:37:48 2020 +0800
+
+    Delete quiz_css.css
+
+commit 2cb70777d30f603a3a731f1b591018de1751ffcd
+Merge: 74ae3dd bb21f18
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:37:07 2020 +0800
+
+    Merge pull request #60 from mingchuantian/danielzhang1998-patch-3
+    
+    Delete action_css.css
+
+commit bb21f189641c5880fc63b8b2eb108ce0388652f5
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:36:52 2020 +0800
+
+    Delete action_css.css
+
+commit 74ae3dd4dbf234d4b7bb58b80e9441efebc9675e
+Merge: 6de8cbf 7f059b0
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:36:24 2020 +0800
+
+    Merge pull request #59 from mingchuantian/danielzhang1998-patch-2
+    
+    Delete action.html
+
+commit 7f059b0b2bc765b8fca8014879215a4a8803b101
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 02:36:10 2020 +0800
+
+    Delete action.html
+
+commit 6de8cbfa8f6a6d3435b1f837a4afd3cd1a94dd67
+Merge: ebef546 7019cbd
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 01:55:16 2020 +0800
+
+    Merge pull request #58 from mingchuantian/danielzhang1998-patch-1
+    
+    add annotation for the docs
+
+commit 7019cbdf3f093f72055a4f4ff2967d4f6b7d22fe
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 25 01:53:58 2020 +0800
+
+    annotation for the docs
+
+commit ebef546160c46a3110b3b147d8ab49ad2d80e882
+Merge: a985f62 4b9e7e9
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 23:28:10 2020 +0800
+
+    Merge pull request #57 from mingchuantian/danielzhang1998-patch-1
+    
+    bugs fixing
+
+commit 4b9e7e9130a1e19286d54c7b65f1a837e6678105
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 23:16:26 2020 +0800
+
+    bugs fixing
+
+commit a985f62a8dd8a6933bf20845acc4b0589ba68921
+Merge: c03bb1e f25f1df
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 19:25:20 2020 +0800
+
+    Merge pull request #56 from mingchuantian/danielzhang1998-patch-7
+    
+    bugs fixing
+
+commit f25f1df5a695225eb216066d6ea5aba696fb0178
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 19:24:25 2020 +0800
+
+    bugs fixing
+
+commit c03bb1e3da5d4abdfd7b347dfe8f6239a6245ef2
+Merge: ed00264 f721cd3
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 19:21:21 2020 +0800
+
+    Merge pull request #55 from mingchuantian/danielzhang1998-patch-7
+    
+    timer bugs fixing
+
+commit f721cd397cb686c6aedb58f812604248845f9b68
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 19:16:31 2020 +0800
+
+    bugs fixing
+
+commit ed00264fafd41852e5ccdb9e582d7dbefa08f499
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sun May 24 04:07:05 2020 -0700
+
+    Bugs fixed
+    Added more testing
+
+commit 6fd6c0a552db875d2357e5b7bb66d391e221a6d3
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Sun May 24 18:53:18 2020 +0800
+
+    Add files via upload
+
+commit abc795f3f41a2afcb4e879154950ef00da119958
+Merge: fb17b76 a5d1f46
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Sun May 24 18:30:43 2020 +0800
+
+    Merge pull request #54 from mingchuantian/Ruida-He-patch-3
+    
+    Add files via upload
+
+commit a5d1f46655b8efcbfda1f871de97adac51e7e4f1
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Sun May 24 18:30:28 2020 +0800
+
+    Add files via upload
+
+commit fb17b760219b28d97742d5c6671a430bddb32682
+Merge: f41f335 a37a7d3
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Sun May 24 18:29:53 2020 +0800
+
+    Merge pull request #53 from mingchuantian/Ruida-He-patch-2
+    
+    Add files via upload
+
+commit a37a7d3a322d9f0c7d0ef52c06e0decd6009d586
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Sun May 24 18:29:31 2020 +0800
+
+    Add files via upload
+
+commit f41f3359d39a3afe0fe9c75ad030bfff645b6b67
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sun May 24 02:34:26 2020 -0700
+
+    Teachers can now set time limit for quizzes
+
+commit 29cb527b1f4cc41cba3d9312bd10117f403ca4af
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sun May 24 01:42:04 2020 -0700
+
+    Teachers now don't have to regrade answers
+    API modified
+
+commit 79a7d1a82e324cfe7e4d5ecbadd92679a7905b6a
+Merge: 5be4c12 c7ae439
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 06:34:47 2020 +0800
+
+    Merge pull request #50 from mingchuantian/danielzhang1998-patch-5
+    
+    Delete tick_css.css
+
+commit c7ae43947da3ce47d205cec530b373fdddd92ba4
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 06:34:37 2020 +0800
+
+    Delete tick_css.css
+
+commit 5be4c12b7b2c308c492ebdedb79df7377335b40a
+Merge: ed9a964 95dd101
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 06:34:15 2020 +0800
+
+    Merge pull request #49 from mingchuantian/danielzhang1998-patch-4
+    
+    Delete teachercss.css
+
+commit 95dd101fe9eba3f54d1aae697591af935b8b4da8
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 06:34:05 2020 +0800
+
+    Delete teachercss.css
+
+commit ed9a96462518a948ab086a6a534703bfe0501992
+Merge: 281d209 ad5ff36
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 06:33:45 2020 +0800
+
+    Merge pull request #48 from mingchuantian/danielzhang1998-patch-3
+    
+    Delete quiz_edit_submit.js
+
+commit ad5ff36a2c54bfbb59afc2594b6eeb0db349bb22
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 06:33:35 2020 +0800
+
+    Delete quiz_edit_submit.js
+
+commit 281d209aa06e4f5064baae4e056dcc7802a11094
+Merge: c97cc98 c198cb1
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 06:32:52 2020 +0800
+
+    Merge pull request #47 from mingchuantian/danielzhang1998-patch-2
+    
+    Delete jsdocs.js
+
+commit c198cb187dd84996fb85faf624747e9fe6f9f993
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 06:32:42 2020 +0800
+
+    Delete jsdocs.js
+
+commit c97cc98069a106356ad7626242bde38fb3992553
+Merge: 3069dfa cf89bb8
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 06:32:05 2020 +0800
+
+    Merge pull request #46 from mingchuantian/danielzhang1998-patch-1
+    
+    Delete action_style.css
+
+commit cf89bb80451059432b6a68901c662648325ef3f7
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 06:31:53 2020 +0800
+
+    Delete action_style.css
+
+commit 3069dfa913699adda0d7916d6de2d700dbb61f1d
+Merge: 39bc0c9 43cd4a7
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 03:50:02 2020 +0800
+
+    Merge pull request #45 from mingchuantian/danielzhang1998-patch-1
+    
+    combain the css docs/js docs and bugs fixing
+
+commit 43cd4a7ddb19e70661f3208da7f36b855055e676
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 24 03:46:31 2020 +0800
+
+    combain the css docs/js docs and bugs fixing
+
+commit 39bc0c97dd70b56c48cadc70785ef91b029b8229
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sat May 23 11:22:23 2020 -0700
+
+    Added AJAX calling newly defined API
+
+commit 7b1d61c8f2de4e4f47c821f877b5ef25d098dfae
+Merge: 2958391 ebee184
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Sun May 24 01:45:26 2020 +0800
+
+    Merge pull request #44 from mingchuantian/branch1
+    
+    Organise the css and update functionalites
+
+commit ebee184dc510707ae88f3396cf39680dfb0c84c0
+Author: Ruida He <22762872@student.uwa.edu.au>
+Date:   Sun May 24 01:44:33 2020 +0800
+
+    Organise the css and update functionalites
+
+commit 2958391bf4851ecea8f53594fa99c76b65be333b
+Merge: 92f2664 225bcf5
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Sun May 24 00:31:51 2020 +0800
+
+    Merge pull request #43 from mingchuantian/branch1
+    
+    Change of some functionalities
+
+commit 225bcf5138453e44218c314bb8df68886d05f246
+Author: Ruida He <22762872@student.uwa.edu.au>
+Date:   Sun May 24 00:31:03 2020 +0800
+
+    Change of some functionalities
+
+commit 92f266457bd7ff318fe3796b970be784cad66441
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sat May 23 09:29:01 2020 -0700
+
+    Added API
+
+commit 503af54736e2e417bbee51fb83effa10045fc180
+Merge: 1175bc3 fb1a3ad
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Sat May 23 07:13:13 2020 -0700
+
+    Merge pull request #42 from mingchuantian/branch1
+    
+    Optimize the pages
+
+commit fb1a3ad3a3c1e162fdb0fff3b826836abc985dbc
+Merge: fdc1cd1 1175bc3
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sat May 23 07:12:23 2020 -0700
+
+    Merge branch 'master' into branch1
+
+commit fdc1cd1915231678bb0ffbb87e4d13d73d0b49fe
+Author: Ruida He <22762872@student.uwa.edu.au>
+Date:   Sat May 23 21:55:19 2020 +0800
+
+    Slove the conflict 2
+
+commit 4304d8eaac1896af23d4673abeb56626c31a6209
+Author: Ruida He <22762872@student.uwa.edu.au>
+Date:   Sat May 23 21:37:54 2020 +0800
+
+    Solve the conflict
+
+commit 90d228a0d330adadde74e1dab2550621959e6c54
+Author: Ruida He <22762872@student.uwa.edu.au>
+Date:   Sat May 23 21:32:08 2020 +0800
+
+    Optimize the pages
+
+commit 1175bc3e86f5fac6149ebf6dd5a1d12cfd87ff0f
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sat May 23 05:27:14 2020 -0700
+
+    Seperated student/teacher login
+
+commit 43e4245a878da4c172387d332bb5bfe36dd1b29c
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sat May 23 04:03:07 2020 -0700
+
+    Refined header & navbar
+
+commit b2450471f739ef6f99a09fa0ab2a172f6677c6be
+Merge: bad6ccf 4970620
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Sat May 23 02:20:20 2020 -0700
+
+    Merge pull request #41 from mingchuantian/branch1
+    
+    Refine the pages
+
+commit 49706206f7ca20afe0b700a8e7242cf282b88513
+Merge: 37ccec8 bad6ccf
+Author: Ruida He <22762872@student.uwa.edu.au>
+Date:   Sat May 23 17:19:19 2020 +0800
+
+    Merge branch 'master' into branch1
+
+commit 37ccec8c834a87304bb05a6d81dfae48d371beff
+Author: Ruida He <22762872@student.uwa.edu.au>
+Date:   Sat May 23 17:12:45 2020 +0800
+
+    Solve the conflict 2
+
+commit f058dc060b888ce2bcb09974e324880d6b40ec11
+Author: Ruida He <22762872@student.uwa.edu.au>
+Date:   Sat May 23 17:09:15 2020 +0800
+
+    Solve the conflict
+
+commit dc6f6cbf0162af3e6905c5b8677014484bcd4d1f
+Author: Ruida He <22762872@student.uwa.edu.au>
+Date:   Sat May 23 16:39:15 2020 +0800
+
+    Refine the pages
+
+commit bad6ccf801f2b4683bf92bd72c28326e54d65353
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sat May 23 01:32:18 2020 -0700
+
+    Bugs fixed. Page modified.
+
+commit 70aae2bca6e654440f5864aa9249911a1ec16c81
+Merge: 42ef84c 0d4fa1b
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Fri May 22 23:54:38 2020 -0700
+
+    Merge pull request #40 from mingchuantian/tian
+    
+    Allowed Users to change their Avatars
+
+commit 42ef84cb7d7260c34dbe82b211c9519e0e71a937
+Merge: 8551b62 215cc4c
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Fri May 22 23:52:30 2020 -0700
+
+    Merge pull request #10 from mingchuantian/dependabot/pip/pyyaml-5.1
+    
+    Bump pyyaml from 3.12 to 5.1
+
+commit 215cc4c795718cee1bf379d9b3ab5d0826c369c9
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sat May 23 06:52:23 2020 +0000
+
+    Bump pyyaml from 3.12 to 5.1
+    
+    Bumps [pyyaml](https://github.com/yaml/pyyaml) from 3.12 to 5.1.
+    - [Release notes](https://github.com/yaml/pyyaml/releases)
+    - [Changelog](https://github.com/yaml/pyyaml/blob/master/CHANGES)
+    - [Commits](https://github.com/yaml/pyyaml/compare/3.12...5.1)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 8551b623c26b9a542d32be4703d6b4ed08e923bc
+Merge: ccd0230 3afba1d
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Fri May 22 23:52:19 2020 -0700
+
+    Merge pull request #11 from mingchuantian/dependabot/pip/requests-2.20.0
+    
+    Bump requests from 2.18.4 to 2.20.0
+
+commit ccd0230f5cdc1154cf463df4ec43704ade566f90
+Merge: 0f4cbe0 d032519
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Fri May 22 23:52:08 2020 -0700
+
+    Merge pull request #12 from mingchuantian/dependabot/pip/cryptography-2.3
+    
+    Bump cryptography from 2.1.4 to 2.3
+
+commit 0f4cbe05ed5785d79c3e95cb811451d9bbbf0f30
+Merge: 157ab30 2ce36ce
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Fri May 22 23:51:54 2020 -0700
+
+    Merge pull request #13 from mingchuantian/dependabot/pip/urllib3-1.24.2
+    
+    Bump urllib3 from 1.22 to 1.24.2
+
+commit 157ab30d429d21564f2a7f353798aa7b49812063
+Merge: c908d0e 09bf146
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Fri May 22 23:51:41 2020 -0700
+
+    Merge pull request #14 from mingchuantian/dependabot/pip/pyxdg-0.26
+    
+    Bump pyxdg from 0.25 to 0.26
+
+commit c908d0e1a58223d34c25cb4007d19fe8081fd4fb
+Merge: 4a222a0 f4aca75
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Fri May 22 23:51:07 2020 -0700
+
+    Merge pull request #15 from mingchuantian/dependabot/pip/httplib2-0.18.0
+    
+    Bump httplib2 from 0.9.2 to 0.18.0
+
+commit 0d4fa1bfed8f1adc02ee9668731a6935c8f90bbb
+Author: mingchuantian <1120509786@qq.com>
+Date:   Fri May 22 23:49:34 2020 -0700
+
+    Allowed Users to change their Avatars
+
+commit 4a222a0f38590a0b996b2d7f398800c330af072f
+Merge: dbe5ea0 8060492
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Fri May 22 23:18:45 2020 -0700
+
+    Merge pull request #39 from mingchuantian/tian
+    
+    Combined Student&Teacher page into one User page
+
+commit 806049290601ba9d5c3f4c9c44b9cc2f2001e23b
+Author: mingchuantian <1120509786@qq.com>
+Date:   Fri May 22 23:17:01 2020 -0700
+
+    Combined Student&Teacher page into one User page
+
+commit dbe5ea04f3b84490f2760c0d4de9370687c72f81
+Merge: 1fc4571 8bad319
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Fri May 22 22:40:11 2020 -0700
+
+    Merge pull request #38 from mingchuantian/ming
+    
+    Reorganized template structure, deleted base2.html
+
+commit 8bad319814e750fb22e551f6c14d4ffca79db800
+Author: mingchuantian <1120509786@qq.com>
+Date:   Fri May 22 22:37:42 2020 -0700
+
+    Reorganized template structure, deleted base2.html
+
+commit 1fc45719af7a2b0fd064411926ecff92f4c08a62
+Merge: 756f8df 298fb0b
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sat May 23 04:45:42 2020 +0800
+
+    Merge pull request #37 from mingchuantian/danielzhang1998-patch-1
+    
+    bugs fixing and add the button to the front pages
+
+commit 298fb0bfc5f57500f6e563db3e0d4bc6bd872000
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sat May 23 04:44:54 2020 +0800
+
+    bugs fixing and add the button to the front pages
+
+commit 756f8df5f6ac3718de11e190bf9c0e8027f131f3
+Merge: 7f631f2 1a9b9db
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Fri May 22 10:26:29 2020 -0700
+
+    Merge pull request #36 from mingchuantian/mingchuan
+    
+    Added navbar dropdown menu specifically designed for teacher/student
+
+commit 7f631f24f91fc414c7f96b8b959ac20cee6fcba3
+Merge: 9cd818d 10c5495
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Sat May 23 01:24:45 2020 +0800
+
+    Merge pull request #35 from mingchuantian/branch1
+    
+    Finalise the teacher and student page
+
+commit 10c5495abddd2e2ba898b1d5dc51ba7fc8855beb
+Author: Ruida He <22762872@student.uwa.edu.au>
+Date:   Sat May 23 01:23:49 2020 +0800
+
+    Finalise the teacher and student page
+
+commit 1a9b9db170cf3ba9448f794efd4bec341a763fc7
+Author: mingchuantian <1120509786@qq.com>
+Date:   Fri May 22 10:21:57 2020 -0700
+
+    Added navbar dropdown menu specifically designed for teacher/student
+
+commit 9cd818d990a69d74256cf9fdf5b117e96dcdc89d
+Author: mingchuantian <1120509786@qq.com>
+Date:   Fri May 22 08:23:09 2020 -0700
+
+    Refined student/teacher page.
+    Added new index page.
+
+commit 0e3b5dcd02da4a16b904050ec5cb688c19719f0c
+Merge: f1489b7 df069f2
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Fri May 22 22:40:13 2020 +0800
+
+    Merge pull request #34 from mingchuantian/branch1
+    
+    Update teacher page
+
+commit df069f218b5b78c8156c53089cd5f67c3a4d5f83
+Author: Ruida He <22762872@student.uwa.edu.au>
+Date:   Fri May 22 22:38:50 2020 +0800
+
+    Update teacher page
+
+commit f1489b7930d39be86c3fe8800f97560b5cc863c5
+Author: Ruida He <22762872@student.uwa.edu.au>
+Date:   Fri May 22 22:06:59 2020 +0800
+
+    updated student page
+
+commit caea40e75d38c70a4958e28e36ea31d5761d2a1e
+Merge: 4f6cbac afce562
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 20:44:25 2020 +0800
+
+    Merge pull request #33 from mingchuantian/danielzhang1998-patch-4
+    
+    Delete ticker.jpg
+
+commit afce5627670c22f019687d422e6267b409057979
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 20:44:06 2020 +0800
+
+    Delete ticker.jpg
+
+commit 4f6cbac90c52cd9139856e78d224de9fac2f398b
+Merge: bffa8c3 442af83
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 20:42:48 2020 +0800
+
+    Merge pull request #32 from mingchuantian/danielzhang1998-patch-3
+    
+    Delete timer_2.html
+
+commit 442af83131a465e27c4415a33d25b3a52d8d4aa1
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 20:42:35 2020 +0800
+
+    Delete timer_2.html
+
+commit bffa8c3162f789ae45bd7ed16eba327f1fc7083c
+Merge: 0cacf0d 1f9bca2
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 20:41:55 2020 +0800
+
+    Merge pull request #31 from mingchuantian/danielzhang1998-patch-2
+    
+    Delete timer.html
+
+commit 1f9bca252c965cf1002c13aeafbcfe69cac7725b
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 20:41:39 2020 +0800
+
+    Delete timer.html
+
+commit 0cacf0dd14193c3a19ba8b1a79460e652618fcb2
+Merge: 658733d 68b9b8b
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 20:41:03 2020 +0800
+
+    Merge pull request #30 from mingchuantian/danielzhang1998-patch-1
+    
+    Delete js.js
+
+commit 68b9b8bf48c87f49bf3440af3db32f0b3dfc5391
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 20:40:43 2020 +0800
+
+    Delete js.js
+
+commit 658733d0ef5d021b4b6be5ba670170364952dd74
+Merge: 8373397 883e1da
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 20:37:28 2020 +0800
+
+    Merge pull request #29 from mingchuantian/danielzhang1998-patch-1
+    
+    fix icon and js linking error
+
+commit 883e1da2a0b676b97d151a1f9b636c443d5d500f
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 20:36:10 2020 +0800
+
+    fix icon and js linking error
+
+commit 83733970f56fc3c8caa093c0ed8ecf3c4f33827f
+Merge: 69cd9a3 5fdc673
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 20:11:05 2020 +0800
+
+    Merge pull request #28 from mingchuantian/danielzhang1998-patch-1
+    
+    Add files via upload
+
+commit 5fdc673fd0607bc78ddbb9c16b92a9166c833f7e
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 20:10:33 2020 +0800
+
+    Add files via upload
+
+commit 69cd9a3d67f876cabcbe3ff17e91a86bffbd02a5
+Merge: ed8f287 ed6fe79
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 18:19:25 2020 +0800
+
+    Merge pull request #27 from mingchuantian/danielzhang1998-patch-1
+    
+    fix bugs
+
+commit ed6fe79543a4bc99e3b7402e9a126d1b32a8b9ab
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 18:18:55 2020 +0800
+
+    fix bugs
+
+commit ed8f287380e761e59e952ebbd2d910809311b9a2
+Merge: 45323a0 b67c395
+Author: wjy9902 <49051666+wjy9902@users.noreply.github.com>
+Date:   Fri May 22 10:16:01 2020 +0800
+
+    Merge pull request #26 from mingchuantian/wjy9902-patch-2
+    
+    change appearance of teacher's and student's web
+
+commit b67c395a43cf1f3e2625b3e91868543526aae7af
+Author: wjy9902 <49051666+wjy9902@users.noreply.github.com>
+Date:   Fri May 22 10:15:38 2020 +0800
+
+    change appearance of teacher's and student's web
+    
+    and fix the bug of teacher's web with large blank
+
+commit 45323a0bcae56c86ce67f9a5beb233d080ff17c6
+Merge: d37cc6c e092b10
+Author: wjy9902 <49051666+wjy9902@users.noreply.github.com>
+Date:   Fri May 22 08:40:35 2020 +0800
+
+    Merge pull request #25 from mingchuantian/wjy9902-patch-1
+    
+    change personal information form
+
+commit e092b1018b35d815ff4ca3d4f5fe121edc0883b9
+Author: wjy9902 <49051666+wjy9902@users.noreply.github.com>
+Date:   Fri May 22 08:39:50 2020 +0800
+
+    change personal information form
+
+commit d37cc6c1d01ab686e02c10623451387a9662cea8
+Merge: fb0ca51 aaa4491
+Author: mingchuantian <1120509786@qq.com>
+Date:   Thu May 21 15:54:59 2020 -0700
+
+    Merge branch 'master' of https://github.com/mingchuantian/CITS3403Project
+
+commit fb0ca516ae000248f0f32bef7d1ec59ed0560e15
+Author: mingchuantian <1120509786@qq.com>
+Date:   Thu May 21 15:53:22 2020 -0700
+
+    Added user avatars
+    Auto-generated md5 user avatars based on email
+
+commit aaa4491730cd5253c79294be5f85cc3a8567779f
+Merge: b93d372 dee81ce
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 04:37:10 2020 +0800
+
+    Merge pull request #24 from mingchuantian/danielzhang1998-patch-1
+    
+    now can check quiz finished or not
+
+commit dee81ce6a17528309c579aefa4f4bc70cf796d14
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 04:36:44 2020 +0800
+
+    now can check quiz finished or not
+
+commit b93d3726a74300ad7f4703df621b71995f1f94be
+Merge: e2e451e cfd24e1
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 04:28:04 2020 +0800
+
+    Merge pull request #23 from mingchuantian/danielzhang1998-patch-1
+    
+    function check quiz create/answer finished or not
+
+commit cfd24e1dab74c0498f7e6b61c07cc2ef9938999a
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 04:27:07 2020 +0800
+
+    function check quiz create/answer finished or not
+
+commit e2e451eb011cbd67dca184536982f040da90144c
+Author: mingchuantian <1120509786@qq.com>
+Date:   Thu May 21 13:04:52 2020 -0700
+
+    Finished System & Unit testing
+    However system testing is not a good coverage yet
+
+commit 1e3d4c6ba09fe380b7597a9ace3db6a17b8d5fb2
+Merge: 371ff48 8fb606a
+Author: mingchuantian <1120509786@qq.com>
+Date:   Thu May 21 11:00:20 2020 -0700
+
+    Merge branch 'master' of https://github.com/mingchuantian/CITS3403Project
+
+commit 371ff48e5324e0681f46831b9dd193ff9fe78501
+Author: mingchuantian <1120509786@qq.com>
+Date:   Thu May 21 10:58:33 2020 -0700
+
+    Added functions on system testing
+    Bugs fixed
+
+commit 8fb606a6fd7f985e51d3c6a8b78070c91df5d7e9
+Merge: 4b2f344 eb2e7ef
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 01:54:57 2020 +0800
+
+    Merge pull request #22 from mingchuantian/danielzhang1998-patch-1
+    
+    test for the ajax, not finished
+
+commit eb2e7ef4d63a383cc918af66a9c4a8f16b427c02
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 22 01:54:34 2020 +0800
+
+    test for the ajax, not finished
+
+commit 4b2f3441514d6127f258a7cce36207e5ab31c5b5
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Fri May 22 00:48:14 2020 +0800
+
+    Upload a js file
+
+commit 79263d263172922e3fc143aa79375c1320d3127f
+Merge: 6c083c7 33efa69
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Fri May 22 00:47:11 2020 +0800
+
+    Merge pull request #21 from mingchuantian/Ruida-He-patch-2
+    
+    Add a main page and a functionality
+
+commit 33efa69ef82c86700673ca8513d3826c50e549cb
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Fri May 22 00:46:52 2020 +0800
+
+    Add a main page and a functionality
+
+commit 6c083c7dd52ca5d6d7607b07fc513d9d564f2e48
+Author: mingchuantian <1120509786@qq.com>
+Date:   Thu May 21 06:10:14 2020 -0700
+
+    Added API that shows students who've taken the quiz
+    Added system testing functions
+
+commit 65766bd176ddb2f24ab7a16db15c0edaeea74f08
+Merge: e309955 f794187
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Thu May 21 19:50:27 2020 +0800
+
+    Merge pull request #20 from mingchuantian/ming
+    
+    Unit testing finished, all models checked
+
+commit f794187327c5f776b989ab5aae991c3eae4a055d
+Author: mingchuantian <1120509786@qq.com>
+Date:   Thu May 21 04:47:11 2020 -0700
+
+    Unit testing finished, all models checked
+    System testing half way done
+
+commit e3099550b5b58479deb7b6c5aa33a5e036415a8c
+Merge: 02c5fab a0ad271
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Thu May 21 19:35:10 2020 +0800
+
+    Merge pull request #19 from mingchuantian/danielzhang1998-patch-1
+    
+    a new function
+
+commit a0ad271c182cc976c65112f6f40e147c8f2157fb
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Thu May 21 19:34:04 2020 +0800
+
+    a new function
+
+commit 02c5fab08b402244aa35615511ef8a356877f078
+Merge: a5a10fa 4178596
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Thu May 21 18:58:29 2020 +0800
+
+    Merge pull request #18 from mingchuantian/danielzhang1998-patch-1
+    
+    bugs fixing
+
+commit 41785961c6f5d86857b0e030008f18f3a3e50046
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Thu May 21 18:57:46 2020 +0800
+
+    bugs fixing
+
+commit a5a10fa0dab8fddb7be66474e5c589b3c9d9babd
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Thu May 21 15:51:00 2020 +0800
+
+    Add a new image
+
+commit 34729ce9d03b083dcb72f8a0ae556accf28ba28f
+Merge: a387a7e e6b4ca4
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Thu May 21 15:47:16 2020 +0800
+
+    Merge pull request #17 from mingchuantian/Ruida-He-patch-1-1
+    
+    Update the image
+
+commit e6b4ca41fc44815cc78f0aecb0df691a164ac55d
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Thu May 21 15:46:23 2020 +0800
+
+    Update the image
+
+commit a387a7ee4116d3860cef5f570dfe8d957b6b800f
+Merge: 82ff882 5955f62
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Thu May 21 03:58:32 2020 +0800
+
+    Merge pull request #16 from mingchuantian/danielzhang
+    
+    bugs fixing and more functions
+
+commit 5955f628c2d269b915160fb2d8f46c079bc9e1a8
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Thu May 21 03:57:50 2020 +0800
+
+    bugs fixing and more functions
+
+commit f4aca755b6f8b29312d5f15e73616b126fa11f55
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Wed May 20 17:44:56 2020 +0000
+
+    Bump httplib2 from 0.9.2 to 0.18.0
+    
+    Bumps [httplib2](https://github.com/httplib2/httplib2) from 0.9.2 to 0.18.0.
+    - [Release notes](https://github.com/httplib2/httplib2/releases)
+    - [Changelog](https://github.com/httplib2/httplib2/blob/master/CHANGELOG)
+    - [Commits](https://github.com/httplib2/httplib2/compare/0.9.2...v0.18.0)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 09bf146fe1ce450df7e4721161709fad1dba5638
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Wed May 20 09:23:31 2020 +0000
+
+    Bump pyxdg from 0.25 to 0.26
+    
+    Bumps [pyxdg](https://github.com/takluyver/pyxdg) from 0.25 to 0.26.
+    - [Release notes](https://github.com/takluyver/pyxdg/releases)
+    - [Changelog](https://github.com/takluyver/pyxdg/blob/master/ChangeLog)
+    - [Commits](https://github.com/takluyver/pyxdg/compare/rel-0.25...rel-0.26)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 2ce36ce424fd6dd8fcedb0b0614e5f8a4b81d607
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Wed May 20 09:23:30 2020 +0000
+
+    Bump urllib3 from 1.22 to 1.24.2
+    
+    Bumps [urllib3](https://github.com/urllib3/urllib3) from 1.22 to 1.24.2.
+    - [Release notes](https://github.com/urllib3/urllib3/releases)
+    - [Changelog](https://github.com/urllib3/urllib3/blob/master/CHANGES.rst)
+    - [Commits](https://github.com/urllib3/urllib3/compare/1.22...1.24.2)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 3afba1d7b09d1ad47331746a10bda124a745ad2a
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Wed May 20 09:23:29 2020 +0000
+
+    Bump requests from 2.18.4 to 2.20.0
+    
+    Bumps [requests](https://github.com/psf/requests) from 2.18.4 to 2.20.0.
+    - [Release notes](https://github.com/psf/requests/releases)
+    - [Changelog](https://github.com/psf/requests/blob/master/HISTORY.md)
+    - [Commits](https://github.com/psf/requests/compare/v2.18.4...v2.20.0)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit d032519af116a487e10b6de28f30343125bdb21f
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Wed May 20 09:23:29 2020 +0000
+
+    Bump cryptography from 2.1.4 to 2.3
+    
+    Bumps [cryptography](https://github.com/pyca/cryptography) from 2.1.4 to 2.3.
+    - [Release notes](https://github.com/pyca/cryptography/releases)
+    - [Changelog](https://github.com/pyca/cryptography/blob/master/CHANGELOG.rst)
+    - [Commits](https://github.com/pyca/cryptography/compare/2.1.4...2.3)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 82ff8820abfb904f8467c9cb9c01dfca8cb8b324
+Author: mingchuantian <1120509786@qq.com>
+Date:   Wed May 20 02:22:27 2020 -0700
+
+    add requirements.txt
+
+commit a44e7eed1c284384d8db05dbfa89b693da911566
+Author: mingchuantian <1120509786@qq.com>
+Date:   Mon May 18 07:11:42 2020 -0700
+
+    All users can now edit their profile
+    Bugs fixed
+
+commit 76ffff5006123d9e30ae120f6277c03b9ab026de
+Merge: 4c2fa35 999d818
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 18 06:43:35 2020 +0800
+
+    Merge pull request #9 from mingchuantian/danielzhang
+    
+    finish more functions and fix html bugs
+
+commit 999d818bdef60786f1925b25be0e14cfdebded48
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon May 18 06:39:26 2020 +0800
+
+    finish more functions and fix html bugs
+
+commit 4c2fa35dafd540a81db01221fa3012304506dfb7
+Merge: 7905258 f3fac14
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 17 02:06:14 2020 +0800
+
+    Merge pull request #8 from mingchuantian/danielzhang
+    
+    most finished
+
+commit f3fac14c753f1398d52eb18a7669823b4a8522e0
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sun May 17 02:04:51 2020 +0800
+
+    most finished
+
+commit 7905258aa742644a378f9fe49ce09e388b6e4daa
+Merge: 59601d5 eb050c2
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sat May 16 19:55:50 2020 +0800
+
+    Merge pull request #7 from mingchuantian/danielzhang_new
+    
+    after changed part of things
+
+commit eb050c2c74ddff514f7de5749b7dfea8e6b0c8b9
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sat May 16 19:55:00 2020 +0800
+
+    after changed part of things
+
+commit 59601d59209f01d841f060340cee33996932f7eb
+Merge: 1ad6bac 0183fa6
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sat May 16 03:07:57 2020 +0800
+
+    Merge pull request #6 from mingchuantian/danielzhang's-branch
+    
+    Danielzhang's branch
+
+commit 0183fa69760466201e32f594ed069a3f47f81599
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sat May 16 03:03:34 2020 +0800
+
+    part changed
+
+commit a82796d6c76be2540584ca14a36be14cb2f8c7ed
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Thu May 14 17:44:27 2020 +0800
+
+    Update README.md
+
+commit 4b17ebc58d3f3f656cdcee0be26f6d1977762961
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Thu May 14 17:37:31 2020 +0800
+
+    Add files via upload
+
+commit 987cec73c79310d7d4b3459b53cb2b0522ab8b83
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Thu May 14 16:29:31 2020 +0800
+
+    readme include operations
+
+commit 1ad6bac8f2f87205f3eb67c08f51cedd45dce051
+Author: mingchuantian <1120509786@qq.com>
+Date:   Wed May 13 09:54:27 2020 -0700
+
+    Modified README file for user instructionse
+
+commit a15f81948d97207c3659f2b09a65f7c1a74ba9dc
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sun May 10 01:19:10 2020 -0700
+
+    Students can now view their total marks and ranking among cohorts
+    All basic backend functionality completed.
+
+commit 943199be0fb8fe668fe64acd84ee909991d7ec8a
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sat May 9 09:40:11 2020 -0700
+
+    Students can now see their marks and teacher's comments
+
+commit ff9fbbd4ac9e5faed74facd15a5b2256b78db148
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sat May 9 05:31:06 2020 -0700
+
+    Teachers can now mark/comment on answers
+    Added model 'Grade'
+
+commit 4cae57d071c35d5dfcb0a887541d7afb62d733d2
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sat May 9 03:36:14 2020 -0700
+
+    Teachers can now modify/change questions
+    Only the teacher who created the quiz can modify
+
+commit b9e835fb12aacbf2c5afed0b9ba3581087dfc108
+Author: mingchuantian <1120509786@qq.com>
+Date:   Tue May 5 12:14:47 2020 -0700
+
+    Added answer review page(unfinished)
+    Refined database (added relationship between Question and Answer)
+    Submitted answers now contain quizset_id, student_id, and question_id
+
+commit e80f99766e94244e32f51fb5ae9467248c87752c
+Author: mingchuantian <1120509786@qq.com>
+Date:   Mon May 4 11:30:21 2020 -0700
+
+    Students can now see and answer questions
+    Submitted Questions/Answers will be saved and disappear on both student/teacher's end
+    Bugs fixed
+
+commit f2d10d2dff9f6938a778627113568914a79c1c79
+Author: mingchuantian <1120509786@qq.com>
+Date:   Mon May 4 00:13:50 2020 -0700
+
+    Completed baisc quiz edit/answer functionality
+    All Quiz questions & answers are stored in their respective dbs.
+
+commit c041e1ac1ecdf6ca30627525aecee05df7de73de
+Author: mingchuantian <1120509786@qq.com>
+Date:   Sun May 3 11:31:23 2020 -0700
+
+    Redesigned database
+    Bugs fix
+    to be continued: page for teacher editing quiz, questions demonstration on student's side
+
+commit aacd740857c24a4d16d33b0325bd7834239144ad
+Merge: 73f7ea6 6fd4e0b
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sat May 2 04:51:00 2020 +0800
+
+    Merge pull request #5 from mingchuantian/html_page_array
+    
+    it can pass the answer to the array now
+
+commit 6fd4e0b113bc7906c6b9075095980e251f446cd6
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Sat May 2 04:49:10 2020 +0800
+
+    it can pass the answer to the array now
+
+commit 73f7ea69b4623484abcdab4129d9d6084eaed628
+Author: mingchuantian <1120509786@qq.com>
+Date:   Fri May 1 11:08:57 2020 -0700
+
+    Added Quiz database
+    Added Student/Teacher landing page
+    Added 'QuizEdit' functionality for teachers
+    Register/Login/Logout tested
+
+commit eca64ad0a1e0a7861f2ebc68c2d37633a94b5a5a
+Merge: 84e8cae 8890958
+Author: mingchuantian <1120509786@qq.com>
+Date:   Fri May 1 06:22:23 2020 -0700
+
+    Merge branch 'master' of https://github.com/mingchuantian/CITS3403Project
+
+commit 84e8cae3929405cfb7798f488d18b4f43da26cac
+Author: mingchuantian <1120509786@qq.com>
+Date:   Fri May 1 06:18:00 2020 -0700
+
+    Added flask_login
+    Added basic Student/Teacher models(without relationship)
+    Refined Login/Register page
+    Bugs fixes
+
+commit 8890958cfc0712318e84d3e3c5cba6b4cece7130
+Merge: ff0cdbb 9dd23ee
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 1 18:52:58 2020 +0800
+
+    Merge pull request #4 from mingchuantian/hanlin
+    
+    (finish the question completion status)
+
+commit 9dd23eee997bf3f4294e66c6f471ca61806edbe0
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 1 18:51:50 2020 +0800
+
+    (finish the question completion status)
+
+commit ff0cdbba995a92b129b6963a364ba3f3dc0be7ab
+Merge: e5a41b5 fd4a7a2
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 1 05:04:58 2020 +0800
+
+    Merge pull request #3 from mingchuantian/hanlin
+    
+    Hanlin
+
+commit fd4a7a212561bc1e073acc543e7743354f52b19d
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 1 05:01:41 2020 +0800
+
+    Quiz html and css doc
+
+commit 65434aff79020058a559de55cb7502cac10e51f6
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Fri May 1 05:00:28 2020 +0800
+
+    picture and preview for the quiz page
+
+commit e5a41b54d9309b4e2bb195c355bfa8da4dd11cd4
+Author: mingchuantian <1120509786@qq.com>
+Date:   Thu Apr 30 13:23:53 2020 -0700
+
+    Refined the whole structure
+    Bugs fixed
+    Now the website loads a UWA login page as homepage
+
+commit 0adfd07328e799b30540b8b7f9a8181bfd5220e9
+Merge: b67573c 6935410
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Fri May 1 02:32:50 2020 +0800
+
+    Merge pull request #2 from mingchuantian/timer
+    
+    timer for testing
+
+commit 6935410c8335c4c4338dee6668bf4ed9a53b7f8c
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Thu Apr 30 19:04:44 2020 +0800
+
+    picture used and result preview
+
+commit cc2119b4ecf5c6b9be0873cd6b00118112ad791a
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Thu Apr 30 14:51:54 2020 +0800
+
+    timer for testing
+
+commit b67573cd2c276ddcb05a029ad0cc0bffc39a4043
+Author: ming <1120509786@qq.com>
+Date:   Wed Apr 29 06:21:41 2020 -0700
+
+    Added Flask Database Migration
+
+commit 2736ea55af8b223d95c1c67d83cc56012947bea6
+Author: ming <1120509786@qq.com>
+Date:   Wed Apr 29 05:53:20 2020 -0700
+
+    bug fixed
+
+commit cc94a2732e6d5080704c15b094c973b835fd7397
+Author: ming <1120509786@qq.com>
+Date:   Mon Apr 27 10:56:10 2020 -0700
+
+    Added virtual environment
+
+commit 2963ea8783c0ec6d2303951f9ea242be5646f77a
+Merge: 1722ced fb7dc5a
+Author: ming <1120509786@qq.com>
+Date:   Mon Apr 27 10:37:35 2020 -0700
+
+    Merge branch 'master' of https://github.com/mingchuantian/CITS3403Project
+
+commit 1722cede5c506d8e9c1dd474a35a1bbc1341d490
+Author: ming <1120509786@qq.com>
+Date:   Mon Apr 27 10:32:27 2020 -0700
+
+    Construct basic flask application structure
+    
+    User Register/Login:
+            Register/Login forms added
+            Basic database implementation
+
+commit fb7dc5a6602b05846c33c0eae2b3b6dad42c3c4a
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Tue Apr 28 01:28:42 2020 +0800
+
+    Update README.md
+
+commit 758eb62bed68d34b8c0257c5e581844d3dc039ae
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Tue Apr 28 01:28:08 2020 +0800
+
+    Update README.md
+
+commit ef9fc6072408ecc855fbdc55572436c51ec88b93
+Author: Ruida-He <64422823+Ruida-He@users.noreply.github.com>
+Date:   Mon Apr 27 23:01:07 2020 +0800
+
+    Update README.md
+
+commit cfcde6e119a3cc50970db16c2a4c5d08b1f9a392
+Author: wjy9902 <49051666+wjy9902@users.noreply.github.com>
+Date:   Mon Apr 27 22:48:07 2020 +0800
+
+    Update README.md
+
+commit 15f8dcb81ced85a190ec2144b0365572affac86d
+Author: danielzhang1998 <63471153+danielzhang1998@users.noreply.github.com>
+Date:   Mon Apr 27 22:46:19 2020 +0800
+
+    Update README.md
+
+commit 4636f5ddd7ba63f22d271a46f67814d025ea3e95
+Author: mingchuantian <48249949+mingchuantian@users.noreply.github.com>
+Date:   Mon Apr 27 22:31:53 2020 +0800
+
+    Initial commit
