@@ -275,9 +275,26 @@
     font-weight: 380;
     color: white;
 }
+#b5 {
+    min-height: 80px; 
+    font-size: 25px;
+    font-weight: 380;
+}
 #b6 {
     width:70%;
 }
+
+
+#myJSON  {
+    width: 100%;
+    padding-left: 5px;
+    border-collapse: collapse;
+}
+#myJSON td, #myJSON th {
+    padding-left: 5px;
+    border: 1px solid black;
+}
+
 
 #APIinput{
     width : 100%;

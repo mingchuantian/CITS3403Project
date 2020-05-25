@@ -34,20 +34,29 @@ async function getAPI(){
 
                 console.log(data)
                 
+                let t = "<tr> <th> Title </th> <th> Number of Questions </th><th> Questions </th><th> Number of Students </th> <th> Student Name </th></tr>";
 
-
-                return data.map(
+                data.map(
                     function(data){
 
-                        const container = document.getElementById("myJSON")
-                        var t2 = document.createElement("p")
-                        var t2content = document.createTextNode(data.questions)
-                        t2.appendChild(t2content)
-                        container.appendChild(t2)
+                        // const container = document.getElementById("myJSON")
+                        // var t2 = document.createElement("p")
+                        // var t2content = document.createTextNode(data.questions)
+                        // t2.appendChild(t2content)
+                        // container.appendChild(t2)
+
+                        t += "<tr> <td>" 
+                                + data.title + "</td> <td>" 
+                                + data.Question_Number  + "</td> <td>" 
+                                + data.questions  + "</td> <td>" 
+                                + data.numStudents  + "</td> <td>" 
+                                + data.student_names + "</td> </tr>";
+
                     }
+
                 )
                 
-
+                document.getElementById("myJSON").innerHTML = t;
 
             }
             
