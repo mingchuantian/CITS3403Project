@@ -8,7 +8,9 @@ from flask_login import LoginManager
 #create Flask object 'app'
 app = Flask(__name__)
 #configure app from Config
-#now using testConfig
+app.config.from_object(Config)
+
+### for testing ###
 app.config.from_object(Config)
 
 #create SQLAlchemy object 'db'
@@ -27,3 +29,5 @@ login_manager.init_app(app)
 
 #all codes from routes and models are following
 from app import routes, models
+
+# this page written by: Mingchuan Tian (22636589)

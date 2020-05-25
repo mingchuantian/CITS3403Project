@@ -1,61 +1,45 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 <!-- page to view the grade -->
-
 {% block head %}
 {{ super() }}
-
 {% endblock %}
-
 {% block title %}
 View the grade
 {% endblock %}
-
 {% block body %}
 {% block content %}
-
 <h2 style = "padding-left: 10px;">
-    Hello, 
-    {% if current_user.is_authenticated %}
-    {% if current_user.title %}
-    {{ current_user.title }}
-    {% endif %}
-    {{ current_user.name}}
-    {% endif %} !
+   Hello, 
+   {% if current_user.is_authenticated %}
+   {% if current_user.title %}
+   {{ current_user.title }}
+   {% endif %}
+   {{ current_user.name}}
+   {% endif %} !
 </h2>
-
 <hr>
-
-<div class = "grade"> 
-
-    <br>
-
-    <table style="background-color: #ede7d3;margin: 10px;">
-        <tr>
-            <td style="background-color: orange;">&emsp;&emsp;</td>
-            <td id = "padding"><h1 style="font-weight: 600;"> Here's your grade of each answer.</h1><br>
-        </td>
-        </tr>
-    </table>
-
-    
-
-    <br>
-
-    {% for key in grade_dict %} 
-
-    <h3>Your answer : <span class = "common">{{ Answer.query.filter_by(id=(str(key).split(',')[0])).first().Answer }}</span></h3>
-    <h3>Mark: <span class = "common">{{ str(key).split(',')[1] }}</span> </h3>
-    <h3>Comment: <span class = "common">{{ str(key).split(',')[2] }}</span></h3>
-
-    <br>
-    <hr>
-    <br>
-    {% endfor %}
-
+<div class = "grade">
+   <br>
+   <table style="background-color: #ede7d3;margin: 10px;">
+      <tr>
+         <td style="background-color: orange;">&emsp;&emsp;</td>
+         <td id = "padding">
+            <h1 style="font-weight: 600;"> Here's your grade of each answer.</h1>
+            <br>
+         </td>
+      </tr>
+   </table>
+   <br>
+   {% for key in grade_dict %} 
+   <h3>Your answer : <span class = "common">{{ Answer.query.filter_by(id=(str(key).split(',')[0])).first().Answer }}</span></h3>
+   <h3>Mark: <span class = "common">{{ str(key).split(',')[1] }}</span> </h3>
+   <h3>Comment: <span class = "common">{{ str(key).split(',')[2] }}</span></h3>
+   <br>
+   <hr>
+   <br>
+   {% endfor %}
 </div>
-
 <br><br><br><br><br>
 {% endblock %}
 {% endblock %}
-

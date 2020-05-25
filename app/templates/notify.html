@@ -14,14 +14,7 @@ Notify
 {% block body %}
 {% block content %}
 
-<h2>Hello, 
-    {% if current_user.is_authenticated %}
-    {% if current_user.title %}
-    {{ current_user.title }}
-    {% endif %}
-    {{ current_user.name}}
-    {% endif %} !
-</h2>
+
 
 <hr>
 
